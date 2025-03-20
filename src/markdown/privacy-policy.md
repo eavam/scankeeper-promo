@@ -9,8 +9,6 @@ path: "/privacy-policy"
 
 ## 1. Introduction
 
-Last Updated: March 21, 2025
-
 ScanKeeper ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application ScanKeeper (the "Application").
 
 Please read this Privacy Policy carefully. By using the Application, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, do not download, register for, or use the Application.

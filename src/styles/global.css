@@ -306,10 +306,15 @@ footer {
 /* Policy Page Styles */
 .policy-page {
   background-color: #fff;
+  padding: 20px 0 60px;
+  min-height: 80vh;
 }
 
 .policy-content {
   padding: 40px 0 80px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .policy-navigation {
@@ -339,6 +344,7 @@ footer {
 .policy-text {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 25px;
 }
 
 .policy-text article {
@@ -346,38 +352,92 @@ footer {
 }
 
 .policy-text h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   margin-bottom: 30px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 15px;
 }
 
 .policy-text h2 {
-  font-size: 1.6rem;
-  margin: 30px 0 15px;
-  padding-top: 15px;
+  font-size: 1.8rem;
+  margin: 40px 0 20px;
+  padding-top: 20px;
+  color: var(--dark-color);
   border-top: 1px solid var(--border-color);
 }
 
 .policy-text h3 {
-  font-size: 1.3rem;
-  margin: 25px 0 10px;
+  font-size: 1.4rem;
+  margin: 30px 0 15px;
+  color: var(--dark-color);
 }
 
-.policy-text p,
-.policy-text ul {
-  margin-bottom: 15px;
+.policy-text p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.policy-text ul,
+.policy-text ol {
+  margin-bottom: 25px;
+  padding-left: 30px;
 }
 
 .policy-text ul {
-  padding-left: 20px;
   list-style-type: disc;
 }
 
+.policy-text ol {
+  list-style-type: decimal;
+}
+
 .policy-text li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.7;
 }
 
 .policy-text a {
+  color: var(--primary-color);
   text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.policy-text a:hover {
+  color: var(--secondary-color);
+}
+
+.policy-text strong,
+.policy-text b {
+  font-weight: 600;
+}
+
+.policy-text em,
+.policy-text i {
+  font-style: italic;
+}
+
+.policy-text blockquote {
+  margin: 20px 0;
+  padding: 10px 20px;
+  border-left: 4px solid var(--primary-color);
+  background-color: #f9f9f9;
+  font-style: italic;
+}
+
+.policy-text code {
+  background-color: #f5f5f5;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.policy-text hr {
+  margin: 30px 0;
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
 }
 
 /* Placeholder Styles */
@@ -447,6 +507,26 @@ footer {
   .footer-links li {
     margin: 0 15px;
     margin-bottom: 10px;
+  }
+
+  .policy-text h1 {
+    font-size: 2rem;
+  }
+
+  .policy-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .policy-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .policy-content {
+    padding: 20px 0 40px;
+  }
+
+  .policy-text {
+    padding: 0 15px;
   }
 }
 
