@@ -1,4 +1,5 @@
 import React from "react";
+import { withPrefix } from "gatsby";
 import "../styles/global.css";
 import Layout from "../components/layout";
 
@@ -16,15 +17,24 @@ const IndexPage = () => {
             </p>
             <div className="app-badges">
               <a href="#" className="badge">
-                <img src="/app-store-badge.svg" alt="Download on App Store" />
+                <img
+                  src={withPrefix("/app-store-badge.svg")}
+                  alt="Download on App Store"
+                />
               </a>
               <a href="#" className="badge">
-                <img src="/google-play-badge.svg" alt="Get it on Google Play" />
+                <img
+                  src={withPrefix("/google-play-badge.svg")}
+                  alt="Get it on Google Play"
+                />
               </a>
             </div>
           </div>
           <div className="hero-image">
-            <img src="/app-screenshot.svg" alt="ScanKeeper app screenshot" />
+            <img
+              src={withPrefix("/app-screenshot.svg")}
+              alt="ScanKeeper app screenshot"
+            />
           </div>
         </div>
       </section>
@@ -93,10 +103,16 @@ const IndexPage = () => {
           </p>
           <div className="app-badges">
             <a href="#" className="badge">
-              <img src="/app-store-badge.svg" alt="Download on App Store" />
+              <img
+                src={withPrefix("/app-store-badge.svg")}
+                alt="Download on App Store"
+              />
             </a>
             <a href="#" className="badge">
-              <img src="/google-play-badge.svg" alt="Get it on Google Play" />
+              <img
+                src={withPrefix("/google-play-badge.svg")}
+                alt="Get it on Google Play"
+              />
             </a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, withPrefix } from "gatsby";
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
         <div className="logo-container">
           <Link to="/" className="logo-link">
             <img
-              src="/logo.svg"
+              src={withPrefix("/logo.svg")}
               alt="ScanKeeper Logo"
               className="logo"
               width="40"

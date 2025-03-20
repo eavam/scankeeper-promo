@@ -7,13 +7,13 @@ path: "/privacy-policy"
 <article id="privacy-policy">
   <h1>ScanKeeper Privacy Policy</h1>
 
-## 1. Introduction
+<h2 id="introduction">1. Introduction</h2>
 
 ScanKeeper ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application ScanKeeper (the "Application").
 
 Please read this Privacy Policy carefully. By using the Application, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, do not download, register for, or use the Application.
 
-## 2. Information We Collect
+<h2 id="information-we-collect">2. Information We Collect</h2>
 
 ### 2.1 Personal Data
 
@@ -32,106 +32,87 @@ We collect minimal personal information to provide and improve our Service:
 - We request access to your device's camera to scan barcodes and QR codes.
 - We may request access to your photo gallery if you choose to save barcode images or import codes from existing photos.
 
-## 3. How We Use Your Information
+<h2 id="how-we-use-your-information">3. How We Use Your Information</h2>
 
 We use the collected information for various purposes:
 
 - To provide and maintain our Service
 - To notify you about changes to our Application
-- To allow you to participate in interactive features of our Application
+- To allow you to participate in interactive features when you choose to do so
 - To provide customer support
-- To gather analysis or valuable information to improve our Application
+- To gather analysis that helps us improve our Application
 - To monitor the usage of our Application
-- To detect, prevent and address technical issues
+- To detect, prevent, and address technical issues
 
-## 4. Data Storage and Security
+<h2 id="legal-basis">4. Legal Basis for Processing</h2>
 
-### 4.1 Local Storage
+Our legal basis for collecting and using your personal information depends on the specific information and the context in which we collect it.
 
-- **Local Database**: Most of your data, including scanned barcodes and QR codes, is stored locally on your device using secure storage solutions.
+We may process your personal information because:
 
-### 4.2 Cloud Storage
+- We need to perform a contract with you
+- You have given us permission to do so
+- The processing is in our legitimate interests and not overridden by your rights
+- For payment processing purposes
+- To comply with the law
 
-- **iCloud Sync**: If you enable iCloud synchronization, your barcode data will sync across your devices through your iCloud account. We do not have direct access to this data.
+<h2 id="data-retention">5. Data Retention</h2>
 
-### 4.3 Analytics and Crash Reporting
+We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.
 
-- We use Firebase Analytics to collect anonymous usage statistics that help us improve the Application.
-- We use Firebase Crashlytics to collect crash reports to identify and fix issues.
-- We use Firebase Performance Monitoring to analyze application performance.
+Your barcode and QR code data will be stored primarily on your device. If you enable cloud synchronization features, this data will be retained in our secure cloud storage until you choose to delete it or close your account.
 
-## 5. Data Sharing and Disclosure
+<h2 id="data-security">6. Data Security</h2>
 
-We do not sell, trade, or otherwise transfer your personal information to outside parties except in the following cases:
+The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
 
-### 5.1 Service Providers
+<h2 id="your-data-rights">7. Your Data Rights</h2>
 
-We may employ third-party companies and individuals to facilitate our Service ("Service Providers"), provide the Service on our behalf, perform Service-related services, or assist us in analyzing how our Service is used. These third parties have access to your data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.
+Depending on your location, you may have certain rights regarding your personal information:
 
-### 5.2 Legal Requirements
+- **Right to Access**: You have the right to request copies of your personal information.
+- **Right to Rectification**: You have the right to request that we correct any inaccurate information about you.
+- **Right to Erasure**: You have the right to request that we delete your personal information in certain circumstances.
+- **Right to Restrict Processing**: You have the right to request that we restrict the processing of your personal information in certain circumstances.
+- **Right to Data Portability**: You have the right to request that we transfer the data we've collected to another organization or directly to you.
+- **Right to Object**: You have the right to object to our processing of your personal information.
 
-We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court or a government agency).
+If you wish to exercise any of these rights, please contact us.
 
-## 6. Your Data Protection Rights
+<h2 id="children-privacy">8. Children's Privacy</h2>
 
-### 6.1 GDPR Rights (for EU Residents)
+Our Application is not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we can take necessary actions.
 
-If you are a resident of the European Union, you have the following data protection rights:
-
-- The right to access, update or delete the information we have on you
-- The right of rectification
-- The right to object
-- The right of restriction
-- The right to data portability
-- The right to withdraw consent
-
-### 6.2 CCPA Rights (for California Residents)
-
-If you are a California resident, you have certain rights regarding your personal information under the California Consumer Privacy Act (CCPA):
-
-- Right to know about personal information collected, disclosed, or sold
-- Right to delete personal information collected from you
-- Right to opt-out of the sale of your personal information
-- Right to non-discrimination for exercising your CCPA rights
-
-## 7. Children's Privacy
-
-Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us so that we can take necessary actions.
-
-## 8. Changes to This Privacy Policy
+<h2 id="changes-to-policy">9. Changes to This Privacy Policy</h2>
 
 We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
 
 You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
 
-## 9. Security Measures
-
-We value your trust in providing us your personal information, thus we strive to use commercially acceptable means of protecting it. But no method of transmission over the internet or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
-
-## 10. Contact Us
+<h2 id="contact-us">10. Contact Us</h2>
 
 If you have any questions about this Privacy Policy, please contact us:
 
-- By email: [your.email@example.com]
-- By visiting this page on our website: [www.scankeeper.com/contact]
+- By email: privacy@scankeeper.com
+
 </article>
 
 <article id="terms-of-service">
   <h1>ScanKeeper Terms of Service</h1>
 
-## 1. Acceptance of Terms
+<h2 id="terms-acceptance">1. Acceptance of Terms</h2>
 
 By downloading, installing, or using the ScanKeeper application ("Application"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not download, install, or use the Application.
 
-## 2. Description of Service
+<h2 id="description-of-service">2. Description of Service</h2>
 
 ScanKeeper is a mobile application that allows you to scan, create, store, and display various types of barcodes and QR codes.
 
-## 3. User License
+<h2 id="license">3. User License</h2>
 
 Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to download, install, and use the Application for your personal, non-commercial purposes.
 
-## 4. Restrictions on Use
+<h2 id="restrictions">4. Restrictions on Use</h2>
 
 You agree not to:
 
@@ -141,31 +122,31 @@ You agree not to:
 - Use the Application in any manner that could damage, disable, overburden, or impair it
 - Attempt to gain unauthorized access to any portion of the Application
 
-## 5. User Content
+<h2 id="user-content">5. User Content</h2>
 
 You retain all rights to any content you create, upload, or store using the Application. You are solely responsible for all content that you create using the Application.
 
-## 6. Intellectual Property Rights
+<h2 id="intellectual-property-rights">6. Intellectual Property Rights</h2>
 
 The Application, including all content, features, and functionality, is owned by us and is protected by copyright, trademark, and other intellectual property laws.
 
-## 7. Disclaimer of Warranties
+<h2 id="disclaimer-of-warranties">7. Disclaimer of Warranties</h2>
 
 THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
 
-## 8. Limitation of Liability
+<h2 id="limitation-of-liability">8. Limitation of Liability</h2>
 
 IN NO EVENT SHALL WE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.
 
-## 9. Changes to Terms
+<h2 id="changes-to-terms">9. Changes to Terms</h2>
 
 We reserve the right to modify these Terms at any time. Your continued use of the Application after any changes indicates your acceptance of the new Terms.
 
-## 10. Governing Law
+<h2 id="governing-law">10. Governing Law</h2>
 
 These Terms shall be governed by and construed in accordance with the laws of [Your Country/State], without regard to its conflict of law provisions.
 
-## 11. Contact Us
+<h2 id="contact-us">11. Contact Us</h2>
 
 If you have any questions about these Terms, please contact us:
 
