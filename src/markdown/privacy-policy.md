@@ -142,14 +142,10 @@ IN NO EVENT SHALL WE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENT
 
 We reserve the right to modify these Terms at any time. Your continued use of the Application after any changes indicates your acceptance of the new Terms.
 
-<h2 id="governing-law">10. Governing Law</h2>
-
-These Terms shall be governed by and construed in accordance with the laws of [Your Country/State], without regard to its conflict of law provisions.
-
-<h2 id="contact-us">11. Contact Us</h2>
+<h2 id="contact-us">10. Contact Us</h2>
 
 If you have any questions about these Terms, please contact us:
 
-- By email: [your.email@example.com]
-- By visiting this page on our website: [www.scankeeper.com/contact]
+- By email: privacy@scankeeper.com
+- By visiting this page on our website: https://eavam.github.io/scankeeper-promo/
 </article>
