@@ -38,15 +38,17 @@ jobs:
           cache: "yarn" # or 'npm' if you use npm
 
       - name: Install dependencies
-        run: yarn install
-        # In case of issues with Sharp, you can use:
-        # run: yarn install --ignore-engines
+        run: |
+          yarn install
+        env:
+          SHARP_IGNORE_GLOBAL_LIBVIPS: "true"
 
       - name: Build Gatsby site
         run: yarn build
         env:
-          # Optional: add required environment variables
           GATSBY_CONCURRENT_DOWNLOAD: 5
+          # Explicitly set the repository name as a base path
+          GATSBY_PATH_PREFIX: /scankeeper-promo
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

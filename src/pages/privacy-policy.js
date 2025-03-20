@@ -1,16 +1,27 @@
-import React, { useEffect } from "react";
-import { navigate } from "gatsby";
+import React from "react";
+import { graphql } from "gatsby";
 
-const PrivacyRedirect = () => {
-  useEffect(() => {
-    navigate("/privacy-policy", { replace: true });
-  }, []);
-
+const PrivacyPolicy = ({ data }) => {
+  const policy = data?.markdownRemark;
+  
   return (
-    <div>
-      <p>Redirecting to Privacy Policy...</p>
+    <div className="privacy-policy-container">
+      <h1>{policy?.frontmatter?.title || "Privacy Policy"}</h1>
+      <div dangerouslySetInnerHTML={{ __html: policy?.html }} />
     </div>
   );
 };
 
-export default PrivacyRedirect;
+export const query = graphql`
+  query {
+    markdownRemark(frontmatter: { path: { eq: "/privacy-policy" } }) {
+      html
+      frontmatter {
+        title
+        path
+      }
+    }
+  }
+`;
+
+export default PrivacyPolicy;
