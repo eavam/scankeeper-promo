@@ -1,5 +1,6 @@
 import React from "react";
 import { withPrefix } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import "../styles/global.css";
 import Layout from "../components/layout";
 
@@ -31,9 +32,14 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="hero-image">
-            <img
-              src={withPrefix("/app-screenshot.svg")}
+            <StaticImage
+              src="../images/app-screenshot.png"
               alt="ScanKeeper app screenshot"
+              placeholder="blurred"
+              width={290}
+              height={600}
+              objectFit="contain"
+              className="app-screenshot"
             />
           </div>
         </div>

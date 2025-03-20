@@ -171,12 +171,22 @@ nav ul li a.active {
   flex: 1;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
-.hero-image img {
-  max-height: 550px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+.hero-image img,
+.app-screenshot {
+  max-height: 600px;
+  border-radius: 30px;
+  background-color: transparent;
+}
+
+/* Контейнер для изображения с тенью */
+.hero-image .gatsby-image-wrapper {
+  border-radius: 30px;
+  overflow: hidden; /* Обрезаем все, что выходит за пределы контейнера */
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+  -webkit-filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
 }
 
 .app-badges {

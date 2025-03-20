@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, withPrefix } from "gatsby";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
 const Header = () => {
   return (
@@ -7,12 +8,14 @@ const Header = () => {
       <div className="container header-container">
         <div className="logo-container">
           <Link to="/" className="logo-link">
-            <img
-              src={withPrefix("/logo.svg")}
+            <StaticImage
+              src="../images/logo.png"
               alt="ScanKeeper Logo"
+              placeholder="blurred"
+              width={40}
+              height={40}
+              objectFit="contain"
               className="logo"
-              width="40"
-              height="40"
             />
             <span className="logo-text">ScanKeeper</span>
           </Link>
