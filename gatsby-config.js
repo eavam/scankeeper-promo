@@ -2,7 +2,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: `/scankeeper-promo`,
+  pathPrefix: `/`,
   siteMetadata: {
     title: `ScanKeeper`,
     description: `A mobile app for scanning, storing, and organizing QR codes and barcodes`,
