@@ -17,13 +17,23 @@ const IndexPage = () => {
               iCloud synchronization, and an intuitive interface.
             </p>
             <div className="app-badges">
-              <a href="#" className="badge">
+              <a
+                href="https://apps.apple.com/us/app/scankeeper-wallet-cards/id6742491694?platform=iphone"
+                className="badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={withPrefix("/app-store-badge.svg")}
                   alt="Download on App Store"
                 />
               </a>
-              <a href="#" className="badge">
+              <a
+                href="#"
+                className="badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={withPrefix("/google-play-badge.svg")}
                   alt="Get it on Google Play"
@@ -108,13 +118,23 @@ const IndexPage = () => {
             everything important is now in your pocket.
           </p>
           <div className="app-badges">
-            <a href="#" className="badge">
+            <a
+              href="https://apps.apple.com/us/app/scankeeper-wallet-cards/id6742491694?platform=iphone"
+              className="badge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={withPrefix("/app-store-badge.svg")}
                 alt="Download on App Store"
               />
             </a>
-            <a href="#" className="badge">
+            <a
+              href="#"
+              className="badge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={withPrefix("/google-play-badge.svg")}
                 alt="Get it on Google Play"
