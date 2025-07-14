@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -6,8 +8,9 @@ module.exports = {
   siteMetadata: {
     title: `ScanKeeper`,
     description: `A mobile app for scanning, storing, and organizing QR codes and barcodes`,
-    siteUrl: `https://scankeeper.com`,
-    author: `ScanKeeper Team`,
+    siteUrl: `https://scankeeper.nomadixapps.org/`,
+    author: `Nomadix Apps`,
+    image: `/logo.png`,
   },
   plugins: [
     `gatsby-plugin-image`,
