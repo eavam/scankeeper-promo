@@ -38,6 +38,10 @@ We collect minimal personal information to provide and improve our Service:
 
 - **Advertising IDs**: Where applicable, we may access your device's advertising identifier (IDFA on iOS or GAID on Android) to support advertising and measurement. You can reset or limit this identifier in your device settings.
 
+### 2.5 Website and Cookies
+
+- **Website Use**: Our marketing website is static and we do not intentionally set cookies or run analytics scripts. However, hosting providers and CDNs may collect standard server logs (e.g., IP address, user agent) for security and operational purposes in accordance with their own policies.
+
 <h2 id="how-we-use-your-information">3. How We Use Your Information</h2>
 
 We use the collected information for various purposes:
@@ -61,6 +65,11 @@ Third-party policies:
 - Apple App Store: https://www.apple.com/legal/privacy/
 - Google Play: https://policies.google.com/privacy
 
+#### Ad Choices and Controls
+
+- iOS: Manage cross-app tracking in Settings > Privacy & Security > Tracking (you can disallow apps from requesting to track). You can also limit ad personalization per Apple guidance.
+- Android: Manage your advertising ID in Settings > Google > Ads (you can delete or reset the advertising ID and opt out of ad personalization on supported versions).
+
 <h2 id="legal-basis">4. Legal Basis for Processing</h2>
 
 Our legal basis for collecting and using your personal information depends on the specific information and the context in which we collect it.
@@ -70,14 +79,14 @@ We may process your personal information because:
 - We need to perform a contract with you
 - You have given us permission to do so
 - The processing is in our legitimate interests and not overridden by your rights
-- For payment processing purposes
+- Where applicable, to process purchases via the Apple App Store or Google Play
 - To comply with the law
 
 <h2 id="data-retention">5. Data Retention</h2>
 
 We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.
 
-Your barcode and QR code data will be stored primarily on your device. If you enable cloud synchronization features, this data will be retained in our secure cloud storage until you choose to delete it or close your account.
+Your barcode and QR code data is stored primarily on your device. If you enable cloud synchronization on iOS, your data is stored in your Apple iCloud account under your control. Apple may process such data in accordance with its policies; we do not access the contents of your iCloud-stored data. If a cloud backup/sync is offered on other platforms, details will be provided in-app.
 
 <h2 id="data-security">6. Data Security</h2>
 
