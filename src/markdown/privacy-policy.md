@@ -13,6 +13,8 @@ ScanKeeper ("we", "our", or "us") is committed to protecting your privacy. This 
 
 Please read this Privacy Policy carefully. By using the Application, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, do not download, register for, or use the Application.
 
+Nomadix Apps is the data controller responsible for your personal information. You can contact us at info@nomadixapps.org.
+
 <h2 id="information-we-collect">2. Information We Collect</h2>
 
 ### 2.1 Personal Data
@@ -32,6 +34,10 @@ We collect minimal personal information to provide and improve our Service:
 - We request access to your device's camera to scan barcodes and QR codes.
 - We may request access to your photo gallery if you choose to save barcode images or import codes from existing photos.
 
+### 2.4 Advertising Identifiers
+
+- **Advertising IDs**: Where applicable, we may access your device's advertising identifier (IDFA on iOS or GAID on Android) to support advertising and measurement. You can reset or limit this identifier in your device settings.
+
 <h2 id="how-we-use-your-information">3. How We Use Your Information</h2>
 
 We use the collected information for various purposes:
@@ -43,6 +49,17 @@ We use the collected information for various purposes:
 - To gather analysis that helps us improve our Application
 - To monitor the usage of our Application
 - To detect, prevent, and address technical issues
+
+### Advertising and Third-Party Services
+
+- We may display non-personalized or personalized ads (where permitted by law) and measure their performance. Ads may be provided by our partners such as Google AdMob. These partners may process device identifiers (e.g., IDFA/GAID) in accordance with their policies.
+- Distribution and payments may be handled by the Apple App Store and Google Play. These platforms act as independent controllers for data they process.
+
+Third-party policies:
+
+- Google AdMob: https://policies.google.com/technologies/ads
+- Apple App Store: https://www.apple.com/legal/privacy/
+- Google Play: https://policies.google.com/privacy
 
 <h2 id="legal-basis">4. Legal Basis for Processing</h2>
 
@@ -79,6 +96,16 @@ Depending on your location, you may have certain rights regarding your personal 
 
 If you wish to exercise any of these rights, please contact us.
 
+### GDPR/UK GDPR Information
+
+- Legal bases include consent, contract performance, compliance with legal obligations, and legitimate interests.
+- You have the right to lodge a complaint with your local supervisory authority. A list of EU authorities is available at https://edpb.europa.eu/about-edpb/about-edpb/members_en.
+
+### California Residents (CCPA/CPRA)
+
+- You have the rights to know, delete, correct, and to limit use/disclosure of sensitive information, subject to exceptions.
+- We do not sell your personal information. If we engage in sharing for cross-context behavioral advertising, you may opt out by adjusting your device advertising settings or contacting us.
+
 <h2 id="children-privacy">8. Children's Privacy</h2>
 
 Our Application is not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we can take necessary actions.
@@ -93,7 +120,7 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 If you have any questions about this Privacy Policy, please contact us:
 
-- By email: privacy@scankeeper.com
+- By email: info@nomadixapps.org
 
 </article>
 
@@ -146,6 +173,6 @@ We reserve the right to modify these Terms at any time. Your continued use of th
 
 If you have any questions about these Terms, please contact us:
 
-- By email: privacy@scankeeper.com
-- By visiting this page on our website: https://eavam.github.io/scankeeper-promo/
+- By email: info@nomadixapps.org
+- By visiting this page on our website: https://scankeeper.nomadixapps.org/
 </article>
