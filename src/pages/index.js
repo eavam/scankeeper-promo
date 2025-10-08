@@ -29,7 +29,7 @@ const IndexPage = () => {
                 />
               </a>
               <a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.scankeeperapp.scankeeper"
                 className="badge"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -130,7 +130,7 @@ const IndexPage = () => {
               />
             </a>
             <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.scankeeperapp.scankeeper"
               className="badge"
               target="_blank"
               rel="noopener noreferrer"
