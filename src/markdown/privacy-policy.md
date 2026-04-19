@@ -1,135 +1,345 @@
 ---
 title: "Privacy Policy & Terms"
-date: "2025-03-21"
+date: "2026-04-19"
 path: "/privacy-policy"
 ---
 
 <article id="privacy-policy">
   <h1>ScanKeeper Privacy Policy</h1>
 
+<p><em>Last updated: 19 April 2026</em></p>
+
 <h2 id="introduction">1. Introduction</h2>
 
-ScanKeeper ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application ScanKeeper (the "Application").
+This Privacy Policy explains how Nomadix Apps ("**Nomadix Apps**", "**we**", "**our**", or "**us**") handles personal information in connection with the ScanKeeper mobile application for iOS and Android (the "**Application**" or "**ScanKeeper**") and the marketing website at https://scankeeper.nomadixapps.org/ (the "**Site**").
 
-Please read this Privacy Policy carefully. By using the Application, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, do not download, register for, or use the Application.
+ScanKeeper is a barcode and QR code scanner. It lets you scan, create, store, organize, and display codes on your device. The Application is offered in a free version supported by ads and in a paid "Pro" version that removes ads.
 
-Nomadix Apps is the data controller responsible for your personal information. You can contact us at info@nomadixapps.org.
+Nomadix Apps is the data controller for personal information processed through the Application and the Site, except where this Policy says otherwise (for example, Apple is the controller for content stored in your iCloud, and Apple and Google are independent controllers for app distribution and payment processing).
 
-<h2 id="information-we-collect">2. Information We Collect</h2>
+You can reach us at **info@nomadixapps.org**. We have not appointed a Data Protection Officer; please send any privacy-related question to the same address and a member of our team will respond.
 
-### 2.1 Personal Data
+By using the Application, you confirm that you have read this Policy. If you do not agree with it, please do not install or use ScanKeeper.
 
-We collect minimal personal information to provide and improve our Service:
+<h2 id="summary-at-a-glance">2. Summary at a Glance</h2>
 
-- **Device Information**: When you use our Application, we may collect information about your mobile device including the hardware model, operating system and version, unique device identifiers, and mobile network information.
-- **Usage Data**: We collect data about how you use the Application, including which features you access, time spent in the Application, and other diagnostic data.
+A short, plain-English overview. The rest of this Policy gives the details.
 
-### 2.2 Barcode/QR Code Data
+- **Your scans stay on your device.** Barcode and QR data, names, folders, and images are stored in a local database on your phone. Nothing is uploaded to our servers.
+- **No account, no email, no login.** You do not create an account to use ScanKeeper.
+- **Optional iCloud sync (iOS only).** If you turn it on in Settings, your data syncs through your own Apple iCloud. We cannot read it.
+- **Free version shows ads.** Ads are served by Google AdMob. In regions that require consent, we ask you through Google's consent form before personalised ads run.
+- **Pro version: no ads, no ad tracking.** If you buy Pro, the AdMob and ATT prompts are not shown and the ads SDK is not initialised.
+- **Anonymous diagnostics.** We use TelemetryDeck for anonymous usage signals and Sentry for crash reporting (with input fields masked in session replays).
+- **No sale of personal information.** Some advertising activity may count as "sharing" under California law; you can opt out as described below.
+- **You have rights.** Depending on where you live, you can request access, deletion, correction, opt-out, and more. See Section 11.
 
-- **Barcode/QR Code Contents**: The Application stores barcode and QR code data that you scan or create. This information is primarily stored locally on your device.
-- **Custom Names and Labels**: Any names or descriptions you assign to your saved codes.
+<h2 id="information-we-collect">3. Information We Collect</h2>
 
-### 2.3 Camera and Photo Access
+### 3.1 Barcode and Application Data (stays on your device)
 
-- We request access to your device's camera to scan barcodes and QR codes.
-- We may request access to your photo gallery if you choose to save barcode images or import codes from existing photos.
+When you scan or create a code, ScanKeeper stores the following locally inside the application sandbox on your device, in a local Hive database:
 
-### 2.4 Advertising Identifiers
+- The contents of the barcode or QR code
+- Any name, label, note, or folder you assign
+- Cached images and adaptive thumbnails of barcodes
+- Application settings, theme, and preferences
 
-- **Advertising IDs**: Where applicable, we may access your device's advertising identifier (IDFA on iOS or GAID on Android) to support advertising and measurement. You can reset or limit this identifier in your device settings.
+This data is **not transmitted to Nomadix Apps**. It does not leave your device unless you turn on iCloud Sync (see Section 3.1.1) or you choose to share an item yourself (for example, by exporting an image).
 
-### 2.5 Website and Cookies
+#### 3.1.1 Optional iCloud Sync (iOS only)
 
-- **Website Use**: Our marketing website is static and we do not intentionally set cookies or run analytics scripts. However, hosting providers and CDNs may collect standard server logs (e.g., IP address, user agent) for security and operational purposes in accordance with their own policies.
+On iOS you can enable an "iCloud Sync" toggle in Settings. When it is on, ScanKeeper saves your barcode data and images into your personal iCloud Drive container, so your codes are available across your Apple devices.
 
-<h2 id="how-we-use-your-information">3. How We Use Your Information</h2>
+- Apple, not Nomadix Apps, controls and stores the content of your iCloud container. We cannot read it.
+- iCloud uses Apple's transport and at-rest encryption per Apple's terms.
+- You can disable iCloud Sync at any time from Settings. Disabling it stops new uploads; you can also remove the existing container from your iCloud storage in iOS Settings if you wish.
 
-We use the collected information for various purposes:
+### 3.2 Device and Diagnostic Data
 
-- To provide and maintain our Service
-- To notify you about changes to our Application
-- To allow you to participate in interactive features when you choose to do so
-- To provide customer support
-- To gather analysis that helps us improve our Application
-- To monitor the usage of our Application
-- To detect, prevent, and address technical issues
+Our analytics and crash-reporting providers automatically receive a small set of technical attributes so that we can understand how the Application performs across devices. These typically include:
 
-### Advertising and Third-Party Services
+- Device model and manufacturer
+- Operating system and version
+- Application version and build
+- Language and region settings
+- A non-reversible, hashed device identifier generated by the analytics SDK
 
-- We may display non-personalized or personalized ads (where permitted by law) and measure their performance. Ads may be provided by our partners such as Google AdMob. These partners may process device identifiers (e.g., IDFA/GAID) in accordance with their policies.
-- Distribution and payments may be handled by the Apple App Store and Google Play. These platforms act as independent controllers for data they process.
+We do not link this data to your name, email, or phone number, because we do not collect those.
 
-Third-party policies:
+### 3.3 Camera and Photo Library
 
-- Google AdMob: https://policies.google.com/technologies/ads
-- Apple App Store: https://www.apple.com/legal/privacy/
-- Google Play: https://policies.google.com/privacy
+ScanKeeper requests the following operating-system permissions only when you use a feature that needs them:
 
-#### Ad Choices and Controls
+- **Camera** (`NSCameraUsageDescription` on iOS / `CAMERA` on Android) — to scan barcodes and QR codes in real time. Camera frames are processed locally; we do not record video and we do not transmit camera input.
+- **Photo Library — read** (`NSPhotoLibraryUsageDescription` on iOS / `READ_MEDIA_IMAGES` on Android) — to import a barcode image you already have.
+- **Photo Library — add** (`NSPhotoLibraryAddUsageDescription` on iOS) — to save a barcode image you generate to your photos.
+- **Brightness** (`NSBrightnessUsageDescription` on iOS) — to temporarily brighten the screen so a scanner can read your displayed code.
+- **Motion** (`NSMotionUsageDescription` on iOS) — for screen-orientation handling.
 
-- iOS: Manage cross-app tracking in Settings > Privacy & Security > Tracking (you can disallow apps from requesting to track). You can also limit ad personalization per Apple guidance.
-- Android: Manage your advertising ID in Settings > Google > Ads (you can delete or reset the advertising ID and opt out of ad personalization on supported versions).
+You can change or revoke these permissions in your device's system Settings at any time.
 
-<h2 id="legal-basis">4. Legal Basis for Processing</h2>
+### 3.4 Advertising Identifiers (free version only)
 
-Our legal basis for collecting and using your personal information depends on the specific information and the context in which we collect it.
+If you use the free version of ScanKeeper, Google AdMob may access your device's advertising identifier (**IDFA** on iOS, **GAID** on Android) to deliver and measure ads.
 
-We may process your personal information because:
+- On iOS, IDFA is only made available to AdMob if you allow tracking in the Apple App Tracking Transparency (**ATT**) prompt that the Application shows the first time it initialises ads. If you decline, AdMob serves non-personalised ads using contextual signals only.
+- In the EEA, the United Kingdom, Switzerland, and certain US states, a Google User Messaging Platform (**UMP**) consent form is shown before ads are initialised. Personalised ads run only with your consent.
+- **Pro users are not shown the ATT prompt and AdMob is not initialised at all on their devices**, so no IDFA/GAID is read by the ad SDK.
 
-- We need to perform a contract with you
-- You have given us permission to do so
-- The processing is in our legitimate interests and not overridden by your rights
-- Where applicable, to process purchases via the Apple App Store or Google Play
-- To comply with the law
+You can reset or remove your advertising identifier at any time:
 
-<h2 id="data-retention">5. Data Retention</h2>
+- **iOS:** Settings → Privacy & Security → Tracking, and Settings → Privacy & Security → Apple Advertising.
+- **Android:** Settings → Google → Ads, where you can reset or delete the advertising ID.
 
-We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.
+### 3.5 Analytics Signals (TelemetryDeck)
 
-Your barcode and QR code data is stored primarily on your device. If you enable cloud synchronization on iOS, your data is stored in your Apple iCloud account under your control. Apple may process such data in accordance with its policies; we do not access the contents of your iCloud-stored data. If a cloud backup/sync is offered on other platforms, details will be provided in-app.
+We use **TelemetryDeck** for privacy-focused product analytics. TelemetryDeck receives anonymous, aggregated event signals from the Application, such as:
 
-<h2 id="data-security">6. Data Security</h2>
+- Screen views and feature interactions (for example, "scanner opened", "barcode created")
+- Recoverable, expected error states (for example, "camera permission denied")
+- Technical attributes listed in Section 3.2
 
-The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
+TelemetryDeck does **not** receive your email address, name, file paths, barcode contents, or any advertising identifier. The device identifier sent to TelemetryDeck is hashed and cannot be reversed by us.
 
-<h2 id="your-data-rights">7. Your Data Rights</h2>
+TelemetryDeck's privacy notice: https://telemetrydeck.com/privacy
 
-Depending on your location, you may have certain rights regarding your personal information:
+### 3.6 Crash and Performance Data (Sentry)
 
-- **Right to Access**: You have the right to request copies of your personal information.
-- **Right to Rectification**: You have the right to request that we correct any inaccurate information about you.
-- **Right to Erasure**: You have the right to request that we delete your personal information in certain circumstances.
-- **Right to Restrict Processing**: You have the right to request that we restrict the processing of your personal information in certain circumstances.
-- **Right to Data Portability**: You have the right to request that we transfer the data we've collected to another organization or directly to you.
-- **Right to Object**: You have the right to object to our processing of your personal information.
+We use **Sentry** to detect crashes, unhandled exceptions, and performance problems so that we can fix them. We have configured Sentry as follows:
 
-If you wish to exercise any of these rights, please contact us.
+- `sendDefaultPii` is set to **false**, so Sentry does not automatically attach your IP address or user identifiers to events.
+- **Session Replay** is enabled at a `sessionSampleRate` of **0.1** (about one in ten sessions is sampled) and `onErrorSampleRate` of **1.0** (sessions where an error occurs are recorded). Replays apply Sentry's default masking to text input fields and other sensitive UI on iOS and Android, so the contents of fields you type into are not captured.
+- **Performance traces** are sampled at `tracesSampleRate` of **0.2** and **profiles** at `profilesSampleRate` of **0.2**.
 
-### GDPR/UK GDPR Information
+Sentry processes the data on our behalf as a processor. Their privacy notice: https://sentry.io/privacy/
 
-- Legal bases include consent, contract performance, compliance with legal obligations, and legitimate interests.
-- You have the right to lodge a complaint with your local supervisory authority. A list of EU authorities is available at https://edpb.europa.eu/about-edpb/about-edpb/members_en.
+### 3.7 Subscription Data (RevenueCat)
 
-### California Residents (CCPA/CPRA)
+If you purchase ScanKeeper Pro, we use **RevenueCat** to manage your subscription state across platforms. RevenueCat receives:
 
-- You have the rights to know, delete, correct, and to limit use/disclosure of sensitive information, subject to exceptions.
-- We do not sell your personal information. If we engage in sharing for cross-context behavioral advertising, you may opt out by adjusting your device advertising settings or contacting us.
+- An anonymous app-user ID generated by the SDK
+- The state of your transaction (for example, active, expired, refunded)
+- Technical attributes such as platform and country code reported by the store
 
-<h2 id="children-privacy">8. Children's Privacy</h2>
+RevenueCat does **not** receive your payment card details. Your payment is handled directly by Apple (App Store) or Google (Google Play). RevenueCat's privacy notice: https://www.revenuecat.com/privacy
 
-Our Application is not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we can take necessary actions.
+### 3.8 Marketing Website
 
-<h2 id="changes-to-policy">9. Changes to This Privacy Policy</h2>
+The Site at https://scankeeper.nomadixapps.org/ is a static site. We do not intentionally set cookies, run analytics scripts, or use trackers on the Site. The hosting provider and content delivery network may keep standard request logs (for example, IP address, user-agent, requested URL, timestamp) for security, abuse prevention, and operational purposes, in line with their own policies. We do not combine these logs with Application data.
 
-We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+<h2 id="how-we-use-information">4. How We Use Information</h2>
 
-You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+We use the categories of information described above for the following purposes:
 
-<h2 id="contact-us">10. Contact Us</h2>
+- **Operate ScanKeeper.** Store, organise, and display the codes, names, folders, and images you create, on your device and (if you opt in) in your iCloud.
+- **Provide features that need device hardware.** Use the camera to scan, the photo library to import or save images, and the brightness API to display codes.
+- **Show ads in the free version.** Serve banner and interstitial ads through Google AdMob, and measure their performance, in line with your consent and ATT choices.
+- **Manage subscriptions.** Verify whether the Pro entitlement is active so that we can hide ads and unlock paid features.
+- **Understand product use.** Use anonymous TelemetryDeck signals to see which features are used and where users encounter friction.
+- **Improve quality and stability.** Use Sentry crash, error, performance, and (sampled) session-replay data to diagnose bugs.
+- **Respect your privacy choices.** Show the appropriate consent forms, store your consent state, and respect opt-out signals.
+- **Comply with law.** Respond to legitimate legal requests, enforce our Terms, and prevent fraud or abuse.
 
-If you have any questions about this Privacy Policy, please contact us:
+We do not use your information for automated decisions that produce legal or similarly significant effects on you, and we do not build user profiles from barcode contents.
 
-- By email: info@nomadixapps.org
+<h2 id="advertising-tracking-and-your-choices">5. Advertising, Tracking, and Your Choices</h2>
+
+This Section explains the controls available to you for ads and tracking.
+
+### 5.1 ATT prompt (iOS)
+
+The first time the free version initialises ads, iOS shows Apple's **App Tracking Transparency** prompt asking whether ScanKeeper may track you across other companies' apps and websites. If you choose "Ask App Not to Track", IDFA is not made available to AdMob and you will see non-personalised ads only. **Pro users are not shown the ATT prompt at all.**
+
+### 5.2 UMP consent form
+
+In the EEA, the United Kingdom, Switzerland, and certain US states, Google's **User Messaging Platform** (a TCF v2.2-certified Consent Management Platform bundled with the AdMob SDK) shows a consent or opt-out form before ads run. Your consent is stored on your device by Google, not by us.
+
+We have configured AdMob's UMP form to request the following IAB TCF v2.2 purposes:
+
+- **Consent-based purposes:** Purpose 1 (Store and/or access information on a device), Purpose 3 (Create profiles for personalised advertising), Purpose 4 (Use profiles to select personalised advertising).
+- **Legitimate-interest purposes:** Purpose 2 (Use limited data to select advertising), Purpose 7 (Measure advertising performance), Purpose 9 (Understand audiences through statistics), Purpose 10 (Develop and improve services).
+- **Not used:** Purposes 5, 6, 8, and 11 (content personalisation and content measurement).
+
+### 5.3 Privacy options entry in Settings
+
+Inside ScanKeeper Settings, a **"Privacy options"** entry is shown to users for whom UMP marks privacy options as required (typically EEA, UK, Swiss, and applicable US-state users). You can use it at any time to revisit your consent choices, withdraw consent, or change your opt-out signals. This entry is the primary self-service mechanism for managing advertising-related preferences.
+
+### 5.4 Pro removes ads and ad tracking
+
+If you have an active Pro subscription:
+
+- AdMob is **not initialised**.
+- The ATT prompt is **not shown**.
+- IDFA/GAID is **not read** by the ads stack.
+- Banner and interstitial ads are **not shown**.
+
+### 5.5 Device-level controls
+
+You can also limit ads at the operating-system level:
+
+- **iOS:** Settings → Privacy & Security → Tracking (disable "Allow Apps to Request to Track"); Settings → Privacy & Security → Apple Advertising.
+- **Android:** Settings → Google → Ads (delete or reset the advertising ID; opt out of ad personalisation on supported versions).
+
+<h2 id="third-parties-and-sharing">6. Third Parties and Sharing</h2>
+
+We do not sell your personal information for money. We use the following third-party providers, each acting either as our processor or as an independent controller as noted. Each provider is governed by its own privacy notice:
+
+| Provider | Role | Purpose | Privacy notice |
+| --- | --- | --- | --- |
+| **Google AdMob** | Independent controller | Serves and measures banner/interstitial ads in the free version. Receives IDFA/GAID where consent allows. | https://policies.google.com/technologies/ads |
+| **Google UMP (CMP)** | Independent controller | Collects and stores consent / opt-out signals (TCF v2.2). | https://policies.google.com/privacy |
+| **TelemetryDeck** | Processor | Anonymous product analytics. | https://telemetrydeck.com/privacy |
+| **Sentry** | Processor | Crash, error, performance, and sampled session-replay data. | https://sentry.io/privacy/ |
+| **RevenueCat** | Processor | Subscription state management. | https://www.revenuecat.com/privacy |
+| **Apple iCloud** | Independent controller | Stores barcode data in your personal iCloud if you opt in. | https://www.apple.com/legal/privacy/ |
+| **Apple App Store** | Independent controller | App distribution and payment processing on iOS. | https://www.apple.com/legal/privacy/ |
+| **Google Play** | Independent controller | App distribution and payment processing on Android. | https://policies.google.com/privacy |
+
+We may also disclose information when we are required to do so by law, when necessary to protect our rights or the safety of others, or in connection with a merger, acquisition, or sale of assets — in which case we will require the recipient to honour this Policy.
+
+### 6.1 "Sharing" under California law
+
+Under the California Privacy Rights Act ("CPRA"), the use of online identifiers like IDFA/GAID for cross-context behavioral advertising is treated as **"sharing"** even when no money changes hands. We disclose, honestly, that running personalised ads through AdMob in the free version may constitute "sharing" of personal information under the CPRA. See Section 11.2 for how to opt out.
+
+We do not knowingly **sell** personal information for money, and we do not share personal information of users we know to be under 16.
+
+<h2 id="legal-bases">7. Legal Bases (GDPR / UK GDPR / Swiss FADP)</h2>
+
+If you are in the European Economic Area, the United Kingdom, or Switzerland, we rely on the following legal bases under the GDPR, the UK GDPR, and the Swiss revised Federal Act on Data Protection ("**FADP**"):
+
+- **Performance of a contract** (Art. 6(1)(b) GDPR) — to provide the core functionality of the Application that you ask us to provide, and to manage paid Pro subscriptions.
+- **Consent** (Art. 6(1)(a) GDPR) — for personalised advertising via AdMob (TCF Purposes 1, 3, 4) collected through the UMP consent form, for camera and photo-library access at the OS level, and for the iOS ATT preference. You can withdraw consent at any time via the in-app **Privacy options** entry or your device settings; withdrawal does not affect the lawfulness of processing carried out before withdrawal.
+- **Legitimate interests** (Art. 6(1)(f) GDPR) — for limited (non-personalised) advertising, ad performance measurement, audience insights, product analytics, crash reporting, security, and product improvement (TCF Purposes 2, 7, 9, 10, plus diagnostics through TelemetryDeck and Sentry). Our interests are running and improving a working, sustainable application; we balance these against your rights and offer the controls described in Section 5 and Section 11.
+- **Compliance with a legal obligation** (Art. 6(1)(c) GDPR) — to respond to lawful requests and meet retention or disclosure duties.
+
+Under the Swiss FADP, the equivalent grounds (consent, contractual necessity, overriding legitimate interest, legal obligation) apply.
+
+<h2 id="international-transfers">8. International Transfers</h2>
+
+Our processors and ad partners are global companies. Personal information may be processed in the United States and other countries that may not have the same data protection standards as your country.
+
+Where transfers of personal information from the EEA, the UK, or Switzerland occur, we rely on appropriate safeguards. In practice, this means the European Commission's **Standard Contractual Clauses** (and the UK Addendum / Swiss equivalent where applicable) entered into by our processors, and supplementary measures these processors document in their own privacy notices linked in Section 6. You can request a copy of the relevant safeguard by contacting info@nomadixapps.org.
+
+<h2 id="data-retention">9. Data Retention</h2>
+
+- **Barcode and Application data on your device.** Retained until you delete it from within ScanKeeper or uninstall the Application.
+- **iCloud-synced data.** Retained in your iCloud until you disable iCloud Sync and/or delete the data from your iCloud storage. Apple's retention rules apply.
+- **Advertising signals.** Retained by Google AdMob and Google UMP per Google's policies. Consent signals are stored on your device.
+- **Analytics signals.** Retained by TelemetryDeck per its policy.
+- **Crash, error, performance, and replay data.** Retained by Sentry per its policy.
+- **Subscription state.** Retained by RevenueCat for as long as needed to provide the Pro entitlement and meet legal requirements, per its policy.
+- **Support emails.** If you write to info@nomadixapps.org, we keep the email for as long as needed to handle your request and keep a record of it, then we delete it.
+
+In general, we retain personal information for as long as necessary for the purposes described in this Policy, and no longer than required by applicable law.
+
+<h2 id="data-security">10. Data Security</h2>
+
+We take reasonable, industry-standard technical and organisational measures to protect personal information, including:
+
+- Storing barcode and Application data inside your device's application sandbox (iOS Data Protection / Android app-specific storage).
+- Using HTTPS/TLS for traffic between the Application and our processors.
+- Configuring third-party SDKs with privacy-protective defaults (for example, masking input in Sentry session replays, hashing device IDs in TelemetryDeck).
+- Restricting access to operational tools to a small team.
+
+No system is perfectly secure, and we cannot guarantee absolute security. If we ever become aware of a personal data breach that affects you and is required to be reported under applicable law, we will notify you and the relevant supervisory authority within the time frames the law requires.
+
+<h2 id="your-rights">11. Your Rights</h2>
+
+Your specific rights depend on where you live. To exercise any right, contact us at **info@nomadixapps.org** or use the in-app **Privacy options** entry where it is available. We will need to verify that the request is genuine; because we do not collect account credentials, we may need to ask for additional context (such as a device identifier you can read from inside Settings) to locate any data tied to you.
+
+You may also use an authorised agent, where the law allows, by providing written authorisation we can verify.
+
+We will not discriminate against you for exercising any of these rights. We answer all valid requests within the time periods required by the applicable law (typically 30–45 days, with one extension where permitted).
+
+### 11.1 EEA, United Kingdom, and Switzerland
+
+If you are in the EEA, the UK, or Switzerland, you have the rights to:
+
+- **Access** the personal information we hold about you and obtain a copy
+- **Rectify** inaccurate or incomplete information
+- **Erase** your personal information ("right to be forgotten")
+- **Restrict** processing in certain circumstances
+- **Data portability** for information you provided to us, in a structured, commonly used, machine-readable format
+- **Object** to processing carried out under our legitimate interests, including direct marketing
+- **Withdraw consent** at any time, without affecting the lawfulness of processing before withdrawal
+- **Lodge a complaint** with your local data protection supervisory authority. A list of EEA authorities is available at https://edpb.europa.eu/about-edpb/about-edpb/members_en. UK residents can complain to the Information Commissioner's Office at https://ico.org.uk/. Swiss residents can contact the Federal Data Protection and Information Commissioner (FDPIC) at https://www.edoeb.admin.ch/.
+
+### 11.2 United States
+
+We respect the privacy rights granted by US state privacy laws. The rights below apply to residents of the corresponding state, subject to verification and to the exceptions set out in those laws.
+
+#### California (CCPA / CPRA)
+
+California residents have the right to:
+
+- **Know** what categories of personal information we collect, use, disclose, and "share", and the sources, purposes, and recipients
+- **Access** the specific pieces of personal information we hold about you
+- **Delete** personal information we have collected, subject to legal exceptions
+- **Correct** inaccurate personal information
+- **Opt out of the "sale" or "sharing"** of personal information. As noted in Section 6.1, we do not sell personal information for money, but personalised advertising via AdMob in the free version may constitute "sharing" under the CPRA.
+- **Limit the use and disclosure of sensitive personal information** (we do not knowingly process sensitive personal information beyond what is necessary to provide the requested service)
+- **Non-discrimination** for exercising these rights
+- Use an **authorised agent** to submit requests on your behalf
+
+##### Do Not Sell or Share My Personal Information
+
+To opt out of cross-context behavioural advertising "sharing":
+
+1. Open ScanKeeper → Settings → **Privacy options** and withdraw consent for advertising; **and / or**
+2. **iOS:** decline the App Tracking Transparency prompt or disable "Allow Apps to Request to Track" in Settings → Privacy & Security → Tracking; **and / or**
+3. **Android:** open Settings → Google → Ads and tap **Delete advertising ID**; **or**
+4. Email **info@nomadixapps.org** with the subject line "Do Not Sell or Share — California".
+
+Subscribing to ScanKeeper Pro also stops the Application from initialising AdMob altogether.
+
+We honour Global Privacy Control ("GPC") signals where the underlying advertising SDK supports them.
+
+#### Virginia (VCDPA), Colorado (CPA), Connecticut (CTDPA), Utah (UCPA), Texas (TDPSA), Montana (MCDPA), Oregon (OCPA), Delaware (DCDPA), Iowa (IICCC), and other US states with comparable laws
+
+If you are a resident of one of these states (or another state that, by the time you read this, has adopted a comparable consumer privacy law), you have substantially similar rights to:
+
+- **Access / confirm** the processing of your personal information
+- **Delete** personal information we have collected
+- **Correct** inaccurate personal information (where the law provides this right)
+- **Data portability** in a usable format
+- **Opt out** of targeted advertising, the sale of personal information, and certain types of profiling
+
+To exercise any of these rights, follow the same steps as California residents above. If we deny your request, you may have a right to appeal; if so, reply to our response email and we will reconsider in the time frame your law requires.
+
+### 11.3 Brazil (LGPD)
+
+If you are in Brazil, you have the rights under the Lei Geral de Proteção de Dados (LGPD) to confirm whether we process your personal information; to access, correct, anonymise, block, or delete it; to data portability; to information about public and private entities with which we share your data; to information about the option of refusing consent and the consequences of refusal; and to revoke consent. You may also lodge a complaint with the Autoridade Nacional de Proteção de Dados (ANPD) at https://www.gov.br/anpd/.
+
+### 11.4 Quebec, Canada (Law 25)
+
+If you are a resident of Quebec, you have rights under "Law 25" (An Act to modernize legislative provisions as regards the protection of personal information) to access, rectify, withdraw consent, and request the cessation of dissemination of your personal information, and the right to data portability for computerised personal information you provided to us. You may also complain to the Commission d'accès à l'information du Québec at https://www.cai.gouv.qc.ca/.
+
+### 11.5 Other jurisdictions
+
+If you live elsewhere and your local law gives you privacy rights, contact us at info@nomadixapps.org and we will do our best to honour your request in line with that law.
+
+<h2 id="childrens-privacy">12. Children's Privacy</h2>
+
+ScanKeeper is a general-audience utility and is not directed to children. We do not knowingly collect personal information from children under 13 (or under the higher age of digital consent set by the EU Member State where the child resides, which can be up to 16). The Application is not used to build profiles of children or to target advertising at known children.
+
+We comply with the US Children's Online Privacy Protection Act ("COPPA"). If you believe that a child has provided personal information to us, please email info@nomadixapps.org and we will delete the information promptly.
+
+<h2 id="changes-to-policy">13. Changes to This Policy</h2>
+
+We may update this Privacy Policy from time to time, for example to reflect changes to the Application, to our processors, or to applicable law. When we make a change, we will update the "Last updated" date at the top of this page and post the updated Policy at https://scankeeper.nomadixapps.org/privacy-policy. For material changes, we will take additional steps required by law, such as showing an in-app notice or asking for renewed consent.
+
+We encourage you to review this page periodically.
+
+<h2 id="contact">14. Contact</h2>
+
+If you have any question about this Privacy Policy or about how Nomadix Apps handles your personal information:
+
+- **Email:** info@nomadixapps.org
+- **Publisher:** Nomadix Apps
+- **Website:** https://scankeeper.nomadixapps.org/
+
+We have not appointed a Data Protection Officer; please use the email address above and a member of our team will respond.
 
 </article>
 
