@@ -8,8 +8,48 @@ import {
   IconWifiOff,
 } from "@tabler/icons-react";
 
+const EAN13_PATTERN = [
+  "101",
+  "0001011",
+  "0100111",
+  "0110011",
+  "0010011",
+  "0111101",
+  "0011101",
+  "01010",
+  "1100110",
+  "1101100",
+  "1000010",
+  "1011100",
+  "1001110",
+  "1000100",
+  "101",
+].join("");
+
+const isGuardBar = (index) =>
+  index < 3 || (index >= 45 && index < 50) || index >= 92;
+
 const Barcode = ({ className = "" }) => (
-  <span className={`scene-barcode${className ? ` ${className}` : ""}`} />
+  <span className={`scene-barcode${className ? ` ${className}` : ""}`}>
+    <svg
+      viewBox="0 0 113 34"
+      preserveAspectRatio="none"
+      focusable="false"
+      aria-hidden="true"
+    >
+      {EAN13_PATTERN.split("").map((module, index) =>
+        module === "1" ? (
+          <rect
+            key={index}
+            x={index + 9}
+            y="0"
+            width="1"
+            height={isGuardBar(index) ? 34 : 30}
+          />
+        ) : null,
+      )}
+    </svg>
+  </span>
 );
 
 const AppMark = () => (
