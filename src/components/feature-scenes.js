@@ -169,18 +169,54 @@ export const FoldersScene = () => (
         <span>Travel</span>
         <i className="folder-tab-active" />
       </div>
-      <div className="folder-card-row">
-        <span className="folder-mini-card folder-mini-card-peach">
-          <Barcode />
-          <small>Market</small>
+      <div className="folder-card-viewport">
+        <div className="folder-card-track">
+          <div className="folder-card-row folder-shopping">
+            <span className="folder-mini-card folder-mini-card-peach">
+              <Barcode />
+              <small>Market</small>
+            </span>
+            <span className="folder-mini-card folder-mini-card-mint">
+              <Barcode />
+              <small>Gym</small>
+            </span>
+            <span className="folder-mini-card folder-mini-card-indigo">
+              <Barcode />
+              <small>Coupons</small>
+            </span>
+          </div>
+          <div className="folder-card-row folder-travel">
+            <span className="folder-mini-card folder-mini-card-indigo">
+              <Barcode />
+              <small>Airline</small>
+            </span>
+            <span className="folder-mini-card folder-mini-card-peach">
+              <Barcode />
+              <small>Train</small>
+            </span>
+            <span className="folder-mini-card folder-mini-card-mint">
+              <Barcode />
+              <small>Hotel</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      <span className="folder-tap folder-tap-shopping" />
+      <span className="folder-tap folder-tap-travel" />
+      <div className="folder-expanded-card folder-expanded-card-shopping">
+        <span className="folder-expanded-label">SHOPPING · GYM</span>
+        <b>Gym membership</b>
+        <Barcode />
+        <span className="folder-expanded-ready">
+          <IconCheck size={12} stroke={2.4} /> Ready to scan
         </span>
-        <span className="folder-mini-card folder-mini-card-mint">
-          <Barcode />
-          <small>Gym</small>
-        </span>
-        <span className="folder-mini-card folder-mini-card-indigo">
-          <Barcode />
-          <small>Airline</small>
+      </div>
+      <div className="folder-expanded-card folder-expanded-card-travel">
+        <span className="folder-expanded-label">TRAVEL · AIRLINE</span>
+        <b>Boarding pass</b>
+        <Barcode />
+        <span className="folder-expanded-ready">
+          <IconCheck size={12} stroke={2.4} /> Ready to scan
         </span>
       </div>
     </div>
