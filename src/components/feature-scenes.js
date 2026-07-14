@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  IconArrowRight,
   IconBrightnessUp,
   IconCheck,
   IconPhoto,
@@ -92,31 +91,67 @@ export const ScanScene = () => (
 export const ImportScene = () => (
   <Scene className="feature-scene-import">
     <div className="import-source">
+      <span className="import-source-label">
+        <IconPhoto size={12} stroke={1.9} /> Photo library
+      </span>
       <span className="photo-card photo-card-back" />
-      <span className="photo-card">
+      <span className="photo-card photo-card-middle" />
+      <span className="photo-card photo-card-front">
         <span className="photo-sun" />
         <span className="photo-hills" />
       </span>
-      <span className="photo-count">
-        <IconPhoto size={13} stroke={2} /> 12
-      </span>
     </div>
-    <span className="import-path">
-      <IconArrowRight size={19} stroke={1.8} />
+
+    <span className="import-flight import-flight-landscape">
+      <i className="import-flight-sun" />
+      <i className="import-flight-hill" />
     </span>
-    <span className="import-flight">
-      <IconPhoto size={17} stroke={1.9} />
+    <span className="import-flight import-flight-screenshot">
+      <i />
+      <i />
+      <i />
     </span>
+    <span className="import-flight import-flight-photo-icon">
+      <IconPhoto size={15} stroke={1.9} />
+    </span>
+
     <div className="import-target">
       <span className="import-target-head">
         <AppMark />
         <span>
-          <b>Saved</b>
-          <small>From Photos</small>
+          <b>From Photos</b>
+          <small>Recognizing cards</small>
         </span>
       </span>
-      <Barcode />
-      <IconCheck className="import-check" size={16} stroke={2.3} />
+      <span className="import-result-list">
+        <span className="import-result">
+          <span className="import-result-check">
+            <IconCheck size={12} stroke={2.4} />
+          </span>
+          <span className="import-result-copy">
+            <i />
+            <small>Recognized</small>
+          </span>
+        </span>
+        <span className="import-result">
+          <span className="import-result-check">
+            <IconCheck size={12} stroke={2.4} />
+          </span>
+          <span className="import-result-copy">
+            <i />
+            <small>Recognized</small>
+          </span>
+        </span>
+        <span className="import-result">
+          <span className="import-result-check">
+            <IconCheck size={12} stroke={2.4} />
+          </span>
+          <span className="import-result-copy">
+            <i />
+            <small>Recognized</small>
+          </span>
+        </span>
+      </span>
     </div>
   </Scene>
 );

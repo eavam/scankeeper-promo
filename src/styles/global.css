@@ -2530,31 +2530,75 @@ h1 {
 /* 02 · Import from Photos */
 .import-source,
 .import-target,
-.import-flight,
-.import-path {
+.import-flight {
   position: absolute;
 }
 
+.feature-scene-import {
+  container-type: inline-size;
+}
+
 .import-source {
-  top: 49px;
+  z-index: 1;
+  top: 31px;
   left: 14px;
-  width: 78px;
-  height: 94px;
+  width: 88px;
+  height: 132px;
+}
+
+.import-source-label {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(16, 16, 15, 0.58);
+  font-size: 0.47rem;
+  font-weight: 760;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .photo-card {
   position: absolute;
-  inset: 0 5px 11px 0;
+  top: 33px;
+  left: 12px;
+  width: 66px;
+  height: 78px;
   overflow: hidden;
   border: 1px solid rgba(16, 16, 15, 0.12);
-  border-radius: 13px;
+  border-radius: 12px;
   background: #fff;
   box-shadow: 0 10px 21px rgba(16, 16, 15, 0.11);
 }
 
 .photo-card-back {
   background: var(--indigo-light);
-  transform: translate(-5px, 5px) rotate(-6deg);
+  transform: translate(-7px, 5px) rotate(-7deg);
+}
+
+.photo-card-back::after {
+  position: absolute;
+  inset: 9px;
+  border-radius: 7px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.7) 0 0) 0 0 / 55% 4px no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.48) 0 0) 0 10px / 78% 4px no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.48) 0 0) 0 20px / 64% 4px no-repeat;
+  content: "";
+}
+
+.photo-card-middle {
+  background:
+    radial-gradient(circle at 68% 27%, var(--peach) 0 7px, transparent 8px),
+    linear-gradient(148deg, transparent 0 47%, var(--indigo) 48% 66%, var(--mint) 67%);
+  transform: translate(6px, 4px) rotate(6deg);
+}
+
+.photo-card-front {
+  transform: rotate(-1deg);
 }
 
 .photo-sun {
@@ -2578,59 +2622,106 @@ h1 {
     linear-gradient(35deg, var(--indigo-light) 0 53%, transparent 54%);
 }
 
-.photo-count {
-  position: absolute;
-  right: -7px;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  border-radius: 999px;
-  padding: 4px 6px;
-  background: var(--ink);
-  color: var(--white);
-  font-size: 0.55rem;
-  font-weight: 740;
-}
-
-.import-path {
-  top: 87px;
-  left: 35.5%;
-  color: rgba(16, 16, 15, 0.42);
-}
-
-.import-path::before {
-  position: absolute;
-  top: 9px;
-  right: 15px;
-  width: 23px;
-  border-top: 1px dashed rgba(16, 16, 15, 0.28);
-  content: "";
-}
-
 .import-flight {
-  z-index: 5;
-  top: 82px;
-  left: 34%;
-  display: grid;
-  width: 29px;
-  height: 29px;
+  --flight-end-angle: 3deg;
+  --flight-lift: -5px;
+  --flight-start-angle: -7deg;
+  z-index: 2;
+  top: 83px;
+  left: 27%;
+  width: 28px;
+  height: 31px;
+  overflow: hidden;
   border: 1px solid rgba(16, 16, 15, 0.1);
-  border-radius: 8px;
+  border-radius: 7px;
   background: var(--white);
-  box-shadow: 0 7px 15px rgba(16, 16, 15, 0.1);
+  box-shadow: 0 8px 16px rgba(16, 16, 15, 0.13);
   opacity: 0;
+  translate: -8px 3px;
+  rotate: var(--flight-start-angle);
+  scale: 0.84;
+  will-change: opacity, translate, rotate, scale;
+  animation: feature-import-flight 6.6s cubic-bezier(0.42, 0, 0.2, 1) infinite;
+}
+
+.import-flight:nth-of-type(2) {
+  --flight-end-angle: -4deg;
+  --flight-lift: 3px;
+  --flight-start-angle: 5deg;
+  animation-delay: 130ms;
+}
+
+.import-flight:nth-of-type(3) {
+  --flight-end-angle: 2deg;
+  --flight-lift: -2px;
+  --flight-start-angle: -2deg;
+  animation-delay: 260ms;
+}
+
+.import-flight-landscape {
+  background: var(--indigo-light);
+}
+
+.import-flight-sun {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--peach);
+}
+
+.import-flight-hill {
+  position: absolute;
+  right: -4px;
+  bottom: -6px;
+  left: -4px;
+  height: 24px;
+  background: linear-gradient(145deg, transparent 31%, var(--mint) 32%);
+  rotate: -4deg;
+}
+
+.import-flight-screenshot {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 7px 5px;
+  background: #fff;
+}
+
+.import-flight-screenshot i {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(16, 16, 15, 0.24);
+}
+
+.import-flight-screenshot i:nth-child(2) {
+  width: 72%;
+  background: var(--indigo);
+}
+
+.import-flight-screenshot i:nth-child(3) {
+  width: 84%;
+}
+
+.import-flight-photo-icon {
+  display: grid;
+  background: var(--mint-light);
+  color: rgba(16, 16, 15, 0.72);
   place-items: center;
-  animation: feature-import 5.4s ease-in-out infinite;
 }
 
 .import-target {
-  top: 31px;
+  z-index: 3;
+  top: 22px;
   right: 11px;
-  width: min(139px, 47%);
+  width: min(145px, 48%);
+  min-height: 150px;
+  overflow: hidden;
   border: 1px solid rgba(16, 16, 15, 0.12);
   border-radius: 16px;
-  padding: 12px;
+  padding: 11px;
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 14px 29px rgba(16, 16, 15, 0.11);
 }
@@ -2644,7 +2735,7 @@ h1 {
 }
 
 .import-target-head {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .import-target-head > span:last-child,
@@ -2674,17 +2765,72 @@ h1 {
   white-space: nowrap;
 }
 
-.import-target .scene-barcode {
-  height: 31px;
+.import-result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.import-check {
-  position: absolute;
-  right: 8px;
-  bottom: 7px;
+.import-result {
+  display: grid;
+  min-height: 26px;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(16, 16, 15, 0.075);
+  border-radius: 8px;
+  padding: 4px 6px;
+  background: rgba(248, 246, 241, 0.74);
+  opacity: 0;
+  translate: 0 5px;
+  scale: 0.98;
+  animation: feature-import-result 6.6s ease-in-out infinite;
+}
+
+.import-result:nth-child(2) {
+  animation-delay: 180ms;
+}
+
+.import-result:nth-child(3) {
+  animation-delay: 360ms;
+}
+
+.import-result-check {
+  display: grid;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  padding: 2px;
   background: var(--mint);
+  color: var(--ink);
+  place-items: center;
+}
+
+.import-result-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.import-result-copy i {
+  width: 88%;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(16, 16, 15, 0.3);
+}
+
+.import-result:nth-child(2) .import-result-copy i {
+  width: 68%;
+}
+
+.import-result:nth-child(3) .import-result-copy i {
+  width: 79%;
+}
+
+.import-result-copy small {
+  color: rgba(16, 16, 15, 0.45);
+  font-size: 0.42rem;
+  line-height: 1;
 }
 
 /* 03 · Folders */
@@ -3095,24 +3241,63 @@ h1 {
   }
 }
 
-@keyframes feature-import {
+@keyframes feature-import-flight {
   0%,
-  13%,
-  80%,
+  10%,
   100% {
     opacity: 0;
-    transform: translateX(-7px) rotate(-4deg) scale(0.92);
+    translate: -8px 3px;
+    rotate: var(--flight-start-angle);
+    scale: 0.84;
   }
-  22% {
+  14% {
     opacity: 1;
   }
-  61% {
+  36% {
     opacity: 1;
-    transform: translateX(49px) rotate(2deg) scale(0.92);
+    translate: 31cqi var(--flight-lift);
+    rotate: var(--flight-end-angle);
+    scale: 0.92;
   }
-  70% {
+  41% {
     opacity: 0;
-    transform: translateX(58px) rotate(2deg) scale(0.78);
+    translate: 35cqi var(--flight-lift);
+    rotate: var(--flight-end-angle);
+    scale: 0.76;
+  }
+}
+
+@keyframes feature-import-result {
+  0%,
+  45%,
+  100% {
+    opacity: 0;
+    translate: 0 5px;
+    scale: 0.98;
+  }
+  52%,
+  90% {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+  96% {
+    opacity: 0;
+    translate: 0 -2px;
+    scale: 0.99;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .import-flight {
+    display: none;
+  }
+
+  .import-result {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    animation: none;
   }
 }
 
