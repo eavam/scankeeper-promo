@@ -1,16 +1,17 @@
 import React from "react";
-import Header from "./header";
 import Footer from "./footer";
+import Header from "./header";
 import "../styles/global.css";
 
-const Layout = ({ children }) => {
-  return (
-    <div className="layout">
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </div>
-  );
-};
+const Layout = ({ children }) => (
+  <div className="layout">
+    <a className="skip-link" href="#main-content">
+      Skip to content
+    </a>
+    <Header />
+    <main id="main-content">{children}</main>
+    <Footer />
+  </div>
+);
 
 export default Layout;

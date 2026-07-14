@@ -32,14 +32,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
-          cache: "yarn" # or 'npm' if you use npm
+          node-version: "20"
+          cache: "yarn"
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
-        run: |
-          yarn install
+        run: yarn install --immutable
         env:
           SHARP_IGNORE_GLOBAL_LIBVIPS: "true"
 
@@ -47,8 +49,6 @@ jobs:
         run: yarn build
         env:
           GATSBY_CONCURRENT_DOWNLOAD: 5
-          # Explicitly set the repository name as a base path
-          GATSBY_PATH_PREFIX: /scankeeper-promo
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

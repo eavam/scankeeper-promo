@@ -1,17 +1,15 @@
 // @ts-check
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
+/** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
-  pathPrefix: `/`,
   siteMetadata: {
-    title: `ScanKeeper`,
-    description: `A mobile app for scanning, storing, and organizing QR codes and barcodes`,
-    siteUrl: `https://scankeeper.nomadixapps.org/`,
-    author: `Nomadix Apps`,
-    image: `/logo.png`,
+    title: `ScanKeeper — Loyalty Card Wallet`,
+    description: `An offline loyalty card wallet, QR scanner, and barcode organizer for iPhone and Android.`,
+    siteUrl: `https://scankeeper.nomadixapps.org`,
+    author: `Nomadix Apps LLC`,
+    image: `/social-card.png`,
   },
+  trailingSlash: `always`,
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -30,11 +28,6 @@ module.exports = {
         path: `${__dirname}/src/markdown`,
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [],
-      },
-    },
+    `gatsby-transformer-remark`,
   ],
 };

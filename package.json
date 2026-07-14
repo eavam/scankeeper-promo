@@ -2,7 +2,7 @@
   "name": "scankeeper-website",
   "version": "1.0.0",
   "private": true,
-  "description": "ScanKeeper Website",
+  "description": "ScanKeeper loyalty card wallet and barcode organizer website",
   "keywords": [
     "gatsby",
     "scankeeper",
@@ -12,8 +12,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build --prefix-paths",
-    "serve": "gatsby serve --prefix-paths",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {

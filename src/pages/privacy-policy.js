@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
+import Seo from "../components/seo";
 import "../styles/global.css";
 
 const PrivacyPolicy = ({ data }) => {
@@ -38,3 +39,15 @@ export const query = graphql`
 `;
 
 export default PrivacyPolicy;
+
+export const Head = () => (
+  <Seo
+    title="ScanKeeper Privacy Policy & Terms of Service"
+    description="Learn how ScanKeeper stores barcode data, uses optional iCloud sync, analytics, advertising, crash reporting, and subscriptions."
+    path="/privacy-policy/"
+    breadcrumbs={[
+      { name: "Home", path: "/" },
+      { name: "Privacy Policy", path: "/privacy-policy/" },
+    ]}
+  />
+);
