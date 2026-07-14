@@ -2,6 +2,14 @@ import React from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import FeatureIcon from "../components/feature-icon";
+import {
+  FoldersScene,
+  ImportScene,
+  OfflineScene,
+  ScannerScene,
+  ScanScene,
+  WidgetsScene,
+} from "../components/feature-scenes";
 import Layout from "../components/layout";
 import ProductTour from "../components/product-tour";
 import Seo from "../components/seo";
@@ -189,15 +197,7 @@ const IndexPage = () => (
             number="01"
             title="Scan almost any everyday code"
             tone="peach"
-            artwork={
-              <StaticImage
-                src="../images/feature-scan.webp"
-                alt="A dimensional stack of barcode cards"
-                placeholder="none"
-                width={230}
-                quality={90}
-              />
-            }
+            artwork={<ScanScene />}
           >
             Capture QR, EAN, UPC, PDF417, Data Matrix, Aztec, Code 128, and more
             with the camera.
@@ -206,15 +206,7 @@ const IndexPage = () => (
             number="02"
             title="Import from Photos"
             tone="mint"
-            artwork={
-              <StaticImage
-                src="../images/feature-import.webp"
-                alt="A dimensional photo printer for batch import"
-                placeholder="none"
-                width={230}
-                quality={90}
-              />
-            }
+            artwork={<ImportScene />}
           >
             Turn an existing photo or screenshot into a reusable card without
             rescanning the original.
@@ -223,15 +215,7 @@ const IndexPage = () => (
             number="03"
             title="Folders that fit your life"
             tone="indigo"
-            artwork={
-              <StaticImage
-                src="../images/feature-folders.webp"
-                alt="Colorful dimensional folders"
-                placeholder="none"
-                width={230}
-                quality={90}
-              />
-            }
+            artwork={<FoldersScene />}
           >
             Group Shopping, Travel, Work, memberships, and tickets, then swipe
             between collections.
@@ -239,15 +223,7 @@ const IndexPage = () => (
           <FeatureCard
             number="04"
             title="Available offline"
-            artwork={
-              <StaticImage
-                src="../images/feature-offline.webp"
-                alt="A dimensional zebra-striped card tray"
-                placeholder="none"
-                width={230}
-                quality={90}
-              />
-            }
+            artwork={<OfflineScene />}
           >
             Your saved codes open even when reception is weak. Core scanning and
             storage do not need an account.
@@ -256,15 +232,7 @@ const IndexPage = () => (
             number="05"
             title="Home screen widgets"
             tone="mint"
-            artwork={
-              <StaticImage
-                src="../images/feature-widget.webp"
-                alt="Dimensional QR and barcode widget tiles"
-                placeholder="none"
-                width={230}
-                quality={90}
-              />
-            }
+            artwork={<WidgetsScene />}
           >
             Keep frequently used cards close so you can reach the right barcode
             with fewer taps.
@@ -273,15 +241,7 @@ const IndexPage = () => (
             number="06"
             title="Made for real scanners"
             tone="peach"
-            artwork={
-              <StaticImage
-                src="../images/feature-display.webp"
-                alt="A dimensional wallet filled with colorful barcode cards"
-                placeholder="none"
-                width={230}
-                quality={90}
-              />
-            }
+            artwork={<ScannerScene />}
           >
             Open a code full-screen with an automatic brightness boost for a
             cleaner read at checkout.
