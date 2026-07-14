@@ -3,7 +3,7 @@
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
-    title: `ScanKeeper — Loyalty Card Wallet`,
+    title: `ScanKeeper App — Loyalty Card Wallet`,
     description: `An offline loyalty card wallet, QR scanner, and barcode organizer for iPhone and Android.`,
     siteUrl: `https://scankeeper.nomadixapps.org`,
     author: `Nomadix Apps LLC`,

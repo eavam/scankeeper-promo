@@ -1,6 +1,6 @@
 {
-  "name": "ScanKeeper — Loyalty Card Wallet",
-  "short_name": "ScanKeeper",
+  "name": "ScanKeeper App — Loyalty Card Wallet",
+  "short_name": "ScanKeeper App",
   "description": "Offline loyalty card wallet and barcode organizer for iPhone and Android.",
   "start_url": "/",
   "display": "browser",
