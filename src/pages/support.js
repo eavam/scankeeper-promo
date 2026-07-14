@@ -9,7 +9,7 @@ const SupportPage = () => (
   <Layout>
     <section className="simple-hero">
       <div className="container narrow-container">
-        <p className="eyebrow">ScanKeeper support</p>
+        <p className="eyebrow">ScanKeeper App support</p>
         <h1>How can we help?</h1>
         <p>
           Start with the quick answers below. If something is not working, email
@@ -91,9 +91,7 @@ const SupportPage = () => (
             <p>
               Barcode content, names, folders, and images are stored in the app
               on your device. Optional iCloud sync uses your own Apple account.
-              For analytics, advertising, crash reporting, and subscription
-              details, read the{" "}
-              <Link to="/privacy-policy/">Privacy Policy</Link>.
+              The full privacy policy is available from the site footer.
             </p>
           </article>
         </div>
@@ -106,7 +104,7 @@ export default SupportPage;
 
 export const Head = () => (
   <Seo
-    title="ScanKeeper Support — Help With Scanning, Sync & Purchases"
+    title="ScanKeeper App Support — Help With Scanning, Sync & Purchases"
     description="Get help with ScanKeeper barcode scanning, image import, offline use, iCloud sync, CSV export, privacy, and restoring Pro purchases."
     path="/support/"
     breadcrumbs={[

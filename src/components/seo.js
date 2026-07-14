@@ -3,6 +3,7 @@ import {
   APP_NAME,
   APP_STORE_URL,
   GOOGLE_PLAY_URL,
+  SITE_NAME,
   SITE_URL,
 } from "../constants/site";
 
@@ -84,7 +85,7 @@ const Seo = ({
       <link rel="manifest" href="/site.webmanifest" />
       <meta name="theme-color" content="#f7f5f1" />
       <meta property="og:type" content={article ? "article" : "website"} />
-      <meta property="og:site_name" content={APP_NAME} />
+      <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />

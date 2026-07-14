@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image";
 const Header = () => (
   <header className="site-header">
     <div className="container header-inner">
-      <Link to="/" className="brand" aria-label="ScanKeeper home">
+      <Link to="/" className="brand" aria-label="ScanKeeper App home">
         <StaticImage
           src="../images/app-icon.png"
           alt=""
@@ -15,7 +15,7 @@ const Header = () => (
           loading="eager"
           className="brand-icon"
         />
-        <span>ScanKeeper</span>
+        <span>ScanKeeper App</span>
       </Link>
 
       <nav className="desktop-nav" aria-label="Main navigation">

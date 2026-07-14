@@ -105,7 +105,7 @@ export default ScanFromImagePage;
 
 export const Head = () => (
   <Seo
-    title="How to Scan a QR Code From a Screenshot or Image | ScanKeeper"
+    title="How to Scan a QR Code From a Screenshot or Image | ScanKeeper App"
     description="Scan a QR code or barcode from a screenshot on the same phone. Import one image or up to 50 photos, then save and organize each detected code."
     path="/scan-qr-code-from-image/"
     faq={faq}

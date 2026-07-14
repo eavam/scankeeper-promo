@@ -16,7 +16,7 @@ const Footer = () => (
               width={44}
               height={44}
             />
-            <span>ScanKeeper</span>
+            <span>ScanKeeper App</span>
           </Link>
           <p>
             A fast, flexible wallet for the barcodes and QR codes you actually

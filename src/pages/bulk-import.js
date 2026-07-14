@@ -70,7 +70,10 @@ const BulkImportPage = () => (
     ]}
     faq={faq}
   >
-    <section className="article-media-block article-media-reverse">
+    <section
+      className="article-media-block article-media-reverse"
+      id="wallet-migration"
+    >
       <div>
         <p className="eyebrow">Built for migration</p>
         <h2>Moving wallets should not mean scanning every card again</h2>
@@ -105,7 +108,7 @@ export default BulkImportPage;
 
 export const Head = () => (
   <Seo
-    title="Bulk Import QR Codes & Barcodes From Photos | ScanKeeper"
+    title="Bulk Import QR Codes & Barcodes From Photos | ScanKeeper App"
     description="Import up to 50 barcode or QR code photos at once. ScanKeeper analyzes the batch on-device, then helps you review, name, and organize each card."
     path="/bulk-import/"
     faq={faq}

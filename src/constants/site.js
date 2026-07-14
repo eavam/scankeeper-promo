@@ -9,3 +9,5 @@ export const GOOGLE_PLAY_URL =
 export const SUPPORT_EMAIL = "info@nomadixapps.org";
 
 export const APP_NAME = "ScanKeeper";
+
+export const SITE_NAME = "ScanKeeper App";

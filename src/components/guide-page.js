@@ -51,7 +51,7 @@ const GuidePage = ({
       <div className="container article-container">
         <section>
           <p className="eyebrow">Step by step</p>
-          <h2>How it works in ScanKeeper</h2>
+          <h2>How it works in ScanKeeper App</h2>
           <div className="article-steps">
             {steps.map((step, index) => (
               <div key={step.title}>

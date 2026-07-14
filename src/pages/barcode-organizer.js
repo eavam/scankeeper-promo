@@ -106,7 +106,7 @@ export default BarcodeOrganizerPage;
 
 export const Head = () => (
   <Seo
-    title="Barcode Organizer App — Save, Search & Sort Codes | ScanKeeper"
+    title="Barcode Organizer App — Save, Search & Sort Codes | ScanKeeper App"
     description="Save QR codes and barcodes with names, images, folders, search, archive, widgets, and CSV export. Works offline on iPhone and Android."
     path="/barcode-organizer/"
     faq={faq}

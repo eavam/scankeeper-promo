@@ -107,7 +107,7 @@ export default LoyaltyCardWalletPage;
 
 export const Head = () => (
   <Seo
-    title="Loyalty Card Wallet App for iPhone & Android | ScanKeeper"
+    title="Loyalty Card Wallet App for iPhone & Android | ScanKeeper App"
     description="Store loyalty, reward, membership, gym, and club card barcodes in one offline wallet. Organize folders and open any card in one tap."
     path="/loyalty-card-wallet/"
     faq={faq}

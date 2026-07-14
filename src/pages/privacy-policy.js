@@ -42,7 +42,7 @@ export default PrivacyPolicy;
 
 export const Head = () => (
   <Seo
-    title="ScanKeeper Privacy Policy & Terms of Service"
+    title="ScanKeeper App Privacy Policy & Terms of Service"
     description="Learn how ScanKeeper stores barcode data, uses optional iCloud sync, analytics, advertising, crash reporting, and subscriptions."
     path="/privacy-policy/"
     breadcrumbs={[

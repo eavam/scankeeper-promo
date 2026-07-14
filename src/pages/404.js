@@ -22,7 +22,7 @@ export default NotFoundPage;
 
 export const Head = () => (
   <Seo
-    title="Page not found | ScanKeeper"
+    title="Page not found | ScanKeeper App"
     description="This ScanKeeper page could not be found."
     path="/404/"
   />
