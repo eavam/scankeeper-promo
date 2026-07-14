@@ -359,8 +359,8 @@ const IndexPage = () => (
         <div className="use-case-grid">
           <article data-reveal>
             <div className="use-case-top">
-              <span className="use-case-art use-case-art-card" aria-hidden="true">
-                <i />
+              <span className="use-case-art" aria-hidden="true">
+                <FeatureIcon name="groceries" size={27} />
               </span>
               <span className="use-case-label">Groceries</span>
             </div>
@@ -369,8 +369,8 @@ const IndexPage = () => (
           </article>
           <article data-reveal>
             <div className="use-case-top">
-              <span className="use-case-art use-case-art-pass" aria-hidden="true">
-                <i />
+              <span className="use-case-art" aria-hidden="true">
+                <FeatureIcon name="everyday" size={27} />
               </span>
               <span className="use-case-label">Every day</span>
             </div>
@@ -379,8 +379,8 @@ const IndexPage = () => (
           </article>
           <article data-reveal>
             <div className="use-case-top">
-              <span className="use-case-art use-case-art-ticket" aria-hidden="true">
-                <i />
+              <span className="use-case-art" aria-hidden="true">
+                <FeatureIcon name="travel" size={27} />
               </span>
               <span className="use-case-label">Travel</span>
             </div>
@@ -389,8 +389,8 @@ const IndexPage = () => (
           </article>
           <article data-reveal>
             <div className="use-case-top">
-              <span className="use-case-art use-case-art-qr" aria-hidden="true">
-                <i />
+              <span className="use-case-art" aria-hidden="true">
+                <FeatureIcon name="events" size={27} />
               </span>
               <span className="use-case-label">Events</span>
             </div>
@@ -399,8 +399,8 @@ const IndexPage = () => (
           </article>
           <article data-reveal>
             <div className="use-case-top">
-              <span className="use-case-art use-case-art-gift" aria-hidden="true">
-                <i />
+              <span className="use-case-art" aria-hidden="true">
+                <FeatureIcon name="savings" size={27} />
               </span>
               <span className="use-case-label">Savings</span>
             </div>
@@ -409,8 +409,8 @@ const IndexPage = () => (
           </article>
           <article data-reveal>
             <div className="use-case-top">
-              <span className="use-case-art use-case-art-stack" aria-hidden="true">
-                <i />
+              <span className="use-case-art" aria-hidden="true">
+                <FeatureIcon name="work" size={27} />
               </span>
               <span className="use-case-label">Work</span>
             </div>

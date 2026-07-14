@@ -2026,28 +2026,14 @@ h1 {
   height: 46px;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 6px;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: var(--white);
   cursor: pointer;
 }
 
-.menu-toggle span {
-  width: 18px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--ink);
-  transition: transform 180ms ease;
-}
-
-.menu-is-open .menu-toggle span:first-child {
-  transform: translateY(4px) rotate(45deg);
-}
-
-.menu-is-open .menu-toggle span:last-child {
-  transform: translateY(-4px) rotate(-45deg);
+.menu-toggle svg {
+  display: block;
 }
 
 .mobile-nav-wrap {
@@ -2642,131 +2628,45 @@ h1 {
 
 .use-case-art {
   position: relative;
-  display: block;
+  display: grid;
   width: 58px;
   height: 48px;
+  place-items: center;
   flex: 0 0 auto;
   border: 1px solid rgba(16, 16, 15, 0.13);
+  border-radius: 13px;
   background: var(--white);
   box-shadow: 0 8px 20px rgba(16, 16, 15, 0.07);
 }
 
-.use-case-art i {
-  position: absolute;
-  display: block;
-}
-
-.use-case-art-card {
-  border-radius: 11px;
+.use-case-grid article:nth-child(1) .use-case-art {
   background: var(--peach);
   transform: rotate(-5deg);
 }
 
-.use-case-art-card i {
-  right: 8px;
-  bottom: 8px;
-  left: 8px;
-  height: 12px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--ink) 0 2px,
-    transparent 2px 5px
-  );
-}
-
-.use-case-art-pass {
-  border-radius: 50% 50% 10px 10px;
+.use-case-grid article:nth-child(2) .use-case-art {
   background: var(--mint);
+  transform: rotate(3deg);
 }
 
-.use-case-art-pass i {
-  inset: 10px 15px 9px;
-  border: 2px solid var(--ink);
-  border-radius: 50% 50% 7px 7px;
-}
-
-.use-case-art-ticket {
-  border-radius: 9px;
+.use-case-grid article:nth-child(3) .use-case-art {
   background: var(--indigo-light);
   transform: rotate(4deg);
 }
 
-.use-case-art-ticket i {
-  top: 8px;
-  bottom: 8px;
-  left: 28px;
-  border-left: 2px dashed rgba(16, 16, 15, 0.45);
-}
-
-.use-case-art-qr {
-  border-radius: 10px;
-  background:
-    linear-gradient(90deg, var(--ink) 8px, transparent 8px) 8px 8px / 18px 18px,
-    linear-gradient(var(--ink) 8px, transparent 8px) 8px 8px / 18px 18px,
-    var(--white);
-}
-
-.use-case-art-qr i {
-  right: 8px;
-  bottom: 7px;
-  width: 13px;
-  height: 13px;
+.use-case-grid article:nth-child(4) .use-case-art {
   background: var(--peach);
+  transform: rotate(-3deg);
 }
 
-.use-case-art-gift {
-  border-radius: 8px 8px 13px 13px;
-  background: var(--peach);
+.use-case-grid article:nth-child(5) .use-case-art {
+  background: var(--indigo-light);
+  transform: rotate(3deg);
 }
 
-.use-case-art-gift::before,
-.use-case-art-gift::after {
-  position: absolute;
-  top: -8px;
-  width: 19px;
-  height: 15px;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  content: "";
-}
-
-.use-case-art-gift::before {
-  left: 10px;
-  transform: rotate(28deg);
-}
-
-.use-case-art-gift::after {
-  right: 10px;
-  transform: rotate(-28deg);
-}
-
-.use-case-art-gift i {
-  top: 0;
-  bottom: 0;
-  left: 26px;
-  width: 6px;
-  background: var(--ink);
-}
-
-.use-case-art-stack {
-  border-radius: 10px;
+.use-case-grid article:nth-child(6) .use-case-art {
   background: var(--mint-light);
-  box-shadow:
-    6px 6px 0 var(--peach),
-    12px 12px 0 var(--indigo);
-  transform: translate(-6px, -6px);
-}
-
-.use-case-art-stack i {
-  right: 8px;
-  bottom: 9px;
-  left: 8px;
-  height: 8px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--ink) 0 2px,
-    transparent 2px 4px
-  );
+  transform: rotate(-4deg);
 }
 
 .use-case-grid h3 {

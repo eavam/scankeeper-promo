@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { IconMenu2, IconX } from "@tabler/icons-react";
 
 const links = [
   { to: "/#features", label: "Features" },
@@ -76,8 +77,11 @@ const Header = () => {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             onClick={() => setIsMenuOpen((open) => !open)}
           >
-            <span />
-            <span />
+            {isMenuOpen ? (
+              <IconX aria-hidden="true" size={22} stroke={2} />
+            ) : (
+              <IconMenu2 aria-hidden="true" size={22} stroke={2} />
+            )}
           </button>
         </div>
       </div>

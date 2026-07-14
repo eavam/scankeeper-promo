@@ -19,6 +19,7 @@
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.2.10",
     "@fontsource-variable/manrope": "^5.2.8",
+    "@tabler/icons-react": "^3.44.0",
     "gatsby": "^5.12.0",
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-sharp": "^5.12.0",
