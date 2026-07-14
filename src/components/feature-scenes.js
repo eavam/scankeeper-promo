@@ -6,6 +6,7 @@ import {
   IconSearch,
   IconWifiOff,
 } from "@tabler/icons-react";
+import handheldScanner from "../images/handheld-scanner-soft.webp";
 
 const EAN13_PATTERN = [
   "101",
@@ -55,6 +56,16 @@ const AppMark = () => (
   <span className="scene-app-mark">
     <img src="/favicon.png" alt="" width="28" height="28" />
   </span>
+);
+
+const HandheldScanner = () => (
+  <img
+    className="scanner-device-art"
+    src={handheldScanner}
+    alt=""
+    width="1118"
+    height="1406"
+  />
 );
 
 const Scene = ({ className, children }) => (
@@ -283,9 +294,18 @@ export const ScannerScene = () => (
       <Barcode />
       <small>Keep screen facing the reader</small>
     </div>
+    <span className="scanner-check scanner-check-one">
+      <IconCheck size={14} stroke={2.5} />
+    </span>
+    <span className="scanner-check scanner-check-two">
+      <IconCheck size={14} stroke={2.5} />
+    </span>
+    <span className="scanner-check scanner-check-three">
+      <IconCheck size={14} stroke={2.5} />
+    </span>
+    <span className="scanner-beam" />
     <div className="checkout-scanner">
-      <span className="scanner-lens" />
+      <HandheldScanner />
     </div>
-    <span className="scanner-laser" />
   </Scene>
 );
