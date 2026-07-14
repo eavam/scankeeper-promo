@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   IconBrightnessUp,
+  IconCellSignal1,
   IconCheck,
   IconPhoto,
+  IconQrcode,
   IconSearch,
+  IconSignalLte,
   IconWifiOff,
 } from "@tabler/icons-react";
 import handheldScanner from "../images/handheld-scanner-soft.webp";
@@ -76,6 +79,50 @@ const Scene = ({ className, children }) => (
     {children}
   </div>
 );
+
+const OFFLINE_CARDS = [
+  {
+    id: "loyalty",
+    className: "offline-card-one",
+    label: "Loyalty card",
+    code: "barcode",
+  },
+  {
+    id: "boarding",
+    className: "offline-card-two",
+    label: "Boarding pass",
+    code: "qr",
+  },
+  {
+    id: "membership",
+    className: "offline-card-three",
+    label: "Membership",
+    code: "barcode",
+  },
+];
+
+const OFFLINE_PHASE_DELAY = {
+  idle: 2400,
+  departing: 720,
+  promoting: 720,
+  returning: 720,
+};
+
+const getOfflineCardPosition = (index, phase) => {
+  if (phase === "departing") {
+    return index === 0 ? "departing" : index === 1 ? "middle" : "back";
+  }
+
+  if (phase === "promoting") {
+    return index === 0 ? "parked" : index === 1 ? "front" : "middle";
+  }
+
+  if (phase === "returning") {
+    return index === 0 ? "returning" : index === 1 ? "front" : "middle";
+  }
+
+  return index === 0 ? "front" : index === 1 ? "middle" : "back";
+};
 
 export const ScanScene = () => (
   <Scene className="feature-scene-scan">
@@ -234,29 +281,110 @@ export const FoldersScene = () => (
   </Scene>
 );
 
-export const OfflineScene = () => (
-  <Scene className="feature-scene-offline">
-    <div className="offline-signal">
-      <span />
-      <span />
-      <span />
-      <IconWifiOff size={25} stroke={1.7} />
-    </div>
-    <div className="offline-card">
-      <span className="offline-card-head">
-        <AppMark />
-        <span>
-          <b>Grocery card</b>
-          <small>Stored on this device</small>
-        </span>
-      </span>
-      <Barcode />
-      <span className="offline-ready">
-        <IconCheck size={13} stroke={2.3} /> Ready offline
-      </span>
-    </div>
-  </Scene>
-);
+export const OfflineScene = () => {
+  const [motionEnabled, setMotionEnabled] = useState(false);
+  const [deck, setDeck] = useState({
+    order: OFFLINE_CARDS.map(({ id }) => id),
+    phase: "idle",
+  });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncMotionPreference = () => {
+      setMotionEnabled(!mediaQuery.matches);
+
+      if (mediaQuery.matches) {
+        setDeck((current) => ({ ...current, phase: "idle" }));
+      }
+    };
+
+    syncMotionPreference();
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", syncMotionPreference);
+      return () => mediaQuery.removeEventListener("change", syncMotionPreference);
+    }
+
+    mediaQuery.addListener(syncMotionPreference);
+    return () => mediaQuery.removeListener(syncMotionPreference);
+  }, []);
+
+  useEffect(() => {
+    if (!motionEnabled) return undefined;
+
+    const timer = window.setTimeout(() => {
+      setDeck((current) => {
+        if (current.phase === "idle") {
+          return { ...current, phase: "departing" };
+        }
+
+        if (current.phase === "departing") {
+          return { ...current, phase: "promoting" };
+        }
+
+        if (current.phase === "promoting") {
+          return { ...current, phase: "returning" };
+        }
+
+        const [front, ...rest] = current.order;
+        return { order: [...rest, front], phase: "idle" };
+      });
+    }, OFFLINE_PHASE_DELAY[deck.phase]);
+
+    return () => window.clearTimeout(timer);
+  }, [deck.phase, motionEnabled]);
+
+  return (
+    <Scene className="feature-scene-offline">
+      <div className="offline-signal">
+        <IconCellSignal1
+          className="offline-signal-cell"
+          size={25}
+          stroke={1.8}
+        />
+        <IconSignalLte
+          className="offline-signal-network"
+          size={27}
+          stroke={1.7}
+        />
+        <IconWifiOff
+          className="offline-signal-wifi"
+          size={27}
+          stroke={1.8}
+        />
+      </div>
+      <div className="offline-card-stack">
+        {deck.order.map((cardId, index) => {
+          const card = OFFLINE_CARDS.find(({ id }) => id === cardId);
+          const position = getOfflineCardPosition(index, deck.phase);
+
+          return (
+            <div
+              className={`offline-card ${card.className} offline-card-${position}`}
+              key={card.id}
+            >
+              <span className="offline-card-kicker">{card.label}</span>
+              <span
+                className={`offline-code-area${
+                  card.code === "qr" ? " offline-code-area-qr" : ""
+                }`}
+              >
+                {card.code === "qr" ? (
+                  <IconQrcode size={56} stroke={1.65} />
+                ) : (
+                  <Barcode />
+                )}
+              </span>
+              <span className="offline-ready">
+                <IconCheck size={13} stroke={2.3} /> Ready offline
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </Scene>
+  );
+};
 
 export const WidgetsScene = () => (
   <Scene className="feature-scene-widgets">
