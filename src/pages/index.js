@@ -6,6 +6,7 @@ import Layout from "../components/layout";
 import ProductTour from "../components/product-tour";
 import Seo from "../components/seo";
 import StoreButtons from "../components/store-buttons";
+import { GuideZebraArt, ZebraRule } from "../components/zebra-art";
 import { getAppStoreUrl, getGooglePlayUrl } from "../constants/site";
 
 const faq = [
@@ -349,12 +350,16 @@ const IndexPage = () => (
       <div className="container use-case-layout">
         <div className="use-case-intro" data-reveal>
           <p className="eyebrow">One wallet, many routines</p>
-          <h2>Useful well beyond the grocery store.</h2>
+          <h2>
+            <span>Useful well</span>{" "}
+            <span>beyond the</span>{" "}
+            <span>grocery store.</span>
+          </h2>
           <p>
             The same fast, offline card works wherever a scanner—or a person—
             needs to see your code.
           </p>
-          <span className="zebra-rule" aria-hidden="true" />
+          <ZebraRule />
         </div>
         <div className="use-case-grid">
           <article data-reveal>
@@ -479,6 +484,7 @@ const IndexPage = () => (
             data-reveal
           >
             <span>Guide 01</span>
+            <GuideZebraArt />
             <h3>Turn loyalty cards into a phone wallet</h3>
             <p>For store, club, membership, and reward cards.</p>
             <b>Read guide →</b>
