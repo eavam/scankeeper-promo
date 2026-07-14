@@ -75,11 +75,10 @@ const ProductTour = () => {
           <p className="eyebrow">{step.eyebrow}</p>
           <h3>{step.title}</h3>
           <p>{step.text}</p>
-          <div className="tour-progress" aria-hidden="true">
-            {steps.map((item, index) => (
-              <span className={index <= activeStep ? "is-filled" : undefined} key={item.label} />
-            ))}
-          </div>
+          <p className="tour-position">
+            <span>{String(activeStep + 1).padStart(2, "0")}</span>
+            of {String(steps.length).padStart(2, "0")} · Choose a step above
+          </p>
         </div>
 
         <div className="tour-device" aria-live="polite">

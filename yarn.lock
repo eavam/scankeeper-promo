@@ -1503,6 +1503,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-variable/bricolage-grotesque@npm:^5.2.10":
+  version: 5.2.10
+  resolution: "@fontsource-variable/bricolage-grotesque@npm:5.2.10"
+  checksum: 10c0/5963126874a66170093b2639f534b502cba78315fe50bfbdceb0ce124beb922071a69fdb6d66a7ab0983a67435ca3b466fe0722e5bd4bbcd525e352d9a03c499
+  languageName: node
+  linkType: hard
+
+"@fontsource-variable/manrope@npm:^5.2.8":
+  version: 5.2.8
+  resolution: "@fontsource-variable/manrope@npm:5.2.8"
+  checksum: 10c0/3c1e9c924d3f870938d203bb19ad90322bba50f2387b9967674494fdd22f5e65a90d89310415c4b77d384811aca82b95e29635e2383d31ff4d26536ed090e91a
+  languageName: node
+  linkType: hard
+
 "@gatsbyjs/parcel-namer-relative-to-cwd@npm:2.14.0":
   version: 2.14.0
   resolution: "@gatsbyjs/parcel-namer-relative-to-cwd@npm:2.14.0"
@@ -12942,6 +12956,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "scankeeper-website@workspace:."
   dependencies:
+    "@fontsource-variable/bricolage-grotesque": "npm:^5.2.10"
+    "@fontsource-variable/manrope": "npm:^5.2.8"
     gatsby: "npm:^5.12.0"
     gatsby-plugin-image: "npm:^3.12.0"
     gatsby-plugin-sharp: "npm:^5.12.0"

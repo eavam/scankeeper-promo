@@ -1,11 +1,11 @@
 import React from "react";
 import { withPrefix } from "gatsby";
-import { APP_STORE_URL, GOOGLE_PLAY_URL } from "../constants/site";
+import { getAppStoreUrl, getGooglePlayUrl } from "../constants/site";
 
 const StoreButtons = ({ compact = false, location = "website" }) => (
   <div className={`store-buttons${compact ? " store-buttons-compact" : ""}`}>
     <a
-      href={APP_STORE_URL}
+      href={getAppStoreUrl(location)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Download ScanKeeper on the App Store"
@@ -18,7 +18,7 @@ const StoreButtons = ({ compact = false, location = "website" }) => (
       />
     </a>
     <a
-      href={`${GOOGLE_PLAY_URL}&utm_source=scankeeper_website&utm_medium=referral&utm_campaign=${location}`}
+      href={getGooglePlayUrl(location)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Get ScanKeeper on Google Play"

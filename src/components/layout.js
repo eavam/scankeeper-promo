@@ -1,4 +1,6 @@
 import React from "react";
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource-variable/manrope";
 import Footer from "./footer";
 import Header from "./header";
 import MotionEnhancer from "./motion-enhancer";

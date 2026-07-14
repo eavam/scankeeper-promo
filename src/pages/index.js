@@ -6,6 +6,7 @@ import Layout from "../components/layout";
 import ProductTour from "../components/product-tour";
 import Seo from "../components/seo";
 import StoreButtons from "../components/store-buttons";
+import { getAppStoreUrl, getGooglePlayUrl } from "../constants/site";
 
 const faq = [
   {
@@ -17,6 +18,11 @@ const faq = [
     question: "Do I need to create an account?",
     answer:
       "No. ScanKeeper does not require an account, email address, or sign-up to use the app.",
+  },
+  {
+    question: "Is ScanKeeper really free?",
+    answer:
+      "Yes. You can save as many cards and codes as you need, and the scanning, importing, folders, widgets, themes, and offline features stay available for free. A one-time purchase is optional if you want to remove ads and support development.",
   },
   {
     question: "Can ScanKeeper read a QR code from a screenshot?",
@@ -40,12 +46,10 @@ const faq = [
   },
 ];
 
-const FeatureCard = ({ artwork, icon, title, children, tone = "plain" }) => (
+const FeatureCard = ({ artwork, number, title, children, tone = "plain" }) => (
   <article className={`feature-card feature-card-${tone}`} data-reveal>
     <div className="feature-card-visual">
-      <span className="feature-icon">
-        <FeatureIcon name={icon} size={25} />
-      </span>
+      <span className="feature-number">{number}</span>
       <div className="feature-artwork">{artwork}</div>
     </div>
     <div className="feature-card-copy">
@@ -60,8 +64,9 @@ const IndexPage = () => (
     <section className="hero">
       <div className="container hero-grid">
         <div className="hero-copy" data-reveal>
-          <p className="eyebrow">
-            ScanKeeper App · Barcode wallet for iPhone &amp; Android
+          <p className="eyebrow hero-eyebrow">
+            <span>Free · No card limits</span>
+            Barcode wallet for iPhone &amp; Android
           </p>
           <h1>
             Every card.
@@ -75,7 +80,7 @@ const IndexPage = () => (
             into one tidy, offline wallet. Scan a code, import it from Photos,
             and pull it up in seconds.
           </p>
-          <StoreButtons location="homepage_hero" />
+          <StoreButtons compact location="homepage_hero" />
           <ul className="trust-list" aria-label="Key benefits">
             <li>
               <FeatureIcon name="check" size={17} /> Works offline
@@ -84,7 +89,7 @@ const IndexPage = () => (
               <FeatureIcon name="check" size={17} /> No account
             </li>
             <li>
-              <FeatureIcon name="check" size={17} /> 40+ languages
+              <FeatureIcon name="check" size={17} /> Every feature included
             </li>
           </ul>
         </div>
@@ -95,6 +100,7 @@ const IndexPage = () => (
           data-reveal
         >
           <div className="zebra-card" aria-hidden="true" />
+          <div className="hero-color-card" aria-hidden="true" />
           <div className="phone phone-hero">
             <StaticImage
               src="../images/app-home.png"
@@ -123,19 +129,40 @@ const IndexPage = () => (
       </div>
     </section>
 
-    <section className="problem-strip" aria-label="ScanKeeper benefits">
-      <div className="container problem-grid">
-        <div>
-          <span>01</span>
-          <p>Leave the plastic cards at home.</p>
+    <section className="store-proof" aria-label="ScanKeeper store availability">
+      <div className="container store-proof-inner">
+        <div className="store-proof-intro">
+          <span className="live-dot" aria-hidden="true" />
+          <p>
+            <strong>Live in both app stores.</strong>
+            Independently listed by Apple and Google.
+          </p>
         </div>
-        <div>
-          <span>02</span>
-          <p>Clear barcode screenshots from your camera roll.</p>
-        </div>
-        <div>
-          <span>03</span>
-          <p>Stop searching while the queue waits.</p>
+        <div className="store-proof-grid">
+          <a
+            href={getAppStoreUrl("homepage_proof")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>App Store</span>
+            <b>Free ↗</b>
+          </a>
+          <a
+            href={getGooglePlayUrl("homepage_proof")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Google Play</span>
+            <b>Free ↗</b>
+          </a>
+          <div>
+            <span>Languages</span>
+            <b>40+</b>
+          </div>
+          <div>
+            <span>Sign-up</span>
+            <b>Not needed</b>
+          </div>
         </div>
       </div>
     </section>
@@ -153,9 +180,12 @@ const IndexPage = () => (
           </p>
         </div>
 
+        <p className="feature-swipe-hint">
+          Swipe through six features <span aria-hidden="true">→</span>
+        </p>
         <div className="feature-grid">
           <FeatureCard
-            icon="scan"
+            number="01"
             title="Scan almost any everyday code"
             tone="peach"
             artwork={
@@ -172,7 +202,7 @@ const IndexPage = () => (
             with the camera.
           </FeatureCard>
           <FeatureCard
-            icon="photos"
+            number="02"
             title="Import from Photos"
             tone="mint"
             artwork={
@@ -189,7 +219,7 @@ const IndexPage = () => (
             rescanning the original.
           </FeatureCard>
           <FeatureCard
-            icon="folders"
+            number="03"
             title="Folders that fit your life"
             tone="indigo"
             artwork={
@@ -206,7 +236,7 @@ const IndexPage = () => (
             between collections.
           </FeatureCard>
           <FeatureCard
-            icon="offline"
+            number="04"
             title="Available offline"
             artwork={
               <StaticImage
@@ -222,7 +252,7 @@ const IndexPage = () => (
             storage do not need an account.
           </FeatureCard>
           <FeatureCard
-            icon="widget"
+            number="05"
             title="Home screen widgets"
             tone="mint"
             artwork={
@@ -239,7 +269,7 @@ const IndexPage = () => (
             with fewer taps.
           </FeatureCard>
           <FeatureCard
-            icon="brightness"
+            number="06"
             title="Made for real scanners"
             tone="peach"
             artwork={
@@ -259,6 +289,51 @@ const IndexPage = () => (
       </div>
     </section>
 
+    <section className="section free-section" id="free">
+      <div className="container free-stage" data-reveal>
+        <div className="free-copy">
+          <p className="eyebrow">Free means the whole app</p>
+          <h2>Not a three-card demo.</h2>
+          <p>
+            Save as many cards and codes as you need. Scanning, importing,
+            folders, widgets, themes, and offline access stay unlocked—without
+            a subscription waiting around the corner.
+          </p>
+          <div className="free-zebra" aria-hidden="true">
+            <span>NO LIMITS</span>
+          </div>
+        </div>
+
+        <div className="free-ledger">
+          <div className="free-ledger-head">
+            <span>Included for free</span>
+            <strong>$0</strong>
+          </div>
+          <ul>
+            <li>
+              <FeatureIcon name="check" size={20} /> Unlimited saved cards and
+              codes
+            </li>
+            <li>
+              <FeatureIcon name="check" size={20} /> Unlimited folders and
+              organization
+            </li>
+            <li>
+              <FeatureIcon name="check" size={20} /> Scan and import from Photos
+            </li>
+            <li>
+              <FeatureIcon name="check" size={20} /> Offline wallet, widgets,
+              and themes
+            </li>
+          </ul>
+          <div className="free-optional">
+            <span>Optional, one time</span>
+            <p>Remove ads and support the developer. Nothing else is locked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section className="section section-dark" id="how-it-works">
       <div className="container">
         <div className="section-heading section-heading-light" data-reveal>
@@ -267,67 +342,78 @@ const IndexPage = () => (
         </div>
 
         <ProductTour />
-
-        <div className="screen-pair" data-reveal>
-          <div className="screen-copy">
-            <p className="eyebrow">A faster way to move in</p>
-            <h2>Import up to 50 barcode photos at once.</h2>
-            <p>
-              Switching apps or cleaning up years of screenshots should not take
-              all afternoon. Select a batch from your gallery, let ScanKeeper
-              find the codes, then review and name them.
-            </p>
-            <Link className="text-link" to="/bulk-import/">
-              See how bulk import works <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-          <div className="migration-artwork">
-            <StaticImage
-              src="../images/wallet-migration-3d.webp"
-              alt="Barcode screenshots flowing into an organized digital wallet"
-              placeholder="none"
-              width={690}
-              quality={90}
-            />
-          </div>
-        </div>
       </div>
     </section>
 
-    <section className="section use-cases">
-      <div className="container">
-        <div className="section-heading centered-heading" data-reveal>
+    <section className="section use-cases" id="use-cases">
+      <div className="container use-case-layout">
+        <div className="use-case-intro" data-reveal>
           <p className="eyebrow">One wallet, many routines</p>
           <h2>Useful well beyond the grocery store.</h2>
+          <p>
+            The same fast, offline card works wherever a scanner—or a person—
+            needs to see your code.
+          </p>
+          <span className="zebra-rule" aria-hidden="true" />
         </div>
         <div className="use-case-grid">
           <article data-reveal>
-            <span>Groceries</span>
+            <div className="use-case-top">
+              <span className="use-case-art use-case-art-card" aria-hidden="true">
+                <i />
+              </span>
+              <span className="use-case-label">Groceries</span>
+            </div>
             <h3>Loyalty &amp; reward cards</h3>
             <p>Keep supermarket and retail barcodes together.</p>
           </article>
           <article data-reveal>
-            <span>Every day</span>
+            <div className="use-case-top">
+              <span className="use-case-art use-case-art-pass" aria-hidden="true">
+                <i />
+              </span>
+              <span className="use-case-label">Every day</span>
+            </div>
             <h3>Gym &amp; library access</h3>
             <p>Find memberships before you reach the door.</p>
           </article>
           <article data-reveal>
-            <span>Travel</span>
+            <div className="use-case-top">
+              <span className="use-case-art use-case-art-ticket" aria-hidden="true">
+                <i />
+              </span>
+              <span className="use-case-label">Travel</span>
+            </div>
             <h3>Tickets &amp; memberships</h3>
             <p>Organize travel codes and hotel reward cards.</p>
           </article>
           <article data-reveal>
-            <span>Events</span>
+            <div className="use-case-top">
+              <span className="use-case-art use-case-art-qr" aria-hidden="true">
+                <i />
+              </span>
+              <span className="use-case-label">Events</span>
+            </div>
             <h3>Concert &amp; cinema codes</h3>
             <p>Save the QR image instead of hunting through email.</p>
           </article>
           <article data-reveal>
-            <span>Savings</span>
+            <div className="use-case-top">
+              <span className="use-case-art use-case-art-gift" aria-hidden="true">
+                <i />
+              </span>
+              <span className="use-case-label">Savings</span>
+            </div>
             <h3>Coupons &amp; gift cards</h3>
             <p>Keep promotional barcodes from getting buried in Photos.</p>
           </article>
           <article data-reveal>
-            <span>Work</span>
+            <div className="use-case-top">
+              <span className="use-case-art use-case-art-stack" aria-hidden="true">
+                <i />
+              </span>
+              <span className="use-case-label">Work</span>
+            </div>
             <h3>Labels &amp; CSV export</h3>
             <p>Archive scanned values and move them to a spreadsheet.</p>
           </article>
@@ -335,7 +421,7 @@ const IndexPage = () => (
       </div>
     </section>
 
-    <section className="section privacy-section">
+    <section className="section privacy-section" id="privacy">
       <div className="container privacy-grid" data-reveal>
         <div className="phone phone-dark">
           <StaticImage
@@ -375,7 +461,7 @@ const IndexPage = () => (
       </div>
     </section>
 
-    <section className="section guides-section">
+    <section className="section guides-section" id="guides">
       <div className="container">
         <div className="section-heading split-heading" data-reveal>
           <div>
@@ -421,7 +507,7 @@ const IndexPage = () => (
       </div>
     </section>
 
-    <section className="section faq-section">
+    <section className="section faq-section" id="faq">
       <div className="container faq-grid" data-reveal>
         <div className="faq-intro">
           <p className="eyebrow">Questions, answered</p>
@@ -447,9 +533,9 @@ const IndexPage = () => (
     <section className="download-section" id="download">
       <div className="container download-card" data-reveal>
         <div>
-          <p className="eyebrow">Free to download</p>
+          <p className="eyebrow">Free, with every feature</p>
           <h2>Make your wallet lighter today.</h2>
-          <p>Available on the App Store and Google Play.</p>
+          <p>No card limits. No account. No subscription required.</p>
         </div>
         <StoreButtons location="homepage_footer" />
       </div>

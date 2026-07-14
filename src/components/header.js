@@ -1,35 +1,106 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
-const Header = () => (
-  <header className="site-header">
-    <div className="container header-inner">
-      <Link to="/" className="brand" aria-label="ScanKeeper App home">
-        <StaticImage
-          src="../images/app-icon.png"
-          alt=""
-          placeholder="none"
-          width={48}
-          height={48}
-          loading="eager"
-          className="brand-icon"
-        />
-        <span>ScanKeeper App</span>
-      </Link>
+const links = [
+  { to: "/#features", label: "Features" },
+  { to: "/#how-it-works", label: "How it works" },
+  { to: "/loyalty-card-wallet/", label: "Guides" },
+  { to: "/support/", label: "Support" },
+];
 
-      <nav className="desktop-nav" aria-label="Main navigation">
-        <Link to="/#features">Features</Link>
-        <Link to="/#how-it-works">How it works</Link>
-        <Link to="/loyalty-card-wallet/">Guides</Link>
-        <Link to="/support/">Support</Link>
-      </nav>
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-      <Link to="/#download" className="button button-small button-dark">
-        Get the app
-      </Link>
-    </div>
-  </header>
-);
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
+  return (
+    <header className={`site-header${isMenuOpen ? " menu-is-open" : ""}`}>
+      <div className="container header-inner">
+        <Link
+          to="/"
+          className="brand"
+          aria-label="ScanKeeper App home"
+          onClick={closeMenu}
+        >
+          <StaticImage
+            src="../images/app-icon.png"
+            alt=""
+            placeholder="none"
+            width={48}
+            height={48}
+            loading="eager"
+            className="brand-icon"
+          />
+          <span>ScanKeeper App</span>
+        </Link>
+
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {links.map(({ to, label }) => (
+            <Link to={to} key={to}>
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="header-actions">
+          <Link
+            to="/#download"
+            className="button button-small button-dark header-cta"
+            onClick={closeMenu}
+          >
+            Get the app
+          </Link>
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
+      </div>
+
+      {isMenuOpen && (
+        <div className="mobile-nav-wrap" id="mobile-navigation">
+          <nav className="container mobile-nav" aria-label="Mobile navigation">
+            <p>Explore ScanKeeper</p>
+            {links.map(({ to, label }, index) => (
+              <Link to={to} onClick={closeMenu} key={to}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {label}
+              </Link>
+            ))}
+            <div className="mobile-nav-note">
+              <b>Free. No card limits.</b>
+              <span>Available for iPhone, iPad, and Android.</span>
+            </div>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
 
 export default Header;
