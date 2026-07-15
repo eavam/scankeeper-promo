@@ -5335,12 +5335,6 @@ h1 {
   -webkit-backdrop-filter: blur(14px);
 }
 
-.tour-screen-caption > span {
-  color: var(--peach);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-}
-
 .tour-screen-caption small {
   color: rgba(255, 255, 255, 0.53);
   font-size: 0.63rem;

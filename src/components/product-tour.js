@@ -442,7 +442,6 @@ const ProductTour = () => {
           </div>
         </div>
         <p className="tour-screen-caption">
-          <span>Step {String(activeStep + 1).padStart(2, "0")}</span>
           {frame.title}
           <small>{frame.caption}</small>
         </p>
