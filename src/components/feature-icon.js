@@ -3,6 +3,7 @@ import {
   IconBrightnessUp,
   IconCheck,
   IconCloudUpload,
+  IconDeviceMobile,
   IconFileExport,
   IconFileSpreadsheet,
   IconFolders,
@@ -14,6 +15,7 @@ import {
   IconScan,
   IconShoppingBag,
   IconTicket,
+  IconUserOff,
   IconWifiOff,
 } from "@tabler/icons-react";
 
@@ -25,7 +27,9 @@ const icons = {
   widget: IconLayoutDashboard,
   brightness: IconBrightnessUp,
   cloud: IconCloudUpload,
+  device: IconDeviceMobile,
   export: IconFileExport,
+  account: IconUserOff,
   check: IconCheck,
   groceries: IconShoppingBag,
   everyday: IconIdBadge2,

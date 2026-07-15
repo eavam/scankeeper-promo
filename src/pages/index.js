@@ -68,6 +68,51 @@ const FeatureCard = ({ artwork, number, title, children, tone = "plain" }) => (
   </article>
 );
 
+const DataOwnershipVisual = () => (
+  <div className="privacy-visual" aria-hidden="true">
+    <div className="privacy-data-card privacy-data-local">
+      <div className="privacy-card-heading">
+        <span className="privacy-card-icon">
+          <FeatureIcon name="device" size={28} />
+        </span>
+        <span>Local first</span>
+      </div>
+      <strong>Stored on your device</strong>
+      <span className="privacy-local-status">
+        <i /> Ready offline
+      </span>
+    </div>
+
+    <div className="privacy-data-card privacy-data-cloud">
+      <div className="privacy-cloud-row">
+        <span className="privacy-card-icon">
+          <FeatureIcon name="cloud" size={26} />
+        </span>
+        <strong>iCloud Sync</strong>
+        <span className="privacy-toggle"><i /></span>
+      </div>
+      <small>Optional on iPhone &amp; iPad</small>
+    </div>
+
+    <div className="privacy-data-card privacy-data-account">
+      <span className="privacy-card-icon">
+        <FeatureIcon name="account" size={27} />
+      </span>
+      <strong>No account</strong>
+      <small>No email. No sign-up.</small>
+    </div>
+
+    <div className="privacy-data-card privacy-data-export">
+      <div className="privacy-export-topline">
+        <span>YOUR COPY</span>
+        <FeatureIcon name="export" size={25} />
+      </div>
+      <strong>CSV</strong>
+      <small>Export anytime</small>
+    </div>
+  </div>
+);
+
 const IndexPage = () => (
   <Layout>
     <section className="hero">
@@ -298,8 +343,8 @@ const IndexPage = () => (
     <section className="section section-dark" id="how-it-works">
       <div className="container">
         <div className="section-heading section-heading-light" data-reveal>
-          <p className="eyebrow">An actual look inside ScanKeeper App</p>
-          <h2>See the whole flow, not just a feature list.</h2>
+          <p className="eyebrow">How ScanKeeper works</p>
+          <h2>From a photo to a card you can find, scan, and update.</h2>
         </div>
 
         <ProductTour />
@@ -388,17 +433,7 @@ const IndexPage = () => (
 
     <section className="section privacy-section" id="privacy">
       <div className="container privacy-grid" data-reveal>
-        <div className="phone phone-dark">
-          <StaticImage
-            src="../images/app-home-dark.png"
-            alt="ScanKeeper barcode wallet in dark mode"
-            placeholder="blurred"
-            width={342}
-            sizes="(max-width: 600px) 310px, 342px"
-            quality={84}
-            formats={["auto", "webp"]}
-          />
-        </div>
+        <DataOwnershipVisual />
         <div className="privacy-copy">
           <p className="eyebrow">No account. No lock-in.</p>
           <h2>Your codes live on your device.</h2>
@@ -409,6 +444,10 @@ const IndexPage = () => (
           </p>
           <ul className="check-list">
             <li>
+              <FeatureIcon name="check" size={19} /> Stored locally and ready
+              offline
+            </li>
+            <li>
               <FeatureIcon name="check" size={19} /> No email or registration
             </li>
             <li>
@@ -417,9 +456,6 @@ const IndexPage = () => (
             <li>
               <FeatureIcon name="check" size={19} /> CSV export when you want a
               copy
-            </li>
-            <li>
-              <FeatureIcon name="check" size={19} /> Light and dark themes
             </li>
           </ul>
         </div>
