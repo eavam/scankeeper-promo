@@ -1,7 +1,7 @@
 export const SITE_URL = "https://scankeeper.nomadixapps.org";
 
 export const APP_STORE_URL =
-  "https://apps.apple.com/us/app/scankeeper-loyalty-wallet/id6742491694";
+  "https://apps.apple.com/app/apple-store/id6742491694?pt=127661831&ct=homepage&mt=8";
 
 export const APP_STORE_PROVIDER_TOKEN =
   process.env.GATSBY_APP_STORE_PROVIDER_TOKEN || "";
@@ -19,16 +19,7 @@ const campaignToken = (location) =>
   `sk_${location}`.replace(/[^a-zA-Z0-9_.-]/g, "_").slice(0, 30);
 
 export const getAppStoreUrl = (location = "website") => {
-  const parameters = [
-    `ct=${encodeURIComponent(campaignToken(location))}`,
-    "mt=8",
-  ];
-
-  if (APP_STORE_PROVIDER_TOKEN) {
-    parameters.unshift(`pt=${encodeURIComponent(APP_STORE_PROVIDER_TOKEN)}`);
-  }
-
-  return `${APP_STORE_URL}?${parameters.join("&")}`;
+  return APP_STORE_URL;
 };
 
 export const getGooglePlayUrl = (location = "website") =>
