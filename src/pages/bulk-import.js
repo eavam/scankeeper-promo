@@ -1,5 +1,4 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import GuidePage from "../components/guide-page";
 import Seo from "../components/seo";
 
@@ -35,20 +34,39 @@ const BulkImportPage = () => (
     campaign="guide_bulk_import"
     steps={[
       {
-        title: "Collect the images",
-        text: "Save screenshots or photos of the cards and codes you want to bring into ScanKeeper.",
+        title: "Open Bulk import",
+        text: "Open Actions and choose Bulk import when the codes you need are already saved as photos or screenshots.",
+        visual: "actions",
+        focus: "actions-bulk",
+        hint: "Bulk import lives with the app's collection tools.",
       },
       {
-        title: "Start bulk import",
-        text: "Choose the multiple-photo import option and select up to 50 images from the gallery.",
+        title: "Select up to 50 photos",
+        text: "Choose the images from your gallery in one pass instead of importing every card separately.",
+        visual: "select-photos",
+        focus: "select-photos",
+        hint: "One batch can contain up to 50 images.",
       },
       {
-        title: "Let ScanKeeper analyze the batch",
+        title: "Let ScanKeeper scan the batch",
         text: "The app checks each image for supported QR codes and barcodes directly on the device.",
+        visual: "checking-photos",
+        focus: "checking-photos",
+        hint: "Recognition runs locally on the selected photos.",
       },
       {
-        title: "Review, name, and save",
-        text: "Walk through the recognized results, add useful names, and place the cards in the right collection.",
+        title: "Review every result",
+        text: "Readable codes arrive with their value. Add a clear name; if a photo cannot be read, fill in the missing value manually or skip it.",
+        visual: "import-form",
+        focus: "import-fields",
+        hint: "Keep the useful result, fix it, or skip the photo.",
+      },
+      {
+        title: "Return to your collection",
+        text: "Confirm the useful cards and finish the batch. The imported cards now live in the library with the rest of your collection.",
+        visual: "home",
+        focus: "home-imported-card",
+        hint: "The imported card is ready to search, open, and organize.",
       },
     ]}
     benefits={[
@@ -71,7 +89,7 @@ const BulkImportPage = () => (
     faq={faq}
   >
     <section
-      className="article-media-block article-media-reverse"
+      className="article-context-block article-context-reverse"
       id="wallet-migration"
     >
       <div>
@@ -89,17 +107,15 @@ const BulkImportPage = () => (
           the new collection useful.
         </p>
       </div>
-      <div className="article-phone">
-        <StaticImage
-          src="../images/app-bulk-import.png"
-          alt="ScanKeeper bulk importer for up to 50 barcode and QR photos"
-          placeholder="blurred"
-          width={340}
-          sizes="(max-width: 600px) 300px, 340px"
-          quality={84}
-          formats={["auto", "webp"]}
-        />
-      </div>
+      <aside className="article-context-card article-context-bulk">
+        <strong>50</strong>
+        <span>photos</span>
+        <div>
+          <small>one batch</small>
+          <small>on-device</small>
+          <small>guided review</small>
+        </div>
+      </aside>
     </section>
   </GuidePage>
 );

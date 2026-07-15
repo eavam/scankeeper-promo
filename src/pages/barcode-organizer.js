@@ -1,5 +1,4 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import GuidePage from "../components/guide-page";
 import Seo from "../components/seo";
 
@@ -36,20 +35,39 @@ const BarcodeOrganizerPage = () => (
     campaign="guide_barcode_organizer"
     steps={[
       {
-        title: "Capture or create the code",
-        text: "Scan with the camera, import an image, or enter the barcode information manually.",
+        title: "Add a code",
+        text: "Use the camera, import an image, or enter the value manually. All three routes create the same editable card.",
+        visual: "home",
+        focus: "home-scan",
+        hint: "Start from the scanner button at the bottom of the library.",
       },
       {
-        title: "Give it context",
-        text: "Replace an anonymous value with a name you recognize and, when useful, add a custom image or color.",
+        title: "Give it a name and look",
+        text: "Replace an anonymous barcode value with a name you recognize, then add a color or image for faster visual scanning.",
+        visual: "edit",
+        focus: "edit-identity",
+        hint: "Names and images are easier to recognize than raw values.",
       },
       {
-        title: "Choose a collection",
-        text: "Use folders such as Shopping, Work, Travel, Home, or your own categories.",
+        title: "Choose a folder",
+        text: "Place the card in Shopping, Work, Travel, Home, or a custom folder that matches why you saved it.",
+        visual: "edit-details",
+        focus: "edit-folder",
+        hint: "Organize around real uses, not barcode formats.",
       },
       {
-        title: "Maintain the collection",
-        text: "Search, reorder, edit, archive old cards, and export a CSV when you need a separate copy.",
+        title: "Find it again",
+        text: "Search by the name you gave the card. The library filters immediately, even as the collection grows.",
+        visual: "search",
+        focus: "search-field",
+        hint: "A familiar word takes you back to the right card.",
+      },
+      {
+        title: "Archive or export",
+        text: "Move old cards out of the active library without deleting them, or export a CSV when you need a separate copy.",
+        visual: "actions",
+        focus: "actions-organize",
+        hint: "Collection tools keep active cards focused and data portable.",
       },
     ]}
     benefits={[
@@ -71,7 +89,7 @@ const BarcodeOrganizerPage = () => (
     ]}
     faq={faq}
   >
-    <section className="article-media-block">
+    <section className="article-context-block">
       <div>
         <p className="eyebrow">Organize for retrieval</p>
         <h2>The best system is the one you can use under pressure</h2>
@@ -87,17 +105,13 @@ const BarcodeOrganizerPage = () => (
           keeps the most important cards where you expect them.
         </p>
       </div>
-      <div className="article-phone">
-        <StaticImage
-          src="../images/app-home-dark.png"
-          alt="Organized QR codes and barcodes in ScanKeeper dark mode"
-          placeholder="blurred"
-          width={340}
-          sizes="(max-width: 600px) 300px, 340px"
-          quality={84}
-          formats={["auto", "webp"]}
-        />
-      </div>
+      <aside className="article-context-card article-context-organizer">
+        <span>Search</span>
+        <span>Folders</span>
+        <span>Manual order</span>
+        <span>Archive</span>
+        <span>CSV export</span>
+      </aside>
     </section>
   </GuidePage>
 );

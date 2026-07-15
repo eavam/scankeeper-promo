@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import FeatureIcon from "./feature-icon";
+import GuideSteps from "./guide-steps";
 import Layout from "./layout";
 import StoreButtons from "./store-buttons";
 
@@ -52,17 +53,7 @@ const GuidePage = ({
         <section>
           <p className="eyebrow">Step by step</p>
           <h2>How it works in ScanKeeper App</h2>
-          <div className="article-steps">
-            {steps.map((step, index) => (
-              <div key={step.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <GuideSteps steps={steps} />
         </section>
 
         {children}

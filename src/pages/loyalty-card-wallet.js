@@ -1,5 +1,4 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import GuidePage from "../components/guide-page";
 import Seo from "../components/seo";
 
@@ -36,19 +35,31 @@ const LoyaltyCardWalletPage = () => (
     steps={[
       {
         title: "Scan the physical card",
-        text: "Open the scanner and point the camera at the barcode or QR code printed on your card.",
+        text: "Tap the scanner and point the camera at the barcode or QR code printed on the card. ScanKeeper recognizes supported formats automatically.",
+        visual: "scanner",
+        focus: "scanner-area",
+        hint: "Hold the printed code inside the camera view.",
       },
       {
-        title: "Make the card recognizable",
-        text: "Give it a clear name, choose a color, and add a photo or image if you want visual identification.",
+        title: "Make it recognizable",
+        text: "Give the card a name you will remember, then choose a color or add an image so it stands out in the library.",
+        visual: "edit",
+        focus: "edit-identity",
+        hint: "Name and style the card before you need it.",
       },
       {
-        title: "Place it in a folder",
-        text: "Group cards under Groceries, Shopping, Gym, Travel, or any collection that matches your routine.",
+        title: "Put it in the right folder",
+        text: "Add it to Groceries, Gym, Travel, or any folder that matches how you use it.",
+        visual: "edit-details",
+        focus: "edit-folder",
+        hint: "Folders keep a growing wallet easy to scan.",
       },
       {
-        title: "Show it at checkout",
-        text: "Tap the saved card to display its code full-screen with an automatic brightness boost.",
+        title: "Open and enlarge the code",
+        text: "Find the saved card, open it, and expand the barcode when the checkout scanner needs a larger target.",
+        visual: "expanded-code",
+        focus: "expanded-code",
+        hint: "A clean full-screen code is easier to present at checkout.",
       },
     ]}
     benefits={[
@@ -70,7 +81,7 @@ const LoyaltyCardWalletPage = () => (
     ]}
     faq={faq}
   >
-    <section className="article-media-block">
+    <section className="article-context-block">
       <div>
         <p className="eyebrow">A wallet for more than stores</p>
         <h2>Keep every barcode-based membership together</h2>
@@ -88,17 +99,18 @@ const LoyaltyCardWalletPage = () => (
           card is organized around your life instead of the issuer's brand.
         </p>
       </div>
-      <div className="article-phone">
-        <StaticImage
-          src="../images/app-home.png"
-          alt="Loyalty and membership cards organized in ScanKeeper"
-          placeholder="blurred"
-          width={340}
-          sizes="(max-width: 600px) 300px, 340px"
-          quality={84}
-          formats={["auto", "webp"]}
-        />
-      </div>
+      <aside className="article-context-card article-context-loyalty">
+        <span>One wallet</span>
+        <strong>Any supported code.</strong>
+        <div className="article-tag-cloud" aria-label="Examples of cards">
+          <span>Groceries</span>
+          <span>Gym</span>
+          <span>Library</span>
+          <span>Club pass</span>
+          <span>Gift card</span>
+          <span>Travel</span>
+        </div>
+      </aside>
     </section>
   </GuidePage>
 );

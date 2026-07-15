@@ -1,5 +1,4 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import GuidePage from "../components/guide-page";
 import Seo from "../components/seo";
 
@@ -35,20 +34,32 @@ const ScanFromImagePage = () => (
     campaign="guide_scan_from_image"
     steps={[
       {
-        title: "Save the image",
-        text: "Take a screenshot or save the photo containing the QR code or barcode to your gallery.",
+        title: "Open the scanner",
+        text: "Save the screenshot or photo to your gallery, then open ScanKeeper and tap the scanner button.",
+        visual: "home",
+        focus: "home-scan",
+        hint: "The same scanner handles the camera and saved images.",
       },
       {
-        title: "Choose Gallery in ScanKeeper",
-        text: "Open the scanner options and select the image source instead of using the live camera.",
+        title: "Choose Gallery",
+        text: "Use the photo control at the top of the scanner instead of pointing the camera at another screen.",
+        visual: "scanner",
+        focus: "scanner-gallery",
+        hint: "Choose an existing image from the same phone.",
       },
       {
-        title: "Select the screenshot",
-        text: "Pick the image. ScanKeeper analyzes it locally and extracts a supported code.",
+        title: "Review the detected code",
+        text: "Pick the image. ScanKeeper analyzes it locally, then shows the recognized format and value for review.",
+        visual: "scan-result",
+        focus: "scan-result-details",
+        hint: "Check the detected type and encoded value.",
       },
       {
-        title: "Review and save",
-        text: "Check the detected value, give the card a useful name, and place it in a folder.",
+        title: "Save it as a named card",
+        text: "Add a useful name, choose a folder if needed, and save the result so it is easier to find than the original screenshot.",
+        visual: "scan-result",
+        focus: "scan-result-save",
+        hint: "Save turns a one-off scan into a reusable card.",
       },
     ]}
     benefits={[
@@ -70,7 +81,7 @@ const ScanFromImagePage = () => (
     ]}
     faq={faq}
   >
-    <section className="article-media-block article-media-reverse">
+    <section className="article-context-block article-context-reverse">
       <div>
         <p className="eyebrow">More than a one-time reader</p>
         <h2>Turn a screenshot into something you can find again</h2>
@@ -86,17 +97,12 @@ const ScanFromImagePage = () => (
           you expect to show again.
         </p>
       </div>
-      <div className="article-phone">
-        <StaticImage
-          src="../images/app-bulk-import.png"
-          alt="Select photos containing QR codes and barcodes in ScanKeeper"
-          placeholder="blurred"
-          width={340}
-          sizes="(max-width: 600px) 300px, 340px"
-          quality={84}
-          formats={["auto", "webp"]}
-        />
-      </div>
+      <aside className="article-context-card article-context-image">
+        <span>SCREENSHOT</span>
+        <span className="article-context-arrow" aria-hidden="true">→</span>
+        <strong>Named card</strong>
+        <small>Same phone. No second camera.</small>
+      </aside>
     </section>
   </GuidePage>
 );
