@@ -57,7 +57,7 @@ const Barcode = ({ className = "" }) => (
 
 const AppMark = () => (
   <span className="scene-app-mark">
-    <img src="/favicon.png" alt="" width="28" height="28" />
+    <img src="/app-mark.png" alt="" width="28" height="28" />
   </span>
 );
 
@@ -66,8 +66,8 @@ const HandheldScanner = () => (
     className="scanner-device-art"
     src={handheldScanner}
     alt=""
-    width="1118"
-    height="1406"
+    width="264"
+    height="331"
   />
 );
 

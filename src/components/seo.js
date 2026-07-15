@@ -1,4 +1,6 @@
 import React from "react";
+import bricolageWoff2 from "@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2";
+import manropeWoff2 from "@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2";
 import {
   APP_NAME,
   APP_STORE_URL,
@@ -80,6 +82,20 @@ const Seo = ({
       <meta name="description" content={description} />
       <meta name="robots" content="index,follow,max-image-preview:large" />
       <link rel="canonical" href={canonical} />
+      <link
+        rel="preload"
+        href={bricolageWoff2}
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href={manropeWoff2}
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
       <link rel="icon" href="/favicon.png" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/site.webmanifest" />

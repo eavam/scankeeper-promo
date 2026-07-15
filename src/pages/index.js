@@ -117,7 +117,7 @@ const IndexPage = () => (
   <Layout>
     <section className="hero">
       <div className="container hero-grid">
-        <div className="hero-copy" data-reveal>
+        <div className="hero-copy">
           <p className="eyebrow hero-eyebrow">
             <span>Free · No card limits</span>
             Barcode wallet for iPhone &amp; Android
@@ -148,11 +148,7 @@ const IndexPage = () => (
           </ul>
         </div>
 
-        <div
-          className="hero-visual"
-          aria-label="ScanKeeper App preview"
-          data-reveal
-        >
+        <div className="hero-visual" aria-label="ScanKeeper App preview">
           <div className="zebra-card" aria-hidden="true" />
           <div className="hero-color-card" aria-hidden="true" />
           <div className="phone phone-hero">
