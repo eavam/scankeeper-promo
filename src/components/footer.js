@@ -26,7 +26,7 @@ const LanguageSelector = () => {
         <small>{t("Language")}</small>
         <strong>
           {activeLocale.nativeName}
-          <span>{activeLocale.regionName}</span>
+          <span lang="en">{activeLocale.englishName}</span>
         </strong>
       </span>
       <IconChevronDown
@@ -42,7 +42,7 @@ const LanguageSelector = () => {
       >
         {LOCALES.map((item) => (
           <option value={item.locale} lang={item.locale} key={item.locale}>
-            {item.nativeName} — {item.regionName}
+            {item.nativeName} — {item.englishName}
           </option>
         ))}
       </select>
