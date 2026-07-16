@@ -7,6 +7,9 @@ import localeConfig from "../i18n/locales";
 
 const { LOCALES, getLocale, localizePath } = localeConfig;
 
+const getLanguageLabel = ({ nativeName, englishName }) =>
+  nativeName === englishName ? nativeName : `${nativeName} — ${englishName}`;
+
 const LanguageSelector = () => {
   const { language, t } = useI18next();
   const activeLocale = getLocale(language);
@@ -26,7 +29,9 @@ const LanguageSelector = () => {
         <small>{t("Language")}</small>
         <strong>
           {activeLocale.nativeName}
-          <span lang="en">{activeLocale.englishName}</span>
+          {activeLocale.nativeName !== activeLocale.englishName && (
+            <span lang="en">{activeLocale.englishName}</span>
+          )}
         </strong>
       </span>
       <IconChevronDown
@@ -42,7 +47,7 @@ const LanguageSelector = () => {
       >
         {LOCALES.map((item) => (
           <option value={item.locale} lang={item.locale} key={item.locale}>
-            {item.nativeName} — {item.englishName}
+            {getLanguageLabel(item)}
           </option>
         ))}
       </select>
