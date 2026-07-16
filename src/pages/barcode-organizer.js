@@ -1,6 +1,12 @@
 import React from "react";
+import { graphql } from "gatsby";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 import GuidePage from "../components/guide-page";
 import Seo from "../components/seo";
+import {
+  getPageI18n,
+  translateFields,
+} from "../i18n/helpers";
 
 const faq = [
   {
@@ -26,14 +32,22 @@ const faq = [
   },
 ];
 
-const BarcodeOrganizerPage = () => (
-  <GuidePage
-    eyebrow="Barcode organizer guide"
-    title="Save and organize barcodes before they become a mess."
-    lede="A long scan history is not an organizer. ScanKeeper gives each code a recognizable card, then adds folders, search, manual ordering, and an archive so a growing collection stays useful."
-    quickAnswer="Use ScanKeeper to name saved QR codes and barcodes, add identifying images, group them into folders, search the whole collection, archive old codes, and export data to CSV."
+const BarcodeOrganizerPage = () => {
+  const { t } = useTranslation();
+  const localizedFaq = translateFields(t, faq, ["question", "answer"]);
+
+  return (
+    <GuidePage
+    eyebrow={t("Barcode organizer guide")}
+    title={t("Save and organize barcodes before they become a mess.")}
+    lede={t(
+      "A long scan history is not an organizer. ScanKeeper gives each code a recognizable card, then adds folders, search, manual ordering, and an archive so a growing collection stays useful.",
+    )}
+    quickAnswer={t(
+      "Use ScanKeeper to name saved QR codes and barcodes, add identifying images, group them into folders, search the whole collection, archive old codes, and export data to CSV.",
+    )}
     campaign="guide_barcode_organizer"
-    steps={[
+    steps={translateFields(t, [
       {
         title: "Add a code",
         text: "Use the camera, import an image, or enter the value manually. All three routes create the same editable card.",
@@ -69,8 +83,8 @@ const BarcodeOrganizerPage = () => (
         focus: "actions-organize",
         hint: "Collection tools keep active cards focused and data portable.",
       },
-    ]}
-    benefits={[
+    ], ["title", "text", "hint"])}
+    benefits={translateFields(t, [
       {
         icon: "folders",
         title: "Structure instead of history",
@@ -86,48 +100,71 @@ const BarcodeOrganizerPage = () => (
         title: "Portable data",
         text: "CSV export lets you move saved values into a backup or spreadsheet workflow.",
       },
-    ]}
-    faq={faq}
+    ], ["title", "text"])}
+    faq={localizedFaq}
   >
     <section className="article-context-block">
       <div>
-        <p className="eyebrow">Organize for retrieval</p>
-        <h2>The best system is the one you can use under pressure</h2>
+        <p className="eyebrow">{t("Organize for retrieval")}</p>
+        <h2>{t("The best system is the one you can use under pressure")}</h2>
         <p>
-          At a checkout, venue entrance, or front desk, you rarely remember the
-          exact encoded value. You remember that it is the grocery card, the gym
-          pass, or the ticket for tonight. ScanKeeper lets the collection match
-          that mental model with readable names, images, and folders.
+          {t(
+            "At a checkout, venue entrance, or front desk, you rarely remember the exact encoded value. You remember that it is the grocery card, the gym pass, or the ticket for tonight. ScanKeeper lets the collection match that mental model with readable names, images, and folders.",
+          )}
         </p>
         <p>
-          Search spans saved codes, while the archive moves expired or rarely
-          used items out of the active view without deleting them. Manual order
-          keeps the most important cards where you expect them.
+          {t(
+            "Search spans saved codes, while the archive moves expired or rarely used items out of the active view without deleting them. Manual order keeps the most important cards where you expect them.",
+          )}
         </p>
       </div>
       <aside className="article-context-card article-context-organizer">
-        <span>Search</span>
-        <span>Folders</span>
-        <span>Manual order</span>
-        <span>Archive</span>
-        <span>CSV export</span>
+        <span>{t("Search")}</span>
+        <span>{t("Folders")}</span>
+        <span>{t("Manual order")}</span>
+        <span>{t("Archive")}</span>
+        <span>{t("CSV export")}</span>
       </aside>
     </section>
-  </GuidePage>
-);
+    </GuidePage>
+  );
+};
 
 export default BarcodeOrganizerPage;
 
-export const Head = () => (
-  <Seo
-    title="Barcode Organizer App — Save, Search & Sort Codes | ScanKeeper App"
-    description="Save QR codes and barcodes with names, images, folders, search, archive, widgets, and CSV export. Works offline on iPhone and Android."
+export const query = graphql`
+  query BarcodeOrganizerPage($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
+
+export const Head = ({ data, pageContext }) => {
+  const { locale, t } = getPageI18n(data, pageContext);
+  const localizedFaq = translateFields(t, faq, ["question", "answer"]);
+
+  return (
+    <Seo
+    title={t("Barcode Organizer App — Save, Search & Sort Codes | ScanKeeper App")}
+    description={t(
+      "Save QR codes and barcodes with names, images, folders, search, archive, widgets, and CSV export. Works offline on iPhone and Android.",
+    )}
     path="/barcode-organizer/"
-    faq={faq}
+    faq={localizedFaq}
     article
     breadcrumbs={[
-      { name: "Home", path: "/" },
-      { name: "Barcode organizer", path: "/barcode-organizer/" },
+      { name: t("Home"), path: "/" },
+      { name: t("Barcode organizer"), path: "/barcode-organizer/" },
     ]}
+    locale={locale}
+    t={t}
   />
-);
+  );
+};

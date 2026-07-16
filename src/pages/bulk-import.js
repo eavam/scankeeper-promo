@@ -1,6 +1,12 @@
 import React from "react";
+import { graphql } from "gatsby";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 import GuidePage from "../components/guide-page";
 import Seo from "../components/seo";
+import {
+  getPageI18n,
+  translateFields,
+} from "../i18n/helpers";
 
 const faq = [
   {
@@ -25,14 +31,22 @@ const faq = [
   },
 ];
 
-const BulkImportPage = () => (
-  <GuidePage
-    eyebrow="Bulk import guide"
-    title="Move a camera roll full of barcodes in one batch."
-    lede="Select up to 50 photos or screenshots, let ScanKeeper detect the supported codes, then review and name the results. It is a faster way to migrate cards or clean up years of saved images."
-    quickAnswer="The bulk import flow scans up to 50 selected images on your device, keeps the recognized QR codes and barcodes, and guides you through naming each card before saving them together."
+const BulkImportPage = () => {
+  const { t } = useTranslation();
+  const localizedFaq = translateFields(t, faq, ["question", "answer"]);
+
+  return (
+    <GuidePage
+    eyebrow={t("Bulk import guide")}
+    title={t("Move a camera roll full of barcodes in one batch.")}
+    lede={t(
+      "Select up to 50 photos or screenshots, let ScanKeeper detect the supported codes, then review and name the results. It is a faster way to migrate cards or clean up years of saved images.",
+    )}
+    quickAnswer={t(
+      "The bulk import flow scans up to 50 selected images on your device, keeps the recognized QR codes and barcodes, and guides you through naming each card before saving them together.",
+    )}
     campaign="guide_bulk_import"
-    steps={[
+    steps={translateFields(t, [
       {
         title: "Open Bulk import",
         text: "Open Actions and choose Bulk import when the codes you need are already saved as photos or screenshots.",
@@ -68,8 +82,8 @@ const BulkImportPage = () => (
         focus: "home-imported-card",
         hint: "The imported card is ready to search, open, and organize.",
       },
-    ]}
-    benefits={[
+    ], ["title", "text", "hint"])}
+    benefits={translateFields(t, [
       {
         icon: "photos",
         title: "Up to 50 images",
@@ -85,53 +99,76 @@ const BulkImportPage = () => (
         title: "Local analysis",
         text: "The scan runs on the device and does not require uploading your barcode images to us.",
       },
-    ]}
-    faq={faq}
+    ], ["title", "text"])}
+    faq={localizedFaq}
   >
     <section
       className="article-context-block article-context-reverse"
       id="wallet-migration"
     >
       <div>
-        <p className="eyebrow">Built for migration</p>
-        <h2>Moving wallets should not mean scanning every card again</h2>
+        <p className="eyebrow">{t("Built for migration")}</p>
+        <h2>{t("Moving wallets should not mean scanning every card again")}</h2>
         <p>
-          People often keep loyalty codes in a mix of old wallet apps, retailer
-          apps, emails, and screenshots. When those images are already on your
-          phone, re-scanning the physical card adds unnecessary work. Bulk
-          import turns the gallery into a migration source.
+          {t(
+            "People often keep loyalty codes in a mix of old wallet apps, retailer apps, emails, and screenshots. When those images are already on your phone, re-scanning the physical card adds unnecessary work. Bulk import turns the gallery into a migration source.",
+          )}
         </p>
         <p>
-          Select a manageable batch, let ScanKeeper identify readable codes, and
-          then add the human details — names, images, and folders — that make
-          the new collection useful.
+          {t(
+            "Select a manageable batch, let ScanKeeper identify readable codes, and then add the human details — names, images, and folders — that make the new collection useful.",
+          )}
         </p>
       </div>
       <aside className="article-context-card article-context-bulk">
         <strong>50</strong>
-        <span>photos</span>
+        <span>{t("photos")}</span>
         <div>
-          <small>one batch</small>
-          <small>on-device</small>
-          <small>guided review</small>
+          <small>{t("one batch")}</small>
+          <small>{t("on-device")}</small>
+          <small>{t("guided review")}</small>
         </div>
       </aside>
     </section>
-  </GuidePage>
-);
+    </GuidePage>
+  );
+};
 
 export default BulkImportPage;
 
-export const Head = () => (
-  <Seo
-    title="Bulk Import QR Codes & Barcodes From Photos | ScanKeeper App"
-    description="Import up to 50 barcode or QR code photos at once. ScanKeeper analyzes the batch on-device, then helps you review, name, and organize each card."
+export const query = graphql`
+  query BulkImportPage($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
+
+export const Head = ({ data, pageContext }) => {
+  const { locale, t } = getPageI18n(data, pageContext);
+  const localizedFaq = translateFields(t, faq, ["question", "answer"]);
+
+  return (
+    <Seo
+    title={t("Bulk Import QR Codes & Barcodes From Photos | ScanKeeper App")}
+    description={t(
+      "Import up to 50 barcode or QR code photos at once. ScanKeeper analyzes the batch on-device, then helps you review, name, and organize each card.",
+    )}
     path="/bulk-import/"
-    faq={faq}
+    faq={localizedFaq}
     article
     breadcrumbs={[
-      { name: "Home", path: "/" },
-      { name: "Bulk import", path: "/bulk-import/" },
+      { name: t("Home"), path: "/" },
+      { name: t("Bulk import"), path: "/bulk-import/" },
     ]}
+    locale={locale}
+    t={t}
   />
-);
+  );
+};

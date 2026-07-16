@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 import FeatureIcon from "../components/feature-icon";
 import {
   FoldersScene,
@@ -16,6 +17,10 @@ import Seo from "../components/seo";
 import StoreButtons from "../components/store-buttons";
 import { GuideZebraArt, ZebraRule } from "../components/zebra-art";
 import { getAppStoreUrl, getGooglePlayUrl } from "../constants/site";
+import {
+  getPageI18n,
+  translateFields,
+} from "../i18n/helpers";
 
 const faq = [
   {
@@ -68,18 +73,21 @@ const FeatureCard = ({ artwork, number, title, children, tone = "plain" }) => (
   </article>
 );
 
-const DataOwnershipVisual = () => (
-  <div className="privacy-visual" aria-hidden="true">
+const DataOwnershipVisual = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="privacy-visual" aria-hidden="true">
     <div className="privacy-data-card privacy-data-local">
       <div className="privacy-card-heading">
         <span className="privacy-card-icon">
           <FeatureIcon name="device" size={28} />
         </span>
-        <span>Local first</span>
+        <span>{t("Local first")}</span>
       </div>
-      <strong>Stored on your device</strong>
+      <strong>{t("Stored on your device")}</strong>
       <span className="privacy-local-status">
-        <i /> Ready offline
+        <i /> {t("Ready offline")}
       </span>
     </div>
 
@@ -88,73 +96,80 @@ const DataOwnershipVisual = () => (
         <span className="privacy-card-icon">
           <FeatureIcon name="cloud" size={26} />
         </span>
-        <strong>iCloud Sync</strong>
+        <strong>{t("iCloud Sync")}</strong>
         <span className="privacy-toggle"><i /></span>
       </div>
-      <small>Optional on iPhone &amp; iPad</small>
+      <small>{t("Optional on iPhone & iPad")}</small>
     </div>
 
     <div className="privacy-data-card privacy-data-account">
       <span className="privacy-card-icon">
         <FeatureIcon name="account" size={27} />
       </span>
-      <strong>No account</strong>
-      <small>No email. No sign-up.</small>
+      <strong>{t("No account")}</strong>
+      <small>{t("No email. No sign-up.")}</small>
     </div>
 
     <div className="privacy-data-card privacy-data-export">
       <div className="privacy-export-topline">
-        <span>YOUR COPY</span>
+        <span>{t("YOUR COPY")}</span>
         <FeatureIcon name="export" size={25} />
       </div>
       <strong>CSV</strong>
-      <small>Export anytime</small>
+      <small>{t("Export anytime")}</small>
     </div>
-  </div>
-);
+    </div>
+  );
+};
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = () => {
+  const { t } = useTranslation();
+  const localizedFaq = translateFields(t, faq, ["question", "answer"]);
+
+  return (
+    <Layout>
     <section className="hero">
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="eyebrow hero-eyebrow">
-            <span>Free · No card limits</span>
-            Barcode wallet for iPhone &amp; Android
+            <span>{t("Free · No card limits")}</span>
+            {t("Barcode wallet for iPhone & Android")}
           </p>
           <h1>
-            Every card.
+            {t("Every card.")}
             <br />
-            Every code.
+            {t("Every code.")}
             <br />
-            <span>One tap away.</span>
+            <span>{t("One tap away.")}</span>
           </h1>
           <p className="hero-lede">
-            ScanKeeper turns plastic loyalty cards and forgotten screenshots
-            into one tidy, offline wallet. Scan a code, import it from Photos,
-            and pull it up in seconds.
+            {t(
+              "ScanKeeper turns plastic loyalty cards and forgotten screenshots into one tidy, offline wallet. Scan a code, import it from Photos, and pull it up in seconds.",
+            )}
           </p>
           <StoreButtons compact location="homepage_hero" />
-          <ul className="trust-list" aria-label="Key benefits">
+          <ul className="trust-list" aria-label={t("Key benefits")}>
             <li>
-              <FeatureIcon name="check" size={17} /> Works offline
+              <FeatureIcon name="check" size={17} /> {t("Works offline")}
             </li>
             <li>
-              <FeatureIcon name="check" size={17} /> No account
+              <FeatureIcon name="check" size={17} /> {t("No account")}
             </li>
             <li>
-              <FeatureIcon name="check" size={17} /> Every feature included
+              <FeatureIcon name="check" size={17} /> {t("Every feature included")}
             </li>
           </ul>
         </div>
 
-        <div className="hero-visual" aria-label="ScanKeeper App preview">
+        <div className="hero-visual" aria-label={t("ScanKeeper App preview")}>
           <div className="zebra-card" aria-hidden="true" />
           <div className="hero-color-card" aria-hidden="true" />
           <div className="phone phone-hero">
             <StaticImage
               src="../images/app-home.png"
-              alt="ScanKeeper loyalty card wallet showing organized barcode and QR cards"
+              alt={t(
+                "ScanKeeper loyalty card wallet showing organized barcode and QR cards",
+              )}
               placeholder="blurred"
               loading="eager"
               width={355}
@@ -166,26 +181,29 @@ const IndexPage = () => (
           <div className="floating-note floating-note-top">
             <FeatureIcon name="offline" size={20} />
             <span>
-              <strong>No signal?</strong> Your cards still open.
+              <strong>{t("No signal?")}</strong> {t("Your cards still open.")}
             </span>
           </div>
           <div className="floating-note floating-note-bottom">
             <span className="mini-barcode" aria-hidden="true" />
             <span>
-              <strong>Ready to scan</strong> at full brightness.
+              <strong>{t("Ready to scan")}</strong> {t("at full brightness.")}
             </span>
           </div>
         </div>
       </div>
     </section>
 
-    <section className="store-proof" aria-label="ScanKeeper store availability">
+    <section
+      className="store-proof"
+      aria-label={t("ScanKeeper store availability")}
+    >
       <div className="container store-proof-inner">
         <div className="store-proof-intro">
           <span className="live-dot" aria-hidden="true" />
           <p>
-            <strong>Live in both app stores.</strong>
-            Independently listed by Apple and Google.
+            <strong>{t("Live in both app stores.")}</strong>
+            {t("Independently listed by Apple and Google.")}
           </p>
         </div>
         <div className="store-proof-grid">
@@ -195,7 +213,7 @@ const IndexPage = () => (
             rel="noopener noreferrer"
           >
             <span>App Store</span>
-            <b>Free ↗</b>
+            <b>{t("Free")} ↗</b>
           </a>
           <a
             href={getGooglePlayUrl("homepage_proof")}
@@ -203,15 +221,15 @@ const IndexPage = () => (
             rel="noopener noreferrer"
           >
             <span>Google Play</span>
-            <b>Free ↗</b>
+            <b>{t("Free")} ↗</b>
           </a>
           <div>
-            <span>Languages</span>
-            <b>40+</b>
+            <span>{t("Languages")}</span>
+            <b>39</b>
           </div>
           <div>
-            <span>Sign-up</span>
-            <b>Not needed</b>
+            <span>{t("Sign-up")}</span>
+            <b>{t("Not needed")}</b>
           </div>
         </div>
       </div>
@@ -221,71 +239,78 @@ const IndexPage = () => (
       <div className="container">
         <div className="section-heading split-heading" data-reveal>
           <div>
-            <p className="eyebrow">A wallet that stays useful</p>
-            <h2>Built for the moment you need the code.</h2>
+            <p className="eyebrow">{t("A wallet that stays useful")}</p>
+            <h2>{t("Built for the moment you need the code.")}</h2>
           </div>
           <p>
-            From a grocery checkout to a gym door, ScanKeeper keeps saved codes
-            easy to find, easy to read, and available without a connection.
+            {t(
+              "From a grocery checkout to a gym door, ScanKeeper keeps saved codes easy to find, easy to read, and available without a connection.",
+            )}
           </p>
         </div>
 
         <p className="feature-swipe-hint">
-          Swipe through six features <span aria-hidden="true">→</span>
+          {t("Swipe through six features")} <span aria-hidden="true">→</span>
         </p>
         <div className="feature-grid">
           <FeatureCard
             number="01"
-            title="Scan almost any everyday code"
+            title={t("Scan almost any everyday code")}
             tone="peach"
             artwork={<ScanScene />}
           >
-            Capture QR, EAN, UPC, PDF417, Data Matrix, Aztec, Code 128, and more
-            with the camera.
+            {t(
+              "Capture QR, EAN, UPC, PDF417, Data Matrix, Aztec, Code 128, and more with the camera.",
+            )}
           </FeatureCard>
           <FeatureCard
             number="02"
-            title="Import from Photos"
+            title={t("Import from Photos")}
             tone="mint"
             artwork={<ImportScene />}
           >
-            Turn an existing photo or screenshot into a reusable card without
-            rescanning the original.
+            {t(
+              "Turn an existing photo or screenshot into a reusable card without rescanning the original.",
+            )}
           </FeatureCard>
           <FeatureCard
             number="03"
-            title="Folders that fit your life"
+            title={t("Folders that fit your life")}
             tone="indigo"
             artwork={<FoldersScene />}
           >
-            Group Shopping, Travel, Work, memberships, and tickets, then swipe
-            between collections.
+            {t(
+              "Group Shopping, Travel, Work, memberships, and tickets, then swipe between collections.",
+            )}
           </FeatureCard>
           <FeatureCard
             number="04"
-            title="Available offline"
+            title={t("Available offline")}
             artwork={<OfflineScene />}
           >
-            Your saved codes open even when reception is weak. Core scanning and
-            storage do not need an account.
+            {t(
+              "Your saved codes open even when reception is weak. Core scanning and storage do not need an account.",
+            )}
           </FeatureCard>
           <FeatureCard
             number="05"
-            title="Home screen widgets"
+            title={t("Home screen widgets")}
             tone="mint"
             artwork={<WidgetsScene />}
           >
-            Keep frequently used cards close so you can reach the right barcode
-            with fewer taps.
+            {t(
+              "Keep frequently used cards close so you can reach the right barcode with fewer taps.",
+            )}
           </FeatureCard>
           <FeatureCard
             number="06"
-            title="Made for real scanners"
+            title={t("Made for real scanners")}
             tone="peach"
             artwork={<ScannerScene />}
           >
-            Open a code full-screen with an automatic brightness boost for a
-            cleaner read at checkout.
+            {t(
+              "Open a code full-screen with an automatic brightness boost for a cleaner read at checkout.",
+            )}
           </FeatureCard>
         </div>
       </div>
@@ -294,43 +319,40 @@ const IndexPage = () => (
     <section className="section free-section" id="free">
       <div className="container free-stage" data-reveal>
         <div className="free-copy">
-          <p className="eyebrow">Free means the whole app</p>
-          <h2>Not a three-card demo.</h2>
+          <p className="eyebrow">{t("Free means the whole app")}</p>
+          <h2>{t("Not a three-card demo.")}</h2>
           <p>
-            Save as many cards and codes as you need. Scanning, importing,
-            folders, widgets, themes, and offline access stay unlocked—without
-            a subscription waiting around the corner.
+            {t(
+              "Save as many cards and codes as you need. Scanning, importing, folders, widgets, themes, and offline access stay unlocked—without a subscription waiting around the corner.",
+            )}
           </p>
           <div className="free-zebra" aria-hidden="true">
-            <span>NO LIMITS</span>
+            <span>{t("NO LIMITS")}</span>
           </div>
         </div>
 
         <div className="free-ledger">
           <div className="free-ledger-head">
-            <span>Included for free</span>
+            <span>{t("Included for free")}</span>
             <strong>$0</strong>
           </div>
           <ul>
             <li>
-              <FeatureIcon name="check" size={20} /> Unlimited saved cards and
-              codes
+              <FeatureIcon name="check" size={20} /> {t("Unlimited saved cards and codes")}
             </li>
             <li>
-              <FeatureIcon name="check" size={20} /> Unlimited folders and
-              organization
+              <FeatureIcon name="check" size={20} /> {t("Unlimited folders and organization")}
             </li>
             <li>
-              <FeatureIcon name="check" size={20} /> Scan and import from Photos
+              <FeatureIcon name="check" size={20} /> {t("Scan and import from Photos")}
             </li>
             <li>
-              <FeatureIcon name="check" size={20} /> Offline wallet, widgets,
-              and themes
+              <FeatureIcon name="check" size={20} /> {t("Offline wallet, widgets, and themes")}
             </li>
           </ul>
           <div className="free-optional">
-            <span>Optional, one time</span>
-            <p>Remove ads and support the developer. Nothing else is locked.</p>
+            <span>{t("Optional, one time")}</span>
+            <p>{t("Remove ads and support the developer. Nothing else is locked.")}</p>
           </div>
         </div>
       </div>
@@ -339,8 +361,8 @@ const IndexPage = () => (
     <section className="section section-dark" id="how-it-works">
       <div className="container">
         <div className="section-heading section-heading-light" data-reveal>
-          <p className="eyebrow">How ScanKeeper works</p>
-          <h2>From a photo to a card you can find, scan, and update.</h2>
+          <p className="eyebrow">{t("How ScanKeeper works")}</p>
+          <h2>{t("From a photo to a card you can find, scan, and update.")}</h2>
         </div>
 
         <ProductTour />
@@ -350,15 +372,12 @@ const IndexPage = () => (
     <section className="section use-cases" id="use-cases">
       <div className="container use-case-layout">
         <div className="use-case-intro" data-reveal>
-          <p className="eyebrow">One wallet, many routines</p>
-          <h2>
-            <span>Useful well</span>{" "}
-            <span>beyond the</span>{" "}
-            <span>grocery store.</span>
-          </h2>
+          <p className="eyebrow">{t("One wallet, many uses")}</p>
+          <h2>{t("Useful far beyond the grocery store.")}</h2>
           <p>
-            The same fast, offline card works wherever a scanner—or a person—
-            needs to see your code.
+            {t(
+              "The same fast, offline card works wherever a scanner—or a person—needs to see your code.",
+            )}
           </p>
           <ZebraRule />
         </div>
@@ -368,60 +387,60 @@ const IndexPage = () => (
               <span className="use-case-art" aria-hidden="true">
                 <FeatureIcon name="groceries" size={27} />
               </span>
-              <span className="use-case-label">Groceries</span>
+              <span className="use-case-label">{t("Groceries")}</span>
             </div>
-            <h3>Loyalty &amp; reward cards</h3>
-            <p>Keep supermarket and retail barcodes together.</p>
+            <h3>{t("Loyalty & reward cards")}</h3>
+            <p>{t("Keep supermarket and retail barcodes together.")}</p>
           </article>
           <article data-reveal>
             <div className="use-case-top">
               <span className="use-case-art" aria-hidden="true">
                 <FeatureIcon name="everyday" size={27} />
               </span>
-              <span className="use-case-label">Every day</span>
+              <span className="use-case-label">{t("Every day")}</span>
             </div>
-            <h3>Gym &amp; library access</h3>
-            <p>Find memberships before you reach the door.</p>
+            <h3>{t("Gym & library access")}</h3>
+            <p>{t("Find memberships before you reach the door.")}</p>
           </article>
           <article data-reveal>
             <div className="use-case-top">
               <span className="use-case-art" aria-hidden="true">
                 <FeatureIcon name="travel" size={27} />
               </span>
-              <span className="use-case-label">Travel</span>
+              <span className="use-case-label">{t("Travel")}</span>
             </div>
-            <h3>Tickets &amp; memberships</h3>
-            <p>Organize travel codes and hotel reward cards.</p>
+            <h3>{t("Tickets & memberships")}</h3>
+            <p>{t("Organize travel codes and hotel reward cards.")}</p>
           </article>
           <article data-reveal>
             <div className="use-case-top">
               <span className="use-case-art" aria-hidden="true">
                 <FeatureIcon name="events" size={27} />
               </span>
-              <span className="use-case-label">Events</span>
+              <span className="use-case-label">{t("Events")}</span>
             </div>
-            <h3>Concert &amp; cinema codes</h3>
-            <p>Save the QR image instead of hunting through email.</p>
+            <h3>{t("Concert & cinema codes")}</h3>
+            <p>{t("Save the QR image instead of hunting through email.")}</p>
           </article>
           <article data-reveal>
             <div className="use-case-top">
               <span className="use-case-art" aria-hidden="true">
                 <FeatureIcon name="savings" size={27} />
               </span>
-              <span className="use-case-label">Savings</span>
+              <span className="use-case-label">{t("Savings")}</span>
             </div>
-            <h3>Coupons &amp; gift cards</h3>
-            <p>Keep promotional barcodes from getting buried in Photos.</p>
+            <h3>{t("Coupons & gift cards")}</h3>
+            <p>{t("Keep promotional barcodes from getting buried in Photos.")}</p>
           </article>
           <article data-reveal>
             <div className="use-case-top">
               <span className="use-case-art" aria-hidden="true">
                 <FeatureIcon name="work" size={27} />
               </span>
-              <span className="use-case-label">Work</span>
+              <span className="use-case-label">{t("Work")}</span>
             </div>
-            <h3>Labels &amp; CSV export</h3>
-            <p>Archive scanned values and move them to a spreadsheet.</p>
+            <h3>{t("Labels & CSV export")}</h3>
+            <p>{t("Archive scanned values and move them to a spreadsheet.")}</p>
           </article>
         </div>
       </div>
@@ -431,27 +450,25 @@ const IndexPage = () => (
       <div className="container privacy-grid" data-reveal>
         <DataOwnershipVisual />
         <div className="privacy-copy">
-          <p className="eyebrow">No account. No lock-in.</p>
-          <h2>Your codes live on your device.</h2>
+          <p className="eyebrow">{t("No account. No lock-in.")}</p>
+          <h2>{t("Your codes live on your device.")}</h2>
           <p>
-            Barcode content is stored locally, so ScanKeeper can stay fast and
-            useful offline. On iPhone and iPad, optional iCloud sync keeps your
-            collection available across your own Apple devices.
+            {t(
+              "Barcode content is stored locally, so ScanKeeper can stay fast and useful offline. On iPhone and iPad, optional iCloud sync keeps your collection available across your own Apple devices.",
+            )}
           </p>
           <ul className="check-list">
             <li>
-              <FeatureIcon name="check" size={19} /> Stored locally and ready
-              offline
+              <FeatureIcon name="check" size={19} /> {t("Stored locally and ready offline")}
             </li>
             <li>
-              <FeatureIcon name="check" size={19} /> No email or registration
+              <FeatureIcon name="check" size={19} /> {t("No email or registration")}
             </li>
             <li>
-              <FeatureIcon name="check" size={19} /> Optional iCloud sync on iOS
+              <FeatureIcon name="check" size={19} /> {t("Optional iCloud sync on iOS")}
             </li>
             <li>
-              <FeatureIcon name="check" size={19} /> CSV export when you want a
-              copy
+              <FeatureIcon name="check" size={19} /> {t("CSV export when you want a copy")}
             </li>
           </ul>
         </div>
@@ -462,11 +479,11 @@ const IndexPage = () => (
       <div className="container">
         <div className="section-heading split-heading" data-reveal>
           <div>
-            <p className="eyebrow">Practical guides</p>
-            <h2>Start with the job you need done.</h2>
+            <p className="eyebrow">{t("Practical guides")}</p>
+            <h2>{t("Start with the job you need done.")}</h2>
           </div>
           <p>
-            Clear answers for the most common ways people save and reuse codes.
+            {t("Clear answers for the most common ways people save and reuse codes.")}
           </p>
         </div>
         <div className="guide-grid">
@@ -475,31 +492,31 @@ const IndexPage = () => (
             className="guide-card"
             data-reveal
           >
-            <span>Guide 01</span>
+            <span>{t("Guide 01")}</span>
             <GuideZebraArt />
-            <h3>Turn loyalty cards into a phone wallet</h3>
-            <p>For store, club, membership, and reward cards.</p>
-            <b>Read guide →</b>
+            <h3>{t("Turn loyalty cards into a phone wallet")}</h3>
+            <p>{t("For store, club, membership, and reward cards.")}</p>
+            <b>{t("Read guide")} →</b>
           </Link>
           <Link
             to="/scan-qr-code-from-image/"
             className="guide-card"
             data-reveal
           >
-            <span>Guide 02</span>
-            <h3>Scan a QR code from a saved image</h3>
-            <p>Use codes from screenshots and your photo library.</p>
-            <b>Read guide →</b>
+            <span>{t("Guide 02")}</span>
+            <h3>{t("Scan a QR code from a saved image")}</h3>
+            <p>{t("Use codes from screenshots and your photo library.")}</p>
+            <b>{t("Read guide")} →</b>
           </Link>
           <Link
             to="/barcode-organizer/"
             className="guide-card"
             data-reveal
           >
-            <span>Guide 03</span>
-            <h3>Organize a growing barcode collection</h3>
-            <p>Use names, images, folders, search, and archive.</p>
-            <b>Read guide →</b>
+            <span>{t("Guide 03")}</span>
+            <h3>{t("Organize a growing barcode collection")}</h3>
+            <p>{t("Use names, images, folders, search, and archive.")}</p>
+            <b>{t("Read guide")} →</b>
           </Link>
         </div>
       </div>
@@ -508,14 +525,15 @@ const IndexPage = () => (
     <section className="section faq-section" id="faq">
       <div className="container faq-grid" data-reveal>
         <div className="faq-intro">
-          <p className="eyebrow">Questions, answered</p>
-          <h2>Before you put your cards away.</h2>
+          <p className="eyebrow">{t("Questions, answered")}</p>
+          <h2>{t("Before you put your cards away.")}</h2>
           <p>
-            Still need help? <Link to="/support/">Visit support</Link>.
+            {t("Still need help?")} {" "}
+            <Link to="/support/">{t("Visit support")}</Link>.
           </p>
         </div>
         <div className="faq-list">
-          {faq.map(({ question, answer }) => (
+          {localizedFaq.map(({ question, answer }) => (
             <details key={question}>
               <summary>
                 {question}
@@ -531,23 +549,47 @@ const IndexPage = () => (
     <section className="download-section" id="download">
       <div className="container download-card" data-reveal>
         <div>
-          <p className="eyebrow">Free, with every feature</p>
-          <h2>Make your wallet lighter today.</h2>
-          <p>No card limits. No account. No subscription required.</p>
+          <p className="eyebrow">{t("Free, with every feature")}</p>
+          <h2>{t("Make your wallet lighter today.")}</h2>
+          <p>{t("No card limits. No account. No subscription required.")}</p>
         </div>
         <StoreButtons location="homepage_footer" />
       </div>
     </section>
-  </Layout>
-);
+    </Layout>
+  );
+};
 
 export default IndexPage;
 
-export const Head = () => (
-  <Seo
-    title="ScanKeeper App — Loyalty Card Wallet & Offline Barcode Scanner"
-    description="Save loyalty cards, QR codes, tickets, and barcodes in one offline wallet. Import screenshots, organize folders, and open any code in one tap on iPhone or Android."
-    faq={faq}
+export const query = graphql`
+  query IndexPage($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
+
+export const Head = ({ data, pageContext }) => {
+  const { locale, t } = getPageI18n(data, pageContext);
+  const localizedFaq = translateFields(t, faq, ["question", "answer"]);
+
+  return (
+    <Seo
+    title={t("ScanKeeper App — Loyalty Card Wallet & Offline Barcode Scanner")}
+    description={t(
+      "Save loyalty cards, QR codes, tickets, and barcodes in one offline wallet. Import screenshots, organize folders, and open any code in one tap on iPhone or Android.",
+    )}
+    faq={localizedFaq}
     applicationSchema
+    locale={locale}
+    t={t}
   />
-);
+  );
+};

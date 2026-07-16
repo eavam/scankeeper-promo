@@ -1,13 +1,16 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const GuideScreenshot = ({ name }) => {
+  const { t } = useTranslation();
+
   switch (name) {
     case "home":
       return (
         <StaticImage
           src="../images/tour-find-card.png"
-          alt="ScanKeeper card library with the scanner button at the bottom"
+          alt={t("ScanKeeper card library with the scanner button at the bottom")}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -20,7 +23,9 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/guide-scanner.png"
-          alt="ScanKeeper camera scanner displaying a printed barcode, with Gallery and Import multiple controls"
+          alt={t(
+            "ScanKeeper camera scanner displaying a printed barcode, with Gallery and Import multiple controls",
+          )}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -33,7 +38,7 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/guide-scan-result.png"
-          alt="New barcode form showing a detected EAN-13 value and a card name"
+          alt={t("New barcode form showing a detected EAN-13 value and a card name")}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -46,7 +51,7 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/tour-edit-top.png"
-          alt="ScanKeeper editor with name, color, folder, and image controls"
+          alt={t("ScanKeeper editor with name, color, folder, and image controls")}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -59,7 +64,9 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/tour-organize-card.png"
-          alt="ScanKeeper editor showing folder and image controls for a saved card"
+          alt={t(
+            "ScanKeeper editor showing folder and image controls for a saved card",
+          )}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -72,7 +79,7 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/tour-search.png"
-          alt="ScanKeeper library filtered by a search for IKEA"
+          alt={t("ScanKeeper library filtered by a search for IKEA")}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -85,7 +92,9 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/tour-actions.png"
-          alt="ScanKeeper Actions screen with folders, bulk import, archive, and CSV export"
+          alt={t(
+            "ScanKeeper Actions screen with folders, bulk import, archive, and CSV export",
+          )}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -98,7 +107,7 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/tour-select-photos.png"
-          alt="ScanKeeper bulk import screen ready to select up to 50 photos"
+          alt={t("ScanKeeper bulk import screen ready to select up to 50 photos")}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -111,7 +120,7 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/tour-checking-photos.png"
-          alt="ScanKeeper scanning a selected batch of photos on the device"
+          alt={t("ScanKeeper scanning a selected batch of photos on the device")}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -124,7 +133,9 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/tour-name-filled.png"
-          alt="ScanKeeper bulk import review form with a card name and value filled in"
+          alt={t(
+            "ScanKeeper bulk import review form with a card name and value filled in",
+          )}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
@@ -137,7 +148,7 @@ const GuideScreenshot = ({ name }) => {
       return (
         <StaticImage
           src="../images/tour-code-expanded.png"
-          alt="ScanKeeper full-screen barcode ready for a checkout scanner"
+          alt={t("ScanKeeper full-screen barcode ready for a checkout scanner")}
           placeholder="blurred"
           width={320}
           sizes="(max-width: 600px) 230px, 280px"
