@@ -59,6 +59,12 @@ module.exports = {
         localeJsonSourceName: `locale`,
         languages: LOCALES.map(({ locale }) => locale),
         defaultLanguage: DEFAULT_LOCALE,
+        pages: [
+          {
+            matchPath: `/privacy-policy`,
+            languages: [DEFAULT_LOCALE],
+          },
+        ],
         siteUrl: SITE_URL,
         trailingSlash: `always`,
         redirect: false,
@@ -92,10 +98,12 @@ module.exports = {
           url: path,
           ...SITEMAP_RULES.get(originalPath),
           links: [
-            ...LOCALES.map(({ locale }) => ({
-              lang: locale,
-              url: `${SITE_URL}${localizePath(originalPath, locale)}`,
-            })),
+            ...(originalPath === "/privacy-policy/"
+              ? [{ lang: DEFAULT_LOCALE, url: `${SITE_URL}${originalPath}` }]
+              : LOCALES.map(({ locale }) => ({
+                  lang: locale,
+                  url: `${SITE_URL}${localizePath(originalPath, locale)}`,
+                }))),
             {
               lang: `x-default`,
               url: `${SITE_URL}${originalPath}`,

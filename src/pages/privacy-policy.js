@@ -4,7 +4,10 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { getPageI18n } from "../i18n/helpers";
+import localeConfig from "../i18n/locales";
 import "../styles/global.css";
+
+const { DEFAULT_LOCALE, getLocale } = localeConfig;
 
 const PrivacyPolicy = ({ data, pageContext }) => {
   const policy = data?.markdownRemark;
@@ -20,6 +23,8 @@ const PrivacyPolicy = ({ data, pageContext }) => {
               <div
                 dangerouslySetInnerHTML={{ __html: policyHtml }}
                 className="policy-html-content"
+                dir="ltr"
+                lang="en"
               />
             ) : (
               <article>
@@ -61,17 +66,18 @@ export const Head = ({ data, pageContext }) => {
 
   return (
     <Seo
-    title={t("ScanKeeper App Privacy Policy & Terms of Service")}
-    description={t(
-      "Learn how ScanKeeper stores barcode data, uses optional iCloud sync, analytics, advertising, crash reporting, and subscriptions.",
-    )}
-    path="/privacy-policy/"
-    breadcrumbs={[
-      { name: t("Home"), path: "/" },
-      { name: t("Privacy Policy"), path: "/privacy-policy/" },
-    ]}
-    locale={locale}
-    t={t}
-  />
+      title={t("ScanKeeper App Privacy Policy & Terms of Service")}
+      description={t(
+        "Learn how ScanKeeper stores barcode data, uses optional iCloud sync, analytics, advertising, crash reporting, and subscriptions.",
+      )}
+      path="/privacy-policy/"
+      breadcrumbs={[
+        { name: t("Home"), path: "/" },
+        { name: t("Privacy Policy"), path: "/privacy-policy/" },
+      ]}
+      locale={locale}
+      t={t}
+      alternateLocales={[getLocale(DEFAULT_LOCALE)]}
+    />
   );
 };

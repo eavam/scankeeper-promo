@@ -2029,17 +2029,15 @@ html.motion-ready .guide-grid [data-reveal]:nth-child(3) {
   max-width: 920px;
 }
 
-.policy-text > article > h1 {
+.policy-text > article > h1,
+.policy-html-content > article > h1 {
   margin-bottom: 54px;
+  color: var(--ink);
   font-size: clamp(3rem, 6vw, 5.6rem);
 }
 
 .policy-html-content {
   color: var(--ink-soft);
-}
-
-.policy-html-content > article > h1 {
-  display: none;
 }
 
 .policy-html-content h2 {
@@ -4818,7 +4816,9 @@ h1 {
 
 .use-case-intro {
   position: sticky;
+  min-width: 0;
   top: 128px;
+  overflow-wrap: anywhere;
 }
 
 .use-case-intro h2 {
@@ -4847,11 +4847,13 @@ h1 {
 }
 
 .use-case-grid {
+  min-width: 0;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
 .use-case-grid article {
+  min-width: 0;
   min-height: 214px;
   justify-content: flex-start;
   border: 1px solid rgba(16, 16, 15, 0.08);
@@ -4939,6 +4941,7 @@ h1 {
 .use-case-grid h3 {
   margin-top: auto;
   font-size: 1.28rem;
+  overflow-wrap: anywhere;
 }
 
 .use-case-grid p {

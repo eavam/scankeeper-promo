@@ -1,11 +1,13 @@
 import React from "react";
+import { navigate } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import { IconChevronDown, IconWorld } from "@tabler/icons-react";
 import { SUPPORT_EMAIL } from "../constants/site";
 import localeConfig from "../i18n/locales";
 
-const { LOCALES, getLocale, localizePath } = localeConfig;
+const { DEFAULT_LOCALE, LOCALES, getLocale, localizePath, stripLocaleFromPath } =
+  localeConfig;
 
 const getLanguageLabel = ({ nativeName, englishName }) =>
   nativeName === englishName ? nativeName : `${nativeName} — ${englishName}`;
@@ -18,8 +20,14 @@ const LanguageSelector = () => {
     const targetLocale = event.target.value;
     if (targetLocale === language || typeof window === "undefined") return;
 
-    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-    window.location.assign(localizePath(currentUrl, targetLocale));
+    const currentPath = stripLocaleFromPath(window.location.pathname);
+    const targetPath = currentPath === "/privacy-policy/" ? "/" : currentPath;
+    navigate(
+      localizePath(
+        `${targetPath}${window.location.search}${window.location.hash}`,
+        targetLocale,
+      ),
+    );
   };
 
   return (
@@ -64,14 +72,14 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/" className="brand brand-footer">
-            <StaticImage
-              src="../images/app-icon.png"
-              alt=""
-              placeholder="none"
-              width={44}
-              height={44}
-            />
-            <span>ScanKeeper App</span>
+              <StaticImage
+                src="../images/app-icon.png"
+                alt=""
+                placeholder="none"
+                width={44}
+                height={44}
+              />
+              <span>ScanKeeper App</span>
             </Link>
             <p>
               {t(
@@ -105,7 +113,7 @@ const Footer = () => {
           <div>
             <h2>{t("Company")}</h2>
             <a href={`mailto:${SUPPORT_EMAIL}`}>{t("Contact us")}</a>
-            <Link to="/privacy-policy/">
+            <Link to="/privacy-policy/" language={DEFAULT_LOCALE}>
               {t("Privacy & terms")}
             </Link>
           </div>

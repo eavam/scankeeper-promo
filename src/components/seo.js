@@ -50,6 +50,7 @@ const Seo = ({
   applicationSchema = false,
   locale = DEFAULT_LOCALE,
   t = (message) => message,
+  alternateLocales = LOCALES,
 }) => {
   const localeInfo = getLocale(locale);
   const localizedPath = localizePath(path, localeInfo.locale);
@@ -90,7 +91,7 @@ const Seo = ({
       <meta name="description" content={description} />
       <meta name="robots" content="index,follow,max-image-preview:large" />
       <link rel="canonical" href={canonical} />
-      {LOCALES.map(({ locale: alternateLocale }) => (
+      {alternateLocales.map(({ locale: alternateLocale }) => (
         <link
           rel="alternate"
           hrefLang={alternateLocale}
@@ -120,7 +121,7 @@ const Seo = ({
       <meta property="og:type" content={article ? "article" : "website"} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content={localeInfo.locale.replace("-", "_")} />
-      {LOCALES.filter(
+      {alternateLocales.filter(
         ({ locale: alternateLocale }) => alternateLocale !== localeInfo.locale,
       ).map(({ locale: alternateLocale }) => (
         <meta
@@ -135,7 +136,12 @@ const Seo = ({
       <meta property="og:image" content={absoluteUrl(image)} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="ScanKeeper loyalty card wallet" />
+      <meta
+        property="og:image:alt"
+        content={t(
+          "ScanKeeper loyalty card wallet showing organized barcode and QR cards",
+        )}
+      />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />

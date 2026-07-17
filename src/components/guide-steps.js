@@ -162,37 +162,41 @@ const GuideScreenshot = ({ name }) => {
   }
 };
 
-const ScannerTarget = () => (
-  <div className="visual-guide-scanner-target" aria-hidden="true">
-    <span>MEMBER PASS</span>
-    <svg viewBox="0 0 180 58" role="presentation">
-      <rect x="2" y="2" width="3" height="48" />
-      <rect x="8" y="2" width="6" height="48" />
-      <rect x="17" y="2" width="2" height="48" />
-      <rect x="22" y="2" width="4" height="48" />
-      <rect x="30" y="2" width="7" height="48" />
-      <rect x="40" y="2" width="3" height="48" />
-      <rect x="47" y="2" width="2" height="48" />
-      <rect x="53" y="2" width="6" height="48" />
-      <rect x="62" y="2" width="3" height="48" />
-      <rect x="68" y="2" width="8" height="48" />
-      <rect x="80" y="2" width="2" height="48" />
-      <rect x="86" y="2" width="5" height="48" />
-      <rect x="94" y="2" width="3" height="48" />
-      <rect x="101" y="2" width="7" height="48" />
-      <rect x="111" y="2" width="2" height="48" />
-      <rect x="116" y="2" width="4" height="48" />
-      <rect x="124" y="2" width="8" height="48" />
-      <rect x="135" y="2" width="3" height="48" />
-      <rect x="142" y="2" width="6" height="48" />
-      <rect x="151" y="2" width="2" height="48" />
-      <rect x="157" y="2" width="7" height="48" />
-      <rect x="168" y="2" width="3" height="48" />
-      <rect x="174" y="2" width="4" height="48" />
-    </svg>
-    <small>9 780201 379624</small>
-  </div>
-);
+const ScannerTarget = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="visual-guide-scanner-target" aria-hidden="true">
+      <span>{t("Membership")}</span>
+      <svg viewBox="0 0 180 58" role="presentation">
+        <rect x="2" y="2" width="3" height="48" />
+        <rect x="8" y="2" width="6" height="48" />
+        <rect x="17" y="2" width="2" height="48" />
+        <rect x="22" y="2" width="4" height="48" />
+        <rect x="30" y="2" width="7" height="48" />
+        <rect x="40" y="2" width="3" height="48" />
+        <rect x="47" y="2" width="2" height="48" />
+        <rect x="53" y="2" width="6" height="48" />
+        <rect x="62" y="2" width="3" height="48" />
+        <rect x="68" y="2" width="8" height="48" />
+        <rect x="80" y="2" width="2" height="48" />
+        <rect x="86" y="2" width="5" height="48" />
+        <rect x="94" y="2" width="3" height="48" />
+        <rect x="101" y="2" width="7" height="48" />
+        <rect x="111" y="2" width="2" height="48" />
+        <rect x="116" y="2" width="4" height="48" />
+        <rect x="124" y="2" width="8" height="48" />
+        <rect x="135" y="2" width="3" height="48" />
+        <rect x="142" y="2" width="6" height="48" />
+        <rect x="151" y="2" width="2" height="48" />
+        <rect x="157" y="2" width="7" height="48" />
+        <rect x="168" y="2" width="3" height="48" />
+        <rect x="174" y="2" width="4" height="48" />
+      </svg>
+      <small>9 780201 379624</small>
+    </div>
+  );
+};
 
 const GuideSteps = ({ steps }) => (
   <ol className="visual-guide-steps">
