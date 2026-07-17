@@ -132,8 +132,12 @@ const IndexPage = () => {
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="eyebrow hero-eyebrow">
-            <span>{t("Free · No card limits")}</span>
-            {t("Barcode wallet for iPhone & Android")}
+            <span className="hero-eyebrow-badge">
+              {t("Free · No card limits")}
+            </span>
+            <span className="hero-eyebrow-context">
+              {t("Barcode wallet for iPhone & Android")}
+            </span>
           </p>
           <h1>
             {t("Every card.")}

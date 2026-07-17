@@ -452,8 +452,8 @@ export const ScannerScene = () => {
     <span className="scanner-check scanner-check-three">
       <IconCheck size={14} stroke={2.5} />
     </span>
-    <span className="scanner-beam" />
     <div className="checkout-scanner">
+      <span className="scanner-beam" />
       <HandheldScanner />
     </div>
     </Scene>
