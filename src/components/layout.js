@@ -12,10 +12,10 @@ const { getLocale } = localeConfig;
 
 const Layout = ({ children }) => {
   const { language, t } = useI18next();
-  const { direction } = getLocale(language);
+  const { direction, locale } = getLocale(language);
 
   return (
-    <div className="layout" dir={direction}>
+    <div className="layout" dir={direction} lang={locale}>
       <a className="skip-link" href="#main-content">
         {t("Skip to content")}
       </a>

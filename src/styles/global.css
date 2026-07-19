@@ -33,7 +33,9 @@ body {
   color: var(--ink);
   font-family: var(--font);
   font-size: 17px;
+  hyphens: auto;
   line-height: 1.6;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -62,6 +64,7 @@ img {
 p,
 li {
   color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
 h1,
@@ -70,6 +73,7 @@ h3 {
   font-weight: 760;
   line-height: 1.04;
   letter-spacing: -0.045em;
+  text-wrap: balance;
 }
 
 h1 {
@@ -130,6 +134,7 @@ h3 {
 
 .button {
   display: inline-flex;
+  max-width: 100%;
   min-height: 52px;
   align-items: center;
   justify-content: center;
@@ -138,7 +143,9 @@ h3 {
   padding: 12px 24px;
   font-size: 0.94rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;
   transition:
     transform 180ms ease,
     background 180ms ease,
@@ -1166,6 +1173,7 @@ h3 {
 
 .breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   gap: 9px;
   margin-bottom: 42px;
   color: #686861;
@@ -1661,7 +1669,7 @@ h3 {
   font-size: clamp(2.25rem, 12cqi, 3.35rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .article-context-loyalty {
@@ -1704,7 +1712,7 @@ h3 {
   color: var(--ink);
   font-size: 0.74rem;
   font-weight: 720;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   text-align: center;
 }
 
@@ -2080,6 +2088,7 @@ html.motion-ready .guide-grid [data-reveal]:nth-child(3) {
 .policy-html-content a {
   border-bottom: 1px solid;
   color: var(--indigo);
+  /* URLs may not contain any language-aware break opportunities. */
   overflow-wrap: anywhere;
 }
 
@@ -2895,13 +2904,13 @@ h1 {
   background: var(--peach-light);
   color: #6f2c0d;
   letter-spacing: 0.035em;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   text-align: center;
 }
 
 .hero-eyebrow-context {
   min-width: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .hero-lede {
@@ -3217,6 +3226,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 6px;
   margin-bottom: 12px;
   color: rgba(16, 16, 15, 0.48);
   font-size: 0.47rem;
@@ -3224,8 +3234,12 @@ h1 {
 }
 
 .scene-code-card-head b {
+  min-width: 0;
+  overflow: hidden;
   color: var(--ink);
   font-size: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .scan-beam {
@@ -3295,8 +3309,11 @@ h1 {
   font-size: 0.47rem;
   font-weight: 760;
   letter-spacing: 0.055em;
+  line-height: 1.2;
+  text-wrap: balance;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
+  width: 100%;
 }
 
 .photo-card {
@@ -3494,8 +3511,12 @@ h1 {
 
 .import-target-head small,
 .widget-head small {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
   color: rgba(16, 16, 15, 0.48);
   font-size: 0.49rem;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -4066,7 +4087,7 @@ h1 {
   font-size: 0.52rem;
   font-weight: 740;
   line-height: 1.15;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   text-align: center;
   text-transform: uppercase;
 }
@@ -4834,7 +4855,7 @@ h1 {
   position: sticky;
   min-width: 0;
   top: 128px;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .use-case-intro h2 {
@@ -4842,10 +4863,6 @@ h1 {
   margin-bottom: 25px;
   font-size: clamp(2.7rem, 4.15vw, 4.5rem);
   text-wrap: balance;
-}
-
-.use-case-intro h2 span {
-  white-space: nowrap;
 }
 
 .use-case-intro > p:not(.eyebrow) {
@@ -4957,7 +4974,7 @@ h1 {
 .use-case-grid h3 {
   margin-top: auto;
   font-size: 1.28rem;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .use-case-grid p {
@@ -5040,7 +5057,7 @@ h1 {
 .privacy-data-card small,
 .privacy-card-heading > span:last-child {
   min-width: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .privacy-card-heading,
@@ -5425,7 +5442,7 @@ h1 {
   }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 900px) {
   .desktop-nav {
     display: none;
   }
