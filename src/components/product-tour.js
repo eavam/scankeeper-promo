@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { useTranslation } from "gatsby-plugin-react-i18next";
+import { translateFields } from "../i18n/helpers";
 
 const FRAME_DELAY = 2800;
 const FADE_DURATION = 520;
@@ -106,13 +108,14 @@ const TourScreen = ({
 
 const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
   const screenProps = { currentScreen, nextScreen, isTransitioning };
+  const { t } = useTranslation();
 
   return (
     <div className="tour-screen-stack">
       <TourScreen name="actions" {...screenProps}>
         <StaticImage
           src="../images/tour-actions.png"
-          alt="ScanKeeper Actions screen with the Bulk import option"
+          alt={t("ScanKeeper Actions screen with the Bulk import option")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -123,7 +126,9 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="select-photos" {...screenProps}>
         <StaticImage
           src="../images/tour-select-photos.png"
-          alt="ScanKeeper bulk import screen with a button to select up to 50 photos"
+          alt={t(
+            "ScanKeeper bulk import screen with a button to select up to 50 photos",
+          )}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -134,7 +139,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="checking-photos" {...screenProps}>
         <StaticImage
           src="../images/tour-checking-photos.png"
-          alt="ScanKeeper checking selected photos for readable codes"
+          alt={t("ScanKeeper checking selected photos for readable codes")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -145,7 +150,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="name-empty" {...screenProps}>
         <StaticImage
           src="../images/tour-name-empty.png"
-          alt="ScanKeeper import form ready for a card name and value"
+          alt={t("ScanKeeper import form ready for a card name and value")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -156,7 +161,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="name-filled" {...screenProps}>
         <StaticImage
           src="../images/tour-name-filled.png"
-          alt="ScanKeeper import form filled with a card name and code value"
+          alt={t("ScanKeeper import form filled with a card name and code value")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -167,7 +172,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="import-done" {...screenProps}>
         <StaticImage
           src="../images/tour-import-done.png"
-          alt="ScanKeeper import summary showing that the batch is complete"
+          alt={t("ScanKeeper import summary showing that the batch is complete")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -178,7 +183,9 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="edit-top" {...screenProps}>
         <StaticImage
           src="../images/tour-edit-top.png"
-          alt="ScanKeeper card editor with name, color, folder, and image options"
+          alt={t(
+            "ScanKeeper card editor with name, color, folder, and image options",
+          )}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -189,7 +196,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="edit-details" {...screenProps}>
         <StaticImage
           src="../images/tour-organize-card.png"
-          alt="ScanKeeper card editor showing additional saved card details"
+          alt={t("ScanKeeper card editor showing additional saved card details")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -200,7 +207,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="library" {...screenProps}>
         <StaticImage
           src="../images/tour-find-card.png"
-          alt="ScanKeeper organized card library with search and folders"
+          alt={t("ScanKeeper organized card library with search and folders")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -211,7 +218,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="search" {...screenProps}>
         <StaticImage
           src="../images/tour-search.png"
-          alt="ScanKeeper search showing a matching saved card"
+          alt={t("ScanKeeper search showing a matching saved card")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -222,7 +229,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="open-code" {...screenProps}>
         <StaticImage
           src="../images/tour-open-code.png"
-          alt="ScanKeeper card screen displaying a barcode ready to scan"
+          alt={t("ScanKeeper card screen displaying a barcode ready to scan")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -233,7 +240,7 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
       <TourScreen name="code-expanded" {...screenProps}>
         <StaticImage
           src="../images/tour-code-expanded.png"
-          alt="ScanKeeper full-screen barcode view"
+          alt={t("ScanKeeper full-screen barcode view")}
           placeholder="blurred"
           width={322}
           sizes="(max-width: 600px) 260px, 322px"
@@ -246,6 +253,17 @@ const TourScreens = ({ currentScreen, nextScreen, isTransitioning }) => {
 };
 
 const ProductTour = () => {
+  const { t } = useTranslation();
+  const translatedSteps = useMemo(
+    () =>
+      steps.map((step) => ({
+        ...step,
+        label: t(step.label),
+        text: t(step.text),
+        frames: translateFields(t, step.frames, ["title", "caption"]),
+      })),
+    [t],
+  );
   const [activeStep, setActiveStep] = useState(0);
   const [activeFrame, setActiveFrame] = useState(0);
   const [transitionTarget, setTransitionTarget] = useState(null);
@@ -297,7 +315,8 @@ const ProductTour = () => {
   }, []);
 
   useEffect(() => {
-    const isLastFrame = activeFrame === steps[activeStep].frames.length - 1;
+    const isLastFrame =
+      activeFrame === translatedSteps[activeStep].frames.length - 1;
 
     if (
       !isInView ||
@@ -314,7 +333,7 @@ const ProductTour = () => {
         setTransitionTarget({ step: activeStep, frame: activeFrame + 1 });
       } else {
         setTransitionTarget({
-          step: (activeStep + 1) % steps.length,
+          step: (activeStep + 1) % translatedSteps.length,
           frame: 0,
         });
       }
@@ -329,6 +348,7 @@ const ProductTour = () => {
     manualSelection,
     prefersReducedMotion,
     transitionTarget,
+    translatedSteps,
   ]);
 
   useEffect(() => {
@@ -354,13 +374,14 @@ const ProductTour = () => {
   const handleKeyDown = (event) => {
     let nextStep;
     if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-      nextStep = (activeStep + 1) % steps.length;
+      nextStep = (activeStep + 1) % translatedSteps.length;
     } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-      nextStep = (activeStep - 1 + steps.length) % steps.length;
+      nextStep =
+        (activeStep - 1 + translatedSteps.length) % translatedSteps.length;
     } else if (event.key === "Home") {
       nextStep = 0;
     } else if (event.key === "End") {
-      nextStep = steps.length - 1;
+      nextStep = translatedSteps.length - 1;
     } else {
       return;
     }
@@ -369,10 +390,10 @@ const ProductTour = () => {
     selectStep(nextStep, true);
   };
 
-  const step = steps[activeStep];
+  const step = translatedSteps[activeStep];
   const frame = step.frames[activeFrame];
   const nextFrame = transitionTarget
-    ? steps[transitionTarget.step].frames[transitionTarget.frame]
+    ? translatedSteps[transitionTarget.step].frames[transitionTarget.frame]
     : null;
 
   return (
@@ -384,17 +405,17 @@ const ProductTour = () => {
     >
       <div className="tour-guide">
         <div className="tour-guide-head">
-          <p className="eyebrow">Two everyday flows</p>
-          <h3>From photo to checkout.</h3>
+          <p className="eyebrow">{t("Two everyday flows")}</p>
+          <h3>{t("From photo to checkout.")}</h3>
         </div>
 
         <div
           className="tour-steps"
           role="tablist"
-          aria-label="Two ways to use ScanKeeper"
+          aria-label={t("Two ways to use ScanKeeper")}
           aria-orientation="vertical"
         >
-          {steps.map((item, index) => (
+          {translatedSteps.map((item, index) => (
             <button
               ref={(element) => {
                 stepRefs.current[index] = element;

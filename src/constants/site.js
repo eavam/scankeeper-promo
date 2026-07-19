@@ -15,12 +15,7 @@ export const APP_NAME = "ScanKeeper";
 
 export const SITE_NAME = "ScanKeeper App";
 
-const campaignToken = (location) =>
-  `sk_${location}`.replace(/[^a-zA-Z0-9_.-]/g, "_").slice(0, 30);
-
-export const getAppStoreUrl = (location = "website") => {
-  return APP_STORE_URL;
-};
+export const getAppStoreUrl = () => APP_STORE_URL;
 
 export const getGooglePlayUrl = (location = "website") =>
   `${GOOGLE_PLAY_URL}&utm_source=scankeeper_website&utm_medium=referral&utm_campaign=${encodeURIComponent(location)}`;

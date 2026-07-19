@@ -9,6 +9,7 @@ import {
   IconSignalLte,
   IconWifiOff,
 } from "@tabler/icons-react";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 import handheldScanner from "../images/handheld-scanner-soft.webp";
 
 const EAN13_PATTERN = [
@@ -124,8 +125,11 @@ const getOfflineCardPosition = (index, phase) => {
   return index === 0 ? "front" : index === 1 ? "middle" : "back";
 };
 
-export const ScanScene = () => (
-  <Scene className="feature-scene-scan">
+export const ScanScene = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Scene className="feature-scene-scan">
     <div className="scan-reticle">
       <i />
       <i />
@@ -133,7 +137,7 @@ export const ScanScene = () => (
       <i />
       <div className="scene-code-card">
         <span className="scene-code-card-head">
-          <b>EVERYDAY CARD</b>
+          <b>{t("EVERYDAY CARD")}</b>
           <span>EAN-13</span>
         </span>
         <Barcode />
@@ -141,16 +145,20 @@ export const ScanScene = () => (
       <span className="scan-beam" />
     </div>
     <span className="scene-status scene-status-scan">
-      <IconCheck size={14} stroke={2.2} /> Code found
+      <IconCheck size={14} stroke={2.2} /> {t("Code found")}
     </span>
-  </Scene>
-);
+    </Scene>
+  );
+};
 
-export const ImportScene = () => (
-  <Scene className="feature-scene-import">
+export const ImportScene = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Scene className="feature-scene-import">
     <div className="import-source">
       <span className="import-source-label">
-        <IconPhoto size={12} stroke={1.9} /> Photo library
+        <IconPhoto size={12} stroke={1.9} /> {t("Photo library")}
       </span>
       <span className="photo-card photo-card-back" />
       <span className="photo-card photo-card-middle" />
@@ -177,8 +185,8 @@ export const ImportScene = () => (
       <span className="import-target-head">
         <AppMark />
         <span>
-          <b>From Photos</b>
-          <small>Recognizing cards</small>
+          <b>{t("From Photos")}</b>
+          <small>{t("Recognizing cards")}</small>
         </span>
       </span>
       <span className="import-result-list">
@@ -188,7 +196,7 @@ export const ImportScene = () => (
           </span>
           <span className="import-result-copy">
             <i />
-            <small>Recognized</small>
+            <small>{t("Recognized")}</small>
           </span>
         </span>
         <span className="import-result">
@@ -197,7 +205,7 @@ export const ImportScene = () => (
           </span>
           <span className="import-result-copy">
             <i />
-            <small>Recognized</small>
+            <small>{t("Recognized")}</small>
           </span>
         </span>
         <span className="import-result">
@@ -206,25 +214,29 @@ export const ImportScene = () => (
           </span>
           <span className="import-result-copy">
             <i />
-            <small>Recognized</small>
+            <small>{t("Recognized")}</small>
           </span>
         </span>
       </span>
     </div>
-  </Scene>
-);
+    </Scene>
+  );
+};
 
-export const FoldersScene = () => (
-  <Scene className="feature-scene-folders">
+export const FoldersScene = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Scene className="feature-scene-folders">
     <div className="folder-browser">
       <div className="folder-search">
         <IconSearch size={14} stroke={1.8} />
-        <span>Find a saved code</span>
+        <span>{t("Find a saved code")}</span>
       </div>
       <div className="folder-tabs">
-        <span>All</span>
-        <span>Shopping</span>
-        <span>Travel</span>
+        <span>{t("All")}</span>
+        <span>{t("Shopping")}</span>
+        <span>{t("Travel")}</span>
         <i className="folder-tab-active" />
       </div>
       <div className="folder-card-viewport">
@@ -232,29 +244,29 @@ export const FoldersScene = () => (
           <div className="folder-card-row folder-shopping">
             <span className="folder-mini-card folder-mini-card-peach">
               <Barcode />
-              <small>Market</small>
+              <small>{t("Market")}</small>
             </span>
             <span className="folder-mini-card folder-mini-card-mint">
               <Barcode />
-              <small>Gym</small>
+              <small>{t("Gym")}</small>
             </span>
             <span className="folder-mini-card folder-mini-card-indigo">
               <Barcode />
-              <small>Coupons</small>
+              <small>{t("Coupons")}</small>
             </span>
           </div>
           <div className="folder-card-row folder-travel">
             <span className="folder-mini-card folder-mini-card-indigo">
               <Barcode />
-              <small>Airline</small>
+              <small>{t("Airline")}</small>
             </span>
             <span className="folder-mini-card folder-mini-card-peach">
               <Barcode />
-              <small>Train</small>
+              <small>{t("Train")}</small>
             </span>
             <span className="folder-mini-card folder-mini-card-mint">
               <Barcode />
-              <small>Hotel</small>
+              <small>{t("Hotel")}</small>
             </span>
           </div>
         </div>
@@ -262,26 +274,28 @@ export const FoldersScene = () => (
       <span className="folder-tap folder-tap-shopping" />
       <span className="folder-tap folder-tap-travel" />
       <div className="folder-expanded-card folder-expanded-card-shopping">
-        <span className="folder-expanded-label">SHOPPING · GYM</span>
-        <b>Gym membership</b>
+        <span className="folder-expanded-label">{t("SHOPPING · GYM")}</span>
+        <b>{t("Gym membership")}</b>
         <Barcode />
         <span className="folder-expanded-ready">
-          <IconCheck size={12} stroke={2.4} /> Ready to scan
+          <IconCheck size={12} stroke={2.4} /> {t("Ready to scan")}
         </span>
       </div>
       <div className="folder-expanded-card folder-expanded-card-travel">
-        <span className="folder-expanded-label">TRAVEL · AIRLINE</span>
-        <b>Boarding pass</b>
+        <span className="folder-expanded-label">{t("TRAVEL · AIRLINE")}</span>
+        <b>{t("Boarding pass")}</b>
         <Barcode />
         <span className="folder-expanded-ready">
-          <IconCheck size={12} stroke={2.4} /> Ready to scan
+          <IconCheck size={12} stroke={2.4} /> {t("Ready to scan")}
         </span>
       </div>
     </div>
-  </Scene>
-);
+    </Scene>
+  );
+};
 
 export const OfflineScene = () => {
+  const { t } = useTranslation();
   const [motionEnabled, setMotionEnabled] = useState(false);
   const [deck, setDeck] = useState({
     order: OFFLINE_CARDS.map(({ id }) => id),
@@ -363,7 +377,7 @@ export const OfflineScene = () => {
               className={`offline-card ${card.className} offline-card-${position}`}
               key={card.id}
             >
-              <span className="offline-card-kicker">{card.label}</span>
+              <span className="offline-card-kicker">{t(card.label)}</span>
               <span
                 className={`offline-code-area${
                   card.code === "qr" ? " offline-code-area-qr" : ""
@@ -376,7 +390,7 @@ export const OfflineScene = () => {
                 )}
               </span>
               <span className="offline-ready">
-                <IconCheck size={13} stroke={2.3} /> Ready offline
+                <IconCheck size={13} stroke={2.3} /> {t("Ready offline")}
               </span>
             </div>
           );
@@ -386,8 +400,11 @@ export const OfflineScene = () => {
   );
 };
 
-export const WidgetsScene = () => (
-  <Scene className="feature-scene-widgets">
+export const WidgetsScene = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Scene className="feature-scene-widgets">
     <div className="widget-home-screen">
       <span className="home-app home-app-peach" />
       <span className="home-app home-app-indigo" />
@@ -397,8 +414,8 @@ export const WidgetsScene = () => (
         <span className="widget-head">
           <AppMark />
           <span>
-            <b>Coffee card</b>
-            <small>Tap to open</small>
+            <b>{t("Coffee card")}</b>
+            <small>{t("Tap to open")}</small>
           </span>
         </span>
         <Barcode />
@@ -409,18 +426,22 @@ export const WidgetsScene = () => (
         <i />
       </span>
     </div>
-  </Scene>
-);
+    </Scene>
+  );
+};
 
-export const ScannerScene = () => (
-  <Scene className="feature-scene-scanner">
+export const ScannerScene = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Scene className="feature-scene-scanner">
     <span className="brightness-chip">
-      <IconBrightnessUp size={15} stroke={2} /> 100% brightness
+      <IconBrightnessUp size={15} stroke={2} /> {t("100% brightness")}
     </span>
     <div className="fullscreen-code">
-      <span>READY TO SCAN</span>
+      <span>{t("READY TO SCAN")}</span>
       <Barcode />
-      <small>Keep screen facing the reader</small>
+      <small>{t("Keep screen facing the reader")}</small>
     </div>
     <span className="scanner-check scanner-check-one">
       <IconCheck size={14} stroke={2.5} />
@@ -431,9 +452,10 @@ export const ScannerScene = () => (
     <span className="scanner-check scanner-check-three">
       <IconCheck size={14} stroke={2.5} />
     </span>
-    <span className="scanner-beam" />
     <div className="checkout-scanner">
+      <span className="scanner-beam" />
       <HandheldScanner />
     </div>
-  </Scene>
-);
+    </Scene>
+  );
+};

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 
 const links = [
@@ -12,6 +12,7 @@ const links = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!isMenuOpen) return undefined;
@@ -38,7 +39,7 @@ const Header = () => {
         <Link
           to="/"
           className="brand"
-          aria-label="ScanKeeper App home"
+          aria-label={t("ScanKeeper App home")}
           onClick={closeMenu}
         >
           <StaticImage
@@ -53,10 +54,10 @@ const Header = () => {
           <span>ScanKeeper App</span>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Main navigation">
+        <nav className="desktop-nav" aria-label={t("Main navigation")}>
           {links.map(({ to, label }) => (
             <Link to={to} key={to}>
-              {label}
+              {t(label)}
             </Link>
           ))}
         </nav>
@@ -67,14 +68,14 @@ const Header = () => {
             className="button button-small button-dark header-cta"
             onClick={closeMenu}
           >
-            Get the app
+            {t("Get the app")}
           </Link>
           <button
             className="menu-toggle"
             type="button"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMenuOpen ? t("Close menu") : t("Open menu")}
             onClick={() => setIsMenuOpen((open) => !open)}
           >
             {isMenuOpen ? (
@@ -88,17 +89,20 @@ const Header = () => {
 
       {isMenuOpen && (
         <div className="mobile-nav-wrap" id="mobile-navigation">
-          <nav className="container mobile-nav" aria-label="Mobile navigation">
-            <p>Explore ScanKeeper</p>
+          <nav
+            className="container mobile-nav"
+            aria-label={t("Mobile navigation")}
+          >
+            <p>{t("Explore ScanKeeper")}</p>
             {links.map(({ to, label }, index) => (
               <Link to={to} onClick={closeMenu} key={to}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                {label}
+                {t(label)}
               </Link>
             ))}
             <div className="mobile-nav-note">
-              <b>Free. No card limits.</b>
-              <span>Available for iPhone, iPad, and Android.</span>
+              <b>{t("Free. No card limits.")}</b>
+              <span>{t("Available for iPhone, iPad, and Android.")}</span>
             </div>
           </nav>
         </div>

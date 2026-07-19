@@ -8,32 +8,36 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "../constants/site";
+import localeConfig from "../i18n/locales";
 
 const absoluteUrl = (path = "/") => `${SITE_URL}${path}`;
 
-const baseApplicationSchema = {
+const { DEFAULT_LOCALE, LOCALES, getLocale, localizePath } = localeConfig;
+
+const getApplicationSchema = (t) => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: APP_NAME,
   applicationCategory: "ShoppingApplication",
-  applicationSubCategory: "Loyalty card wallet and barcode scanner",
+  applicationSubCategory: t("Loyalty card wallet and barcode scanner"),
   operatingSystem: "iOS, iPadOS, Android",
-  description:
+  description: t(
     "An offline QR and barcode scanner, loyalty card wallet, and organizer for iPhone, iPad, and Android.",
+  ),
   url: SITE_URL,
   installUrl: [APP_STORE_URL, GOOGLE_PLAY_URL],
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    description: "Free download with optional in-app purchases",
+    description: t("Free download with optional in-app purchases"),
   },
   author: {
     "@type": "Organization",
     name: "Nomadix Apps LLC",
     url: "https://nomadixapps.org",
   },
-};
+});
 
 const Seo = ({
   title,
@@ -44,11 +48,16 @@ const Seo = ({
   faq = [],
   breadcrumbs = [],
   applicationSchema = false,
+  locale = DEFAULT_LOCALE,
+  t = (message) => message,
+  alternateLocales = LOCALES,
 }) => {
-  const canonical = absoluteUrl(path);
+  const localeInfo = getLocale(locale);
+  const localizedPath = localizePath(path, localeInfo.locale);
+  const canonical = absoluteUrl(localizedPath);
   const schemas = [];
 
-  if (applicationSchema) schemas.push(baseApplicationSchema);
+  if (applicationSchema) schemas.push(getApplicationSchema(t));
 
   if (faq.length) {
     schemas.push({
@@ -70,18 +79,27 @@ const Seo = ({
         "@type": "ListItem",
         position: index + 1,
         name: item.name,
-        item: absoluteUrl(item.path),
+        item: absoluteUrl(localizePath(item.path, localeInfo.locale)),
       })),
     });
   }
 
   return (
     <>
-      <html lang="en" />
+      <html lang={localeInfo.locale} dir={localeInfo.direction} />
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="robots" content="index,follow,max-image-preview:large" />
       <link rel="canonical" href={canonical} />
+      {alternateLocales.map(({ locale: alternateLocale }) => (
+        <link
+          rel="alternate"
+          hrefLang={alternateLocale}
+          href={absoluteUrl(localizePath(path, alternateLocale))}
+          key={alternateLocale}
+        />
+      ))}
+      <link rel="alternate" hrefLang="x-default" href={absoluteUrl(path)} />
       <link
         rel="preload"
         href={bricolageWoff2}
@@ -102,13 +120,28 @@ const Seo = ({
       <meta name="theme-color" content="#f7f5f1" />
       <meta property="og:type" content={article ? "article" : "website"} />
       <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:locale" content={localeInfo.locale.replace("-", "_")} />
+      {alternateLocales.filter(
+        ({ locale: alternateLocale }) => alternateLocale !== localeInfo.locale,
+      ).map(({ locale: alternateLocale }) => (
+        <meta
+          property="og:locale:alternate"
+          content={alternateLocale.replace("-", "_")}
+          key={alternateLocale}
+        />
+      ))}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={absoluteUrl(image)} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="ScanKeeper loyalty card wallet" />
+      <meta
+        property="og:image:alt"
+        content={t(
+          "ScanKeeper loyalty card wallet showing organized barcode and QR cards",
+        )}
+      />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />

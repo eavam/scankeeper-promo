@@ -1,6 +1,12 @@
 import React from "react";
+import { graphql } from "gatsby";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 import GuidePage from "../components/guide-page";
 import Seo from "../components/seo";
+import {
+  getPageI18n,
+  translateFields,
+} from "../i18n/helpers";
 
 const faq = [
   {
@@ -25,14 +31,22 @@ const faq = [
   },
 ];
 
-const LoyaltyCardWalletPage = () => (
-  <GuidePage
-    eyebrow="Loyalty card wallet guide"
-    title="Put loyalty cards on your phone — without the clutter."
-    lede="Scan the barcode on a store, reward, club, gym, or membership card and keep it in one searchable wallet. ScanKeeper makes the saved code quick to find and ready to show at checkout."
-    quickAnswer="ScanKeeper is a loyalty card wallet for iPhone and Android. It stores supported card barcodes locally, organizes them into folders, and opens them full-screen when you need them."
+const LoyaltyCardWalletPage = () => {
+  const { t } = useTranslation();
+  const localizedFaq = translateFields(t, faq, ["question", "answer"]);
+
+  return (
+    <GuidePage
+    eyebrow={t("Loyalty card wallet guide")}
+    title={t("Put loyalty cards on your phone — without the clutter.")}
+    lede={t(
+      "Scan the barcode on a store, reward, club, gym, or membership card and keep it in one searchable wallet. ScanKeeper makes the saved code quick to find and ready to show at checkout.",
+    )}
+    quickAnswer={t(
+      "ScanKeeper is a loyalty card wallet for iPhone and Android. It stores supported card barcodes locally, organizes them into folders, and opens them full-screen when you need them.",
+    )}
     campaign="guide_loyalty_wallet"
-    steps={[
+    steps={translateFields(t, [
       {
         title: "Scan the physical card",
         text: "Tap the scanner and point the camera at the barcode or QR code printed on the card. ScanKeeper recognizes supported formats automatically.",
@@ -61,8 +75,8 @@ const LoyaltyCardWalletPage = () => (
         focus: "expanded-code",
         hint: "A clean full-screen code is easier to present at checkout.",
       },
-    ]}
-    benefits={[
+    ], ["title", "text", "hint"])}
+    benefits={translateFields(t, [
       {
         icon: "offline",
         title: "Ready without reception",
@@ -78,55 +92,76 @@ const LoyaltyCardWalletPage = () => (
         title: "Close at hand",
         text: "Widgets can put frequently used cards on your home screen for faster access.",
       },
-    ]}
-    faq={faq}
+    ], ["title", "text"])}
+    faq={localizedFaq}
   >
     <section className="article-context-block">
       <div>
-        <p className="eyebrow">A wallet for more than stores</p>
-        <h2>Keep every barcode-based membership together</h2>
+        <p className="eyebrow">{t("A wallet for more than stores")}</p>
+        <h2>{t("Keep every barcode-based membership together")}</h2>
         <p>
-          A loyalty wallet is useful anywhere an organization identifies you
-          with a scannable code. That can include supermarket rewards, gym
-          entry, a library account, a coworking membership, a gift card, or a
-          club pass. ScanKeeper does not depend on a store having an official
-          wallet integration: if the card uses a supported code, you can save
-          it.
+          {t(
+            "A loyalty wallet is useful anywhere an organization identifies you with a scannable code. That can include supermarket rewards, gym entry, a library account, a coworking membership, a gift card, or a club pass. ScanKeeper does not depend on a store having an official wallet integration: if the card uses a supported code, you can save it.",
+          )}
         </p>
         <p>
-          Because the collection is stored locally, opening a card does not wait
-          for a retailer app to load. You choose the name and folder, so the
-          card is organized around your life instead of the issuer's brand.
+          {t(
+            "Because the collection is stored locally, opening a card does not wait for a retailer app to load. You choose the name and folder, so the card is organized around your life instead of the issuer's brand.",
+          )}
         </p>
       </div>
       <aside className="article-context-card article-context-loyalty">
-        <span>One wallet</span>
-        <strong>Any supported code.</strong>
-        <div className="article-tag-cloud" aria-label="Examples of cards">
-          <span>Groceries</span>
-          <span>Gym</span>
-          <span>Library</span>
-          <span>Club pass</span>
-          <span>Gift card</span>
-          <span>Travel</span>
+        <span>{t("One wallet")}</span>
+        <strong>{t("Any supported code.")}</strong>
+        <div className="article-tag-cloud" aria-label={t("Examples of cards")}>
+          <span>{t("Groceries")}</span>
+          <span>{t("Gym")}</span>
+          <span>{t("Library")}</span>
+          <span>{t("Club pass")}</span>
+          <span>{t("Gift card")}</span>
+          <span>{t("Travel")}</span>
         </div>
       </aside>
     </section>
-  </GuidePage>
-);
+    </GuidePage>
+  );
+};
 
 export default LoyaltyCardWalletPage;
 
-export const Head = () => (
-  <Seo
-    title="Loyalty Card Wallet App for iPhone & Android | ScanKeeper App"
-    description="Store loyalty, reward, membership, gym, and club card barcodes in one offline wallet. Organize folders and open any card in one tap."
+export const query = graphql`
+  query LoyaltyCardWalletPage($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
+
+export const Head = ({ data, pageContext }) => {
+  const { locale, t } = getPageI18n(data, pageContext);
+  const localizedFaq = translateFields(t, faq, ["question", "answer"]);
+
+  return (
+    <Seo
+    title={t("Loyalty Card Wallet App for iPhone & Android | ScanKeeper App")}
+    description={t(
+      "Store loyalty, reward, membership, gym, and club card barcodes in one offline wallet. Organize folders and open any card in one tap.",
+    )}
     path="/loyalty-card-wallet/"
-    faq={faq}
+    faq={localizedFaq}
     article
     breadcrumbs={[
-      { name: "Home", path: "/" },
-      { name: "Loyalty card wallet", path: "/loyalty-card-wallet/" },
+      { name: t("Home"), path: "/" },
+      { name: t("Loyalty card wallet"), path: "/loyalty-card-wallet/" },
     ]}
+    locale={locale}
+    t={t}
   />
-);
+  );
+};

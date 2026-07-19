@@ -1,24 +1,36 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
+import { getPageI18n } from "../i18n/helpers";
+import localeConfig from "../i18n/locales";
 import "../styles/global.css";
 
-const PrivacyPolicy = ({ data }) => {
+const { DEFAULT_LOCALE, getLocale } = localeConfig;
+
+const PrivacyPolicy = ({ data, pageContext }) => {
   const policy = data?.markdownRemark;
+  const { t } = useTranslation();
+  const policyHtml = policy?.html;
 
   return (
     <Layout>
       <div className="policy-page">
         <div className="container policy-content">
           <div className="policy-text">
-            <article>
-              <h1>{policy?.frontmatter?.title || "Privacy Policy"}</h1>
+            {policyHtml ? (
               <div
-                dangerouslySetInnerHTML={{ __html: policy?.html }}
+                dangerouslySetInnerHTML={{ __html: policyHtml }}
                 className="policy-html-content"
+                dir="ltr"
+                lang="en"
               />
-            </article>
+            ) : (
+              <article>
+                <h1>{t("Privacy Policy")}</h1>
+              </article>
+            )}
           </div>
         </div>
       </div>
@@ -27,7 +39,7 @@ const PrivacyPolicy = ({ data }) => {
 };
 
 export const query = graphql`
-  query {
+  query PrivacyPolicyPage($language: String!) {
     markdownRemark(frontmatter: { path: { eq: "/privacy-policy" } }) {
       html
       frontmatter {
@@ -35,19 +47,37 @@ export const query = graphql`
         path
       }
     }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
   }
 `;
 
 export default PrivacyPolicy;
 
-export const Head = () => (
-  <Seo
-    title="ScanKeeper App Privacy Policy & Terms of Service"
-    description="Learn how ScanKeeper stores barcode data, uses optional iCloud sync, analytics, advertising, crash reporting, and subscriptions."
-    path="/privacy-policy/"
-    breadcrumbs={[
-      { name: "Home", path: "/" },
-      { name: "Privacy Policy", path: "/privacy-policy/" },
-    ]}
-  />
-);
+export const Head = ({ data, pageContext }) => {
+  const { locale, t } = getPageI18n(data, pageContext);
+
+  return (
+    <Seo
+      title={t("ScanKeeper App Privacy Policy & Terms of Service")}
+      description={t(
+        "Learn how ScanKeeper stores barcode data, uses optional iCloud sync, analytics, advertising, crash reporting, and subscriptions.",
+      )}
+      path="/privacy-policy/"
+      breadcrumbs={[
+        { name: t("Home"), path: "/" },
+        { name: t("Privacy Policy"), path: "/privacy-policy/" },
+      ]}
+      locale={locale}
+      t={t}
+      alternateLocales={[getLocale(DEFAULT_LOCALE)]}
+    />
+  );
+};

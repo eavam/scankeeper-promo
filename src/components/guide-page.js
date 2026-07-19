@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 import FeatureIcon from "./feature-icon";
 import GuideSteps from "./guide-steps";
 import Layout from "./layout";
@@ -15,15 +15,18 @@ const GuidePage = ({
   faq,
   campaign,
   children,
-}) => (
-  <Layout>
+}) => {
+  const { t } = useTranslation();
+
+  return (
+    <Layout>
     <section className="guide-hero">
       <div className="container guide-hero-grid">
         <div>
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
-            <Link to="/">Home</Link>
+          <nav className="breadcrumbs" aria-label={t("Breadcrumb")}>
+            <Link to="/">{t("Home")}</Link>
             <span aria-hidden="true">/</span>
-            <span>Guides</span>
+            <span>{t("Guides")}</span>
           </nav>
           <p className="eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
@@ -31,17 +34,17 @@ const GuidePage = ({
           <StoreButtons compact location={campaign} />
         </div>
         <aside className="quick-answer">
-          <span>Quick answer</span>
+          <span>{t("Quick answer")}</span>
           <p>{quickAnswer}</p>
           <ul>
             <li>
-              <FeatureIcon name="check" size={18} /> iPhone &amp; Android
+              <FeatureIcon name="check" size={18} /> {t("iPhone & Android")}
             </li>
             <li>
-              <FeatureIcon name="check" size={18} /> Works offline
+              <FeatureIcon name="check" size={18} /> {t("Works offline")}
             </li>
             <li>
-              <FeatureIcon name="check" size={18} /> No account needed
+              <FeatureIcon name="check" size={18} /> {t("No account needed")}
             </li>
           </ul>
         </aside>
@@ -51,16 +54,16 @@ const GuidePage = ({
     <article className="guide-article">
       <div className="container article-container">
         <section>
-          <p className="eyebrow">Step by step</p>
-          <h2>How it works in ScanKeeper App</h2>
+          <p className="eyebrow">{t("Step by step")}</p>
+          <h2>{t("How it works in ScanKeeper App")}</h2>
           <GuideSteps steps={steps} />
         </section>
 
         {children}
 
         <section>
-          <p className="eyebrow">Why it helps</p>
-          <h2>Designed around the real-world handoff</h2>
+          <p className="eyebrow">{t("Why it helps")}</p>
+          <h2>{t("Designed around the real-world handoff")}</h2>
           <div className="article-benefits">
             {benefits.map((benefit) => (
               <div key={benefit.title}>
@@ -73,8 +76,8 @@ const GuidePage = ({
         </section>
 
         <section className="article-faq">
-          <p className="eyebrow">Common questions</p>
-          <h2>What to know before you start</h2>
+          <p className="eyebrow">{t("Common questions")}</p>
+          <h2>{t("What to know before you start")}</h2>
           {faq.map(({ question, answer }) => (
             <details key={question}>
               <summary>
@@ -90,24 +93,25 @@ const GuidePage = ({
 
     <section className="related-guides">
       <div className="container">
-        <p className="eyebrow">Keep exploring</p>
+        <p className="eyebrow">{t("Keep exploring")}</p>
         <div>
           <Link to="/loyalty-card-wallet/">
-            Loyalty card wallet <span>→</span>
+            {t("Loyalty card wallet")} <span>→</span>
           </Link>
           <Link to="/scan-qr-code-from-image/">
-            Scan from an image <span>→</span>
+            {t("Scan from an image")} <span>→</span>
           </Link>
           <Link to="/barcode-organizer/">
-            Barcode organizer <span>→</span>
+            {t("Barcode organizer")} <span>→</span>
           </Link>
           <Link to="/bulk-import/">
-            Bulk photo import <span>→</span>
+            {t("Bulk photo import")} <span>→</span>
           </Link>
         </div>
       </div>
     </section>
-  </Layout>
-);
+    </Layout>
+  );
+};
 
 export default GuidePage;
